@@ -1,0 +1,5 @@
+- Add a Makefile
+- Check strtol return value
+- Use a struct to store results
+- Use strnum on platforms supporting it? (OpenBSD, FreeBSD)
+- Use strtok_r instead of strtok to tokenize lines?
