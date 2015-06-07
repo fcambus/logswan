@@ -7,12 +7,6 @@
 #                                                                             # 
 ###############################################################################
 
-CC = gcc
-TARGET = all
-CFLAGS = -Wall -ansi -pedantic
-
-all :
-	$(CC) $(CFLAGS) -o logswan logswan.c
-
-clean:
-	rm -f logswan *.o *.core core
+cmake_minimum_required (VERSION 2.6)
+project (logswan C)
+add_executable(logswan logswan.c)
