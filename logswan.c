@@ -47,10 +47,10 @@ int main (int argc, char *argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	// Starting timer
+	/* Starting timer */
 	begin = clock();
 
-	// Get log file size
+	/* Get log file size */
 	stat(argv[1], &logFileSize);
 
 	printf("Processing file : %s\n\n", argv[1]);
@@ -58,61 +58,61 @@ int main (int argc, char *argv[]) {
 	logFile = fopen(argv[1], "r");
 
 	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile) != NULL) {
-		// Tokenize line
+		/* Tokenize line */
 
-		// Remote host
+		/* Remote host */
 		char* token = strtok(lineBuffer, " ");
 
 		if (inet_pton(AF_INET, token, &(ipv4.sin_addr))) {
-			// Valid IPv4 address
+			/* Valid IPv4 address */
 		}
 
 		if (inet_pton(AF_INET6, token, &(ipv6.sin6_addr))) {
-			// Valid IPv6 address
+			/* Valid IPv6 address */
 		}
 
-		// User-identifier
+		/* User-identifier */
 		token = strtok(NULL, " ");
 
-		// User ID
+		/* User ID */
 		token = strtok(NULL, " ");
 
-		// Date
+		/* Date */
 		token = strtok(NULL, " [");
 
-		// UTC time offset
+		/* UTC time offset */
 		token = strtok(NULL, " ]");
 
-		// Method
+		/* Method */
 		token = strtok(NULL, " \"");
 
-		// Requested resource
+		/* Requested resource */
 		token = strtok(NULL, " ");
 
-		// Protocol
+		/* Protocol */
 		token = strtok(NULL, " \"");
 
-		// HTTP status codes
+		/* HTTP status codes */
 		token = strtok(NULL, " ");
 
-		// Returned object size
+		/* Returned object size */
 		token = strtok(NULL, " ");
 
-		// Increment bandwidth usage
-		if (token) { // Do not feed NULL tokens to strtol
+		/* Increment bandwidth usage */
+		if (token) { /* Do not feed NULL tokens to strtol */
 			objectSize = strtol(token, &endptr, 10);
 			bandwidth += objectSize;
 		}
 
-		// Increment hits counter
+		/* Increment hits counter */
 		hits++;
 	}
 
-	// Stopping timer
+	/* Stopping timer */
 	end = clock();
 	runtime = (double)(end - begin) / CLOCKS_PER_SEC;
 
-	// Printing results
+	/* Printing results */
 	printf("Hits : %llu\n", hits);
 	printf("Bandwidth : %llu\n", bandwidth);
 	printf("Log file size : %llu\n", logFileSize.st_size);
