@@ -56,6 +56,10 @@ int main (int argc, char *argv[]) {
 	printf("Processing file : %s\n\n", argv[1]);
 
 	logFile = fopen(argv[1], "r");
+	if(!logFile) {
+		perror("Can't open log file");
+		return 1;
+	}
 
 	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile) != NULL) {
 		/* Tokenize line */
