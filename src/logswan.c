@@ -43,7 +43,7 @@ int main (int argc, char *argv[]) {
 	       "-------------------------------------------------------------------------------\n\n");
 
 	if (argc != 2) {
-		printf("ERROR : No input file specified.");
+		printf("ERROR : No input file specified.\n");
 		return EXIT_FAILURE;
 	}
 
