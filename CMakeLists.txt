@@ -9,4 +9,4 @@
 
 cmake_minimum_required (VERSION 2.6)
 project (logswan C)
-add_executable(logswan logswan.c)
+add_executable(logswan src/logswan.c)
