@@ -9,6 +9,7 @@ Project design goals include : speed, memory-usage efficiency, and keeping the c
 Currently implemented features :
 
 - Counting number of hits
+- Counting number of IPv4 and IPv6 hits
 - Counting bandwidth used
 - Counting log file size
 

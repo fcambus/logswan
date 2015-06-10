@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/06/07                                                  */
+/* Last Updated: 2015/06/11                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -31,6 +31,8 @@ uint64_t invalidLines = 0;
 uint64_t objectSize = 0;
 uint64_t bandwidth = 0;
 uint64_t hits = 0;
+uint64_t hitsIPv4 = 0;
+uint64_t hitsIPv6 = 0;
 
 struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
@@ -112,6 +114,8 @@ int main (int argc, char *argv[]) {
 			}
 
 			/* Increment hits counter */
+			hitsIPv4 += isIPv4;
+			hitsIPv6 += isIPv6;
 			hits++;
 		} else {
 			/* Invalid line */
@@ -126,6 +130,8 @@ int main (int argc, char *argv[]) {
 
 	/* Printing results */
 	printf("Hits : %llu\n", hits);
+	printf("Hits (IPv4): %llu\n", hitsIPv4);
+	printf("Hits (IPv6): %llu\n", hitsIPv6);
 	printf("Invalid lines : %llu\n", invalidLines);
 	printf("Bandwidth : %llu\n", bandwidth);
 	printf("Log file size : %llu\n", logFileSize.st_size);
