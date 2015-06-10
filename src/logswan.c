@@ -27,12 +27,15 @@ double runtime;
 
 char lineBuffer[LINE_MAX_LENGTH];
 
+uint64_t invalidLines = 0;
 uint64_t objectSize = 0;
 uint64_t bandwidth = 0;
 uint64_t hits = 0;
 
 struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
+
+int isIPv4, isIPv6;
 
 struct stat logFileSize;
 FILE *logFile;
@@ -69,49 +72,52 @@ int main (int argc, char *argv[]) {
 		/* Remote host */
 		char* token = strtok(lineBuffer, " ");
 
-		if (inet_pton(AF_INET, token, &(ipv4.sin_addr))) {
-			/* Valid IPv4 address */
+		if (token) { /* Do not feed NULL tokens to inet_pton */
+			isIPv4 = inet_pton(AF_INET, token, &(ipv4.sin_addr));
+			isIPv6 = inet_pton(AF_INET6, token, &(ipv6.sin6_addr));
 		}
 
-		if (inet_pton(AF_INET6, token, &(ipv6.sin6_addr))) {
-			/* Valid IPv6 address */
+		if (isIPv4 || isIPv6) {
+			/* User-identifier */
+			token = strtok(NULL, " ");
+
+			/* User ID */
+			token = strtok(NULL, " ");
+
+			/* Date */
+			token = strtok(NULL, " [");
+
+			/* UTC time offset */
+			token = strtok(NULL, " ]");
+
+			/* Method */
+			token = strtok(NULL, " \"");
+
+			/* Requested resource */
+			token = strtok(NULL, " ");
+
+			/* Protocol */
+			token = strtok(NULL, " \"");
+
+			/* HTTP status codes */
+			token = strtok(NULL, " ");
+
+			/* Returned object size */
+			token = strtok(NULL, " ");
+
+			/* Increment bandwidth usage */
+			if (token) { /* Do not feed NULL tokens to strtol */
+				objectSize = strtol(token, &endptr, 10);
+				bandwidth += objectSize;
+			}
+
+			/* Increment hits counter */
+			hits++;
+		} else {
+			/* Invalid line */
+
+			invalidLines++;
 		}
-
-		/* User-identifier */
-		token = strtok(NULL, " ");
-
-		/* User ID */
-		token = strtok(NULL, " ");
-
-		/* Date */
-		token = strtok(NULL, " [");
-
-		/* UTC time offset */
-		token = strtok(NULL, " ]");
-
-		/* Method */
-		token = strtok(NULL, " \"");
-
-		/* Requested resource */
-		token = strtok(NULL, " ");
-
-		/* Protocol */
-		token = strtok(NULL, " \"");
-
-		/* HTTP status codes */
-		token = strtok(NULL, " ");
-
-		/* Returned object size */
-		token = strtok(NULL, " ");
-
-		/* Increment bandwidth usage */
-		if (token) { /* Do not feed NULL tokens to strtol */
-			objectSize = strtol(token, &endptr, 10);
-			bandwidth += objectSize;
-		}
-
-		/* Increment hits counter */
-		hits++;
 	}
 
 	/* Stopping timer */
@@ -120,6 +126,7 @@ int main (int argc, char *argv[]) {
 
 	/* Printing results */
 	printf("Hits : %llu\n", hits);
+	printf("Invalid lines : %llu\n", invalidLines);
 	printf("Bandwidth : %llu\n", bandwidth);
 	printf("Log file size : %llu\n", logFileSize.st_size);
 	printf("Runtime : %f\n", runtime);
