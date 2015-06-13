@@ -24,6 +24,7 @@
 
 clock_t begin, end;
 double runtime;
+char timeStamp[22];
 
 char lineBuffer[LINE_MAX_LENGTH];
 
@@ -128,7 +129,12 @@ int main (int argc, char *argv[]) {
 	end = clock();
 	runtime = (double)(end - begin) / CLOCKS_PER_SEC;
 
+	/* Generate timestamp */
+	time_t now = time(0);
+	strftime (timeStamp, 100, "%Y-%m-%d %H:%M:%S", localtime(&now));
+
 	/* Printing results */
+	printf("Date : %s\n", timeStamp);
 	printf("Hits : %llu\n", hits);
 	printf("Hits (IPv4): %llu\n", hitsIPv4);
 	printf("Hits (IPv6): %llu\n", hitsIPv6);
