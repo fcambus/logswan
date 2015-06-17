@@ -29,7 +29,7 @@ char timeStamp[22];
 
 char lineBuffer[LINE_MAX_LENGTH];
 
-uint64_t invalidLines = 0;
+uint64_t invalidLines, processedLines = 0;
 uint64_t objectSize = 0;
 uint64_t bandwidth = 0;
 uint64_t hits = 0;
@@ -124,6 +124,9 @@ int main (int argc, char *argv[]) {
 
 			invalidLines++;
 		}
+
+		/* Increment processed lines counter */
+		processedLines++;		
 	}
 
 	/* Stopping timer */
@@ -136,6 +139,7 @@ int main (int argc, char *argv[]) {
 
 	/* Printing results */
 	printf("Date : %s\n", timeStamp);
+	printf("Processed Lines : %" PRIu64 " \n", processedLines);
 	printf("Hits : %" PRIu64 " \n", hits);
 	printf("Hits (IPv4): %" PRIu64 "\n", hitsIPv4);
 	printf("Hits (IPv6): %" PRIu64 "\n", hitsIPv6);
