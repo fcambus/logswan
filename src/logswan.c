@@ -145,7 +145,7 @@ int main (int argc, char *argv[]) {
 	printf("Hits (IPv6): %" PRIu64 "\n", hitsIPv6);
 	printf("Invalid lines : %" PRIu64 "\n", invalidLines);
 	printf("Bandwidth : %" PRIu64 "\n", bandwidth);
-	printf("Log file size : %" PRIu64 "\n", logFileSize.st_size);
+	printf("Log file size : %" PRIu64 "\n", (uint64_t)logFileSize.st_size);
 	printf("Runtime : %f\n", runtime);
 
 	fclose(logFile);
