@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/06/11                                                  */
+/* Last Updated: 2015/06/17                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -15,12 +15,14 @@
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
+#include <getopt.h>
 #include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 
+#define VERSION "Logswan"
 #define LINE_MAX_LENGTH 4096
 
 clock_t begin, end;
@@ -45,6 +47,7 @@ struct stat logFileSize;
 FILE *logFile;
 
 char *endptr;
+int getoptFlag;
 
 int main (int argc, char *argv[]) {
 	printf("-------------------------------------------------------------------------------\n" \
@@ -55,6 +58,14 @@ int main (int argc, char *argv[]) {
 		printf("ERROR : No input file specified.\n");
 		return EXIT_FAILURE;
 	}
+
+    while ((getoptFlag = getopt(argc, argv, "v")) != -1) {
+        switch(getoptFlag) {
+			case 'v':
+				printf(VERSION);
+				return 0;
+        }
+    }
 
 	/* Starting timer */
 	begin = clock();
