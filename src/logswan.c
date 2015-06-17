@@ -15,6 +15,7 @@
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -135,12 +136,12 @@ int main (int argc, char *argv[]) {
 
 	/* Printing results */
 	printf("Date : %s\n", timeStamp);
-	printf("Hits : %llu\n", hits);
-	printf("Hits (IPv4): %llu\n", hitsIPv4);
-	printf("Hits (IPv6): %llu\n", hitsIPv6);
-	printf("Invalid lines : %llu\n", invalidLines);
-	printf("Bandwidth : %llu\n", bandwidth);
-	printf("Log file size : %llu\n", logFileSize.st_size);
+	printf("Hits : %" PRIu64 " \n", hits);
+	printf("Hits (IPv4): %" PRIu64 "\n", hitsIPv4);
+	printf("Hits (IPv6): %" PRIu64 "\n", hitsIPv6);
+	printf("Invalid lines : %" PRIu64 "\n", invalidLines);
+	printf("Bandwidth : %" PRIu64 "\n", bandwidth);
+	printf("Log file size : %" PRIu64 "\n", logFileSize.st_size);
 	printf("Runtime : %f\n", runtime);
 
 	fclose(logFile);
