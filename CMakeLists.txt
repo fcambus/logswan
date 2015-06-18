@@ -11,6 +11,11 @@ cmake_minimum_required (VERSION 2.6)
 
 project (logswan C)
 
+find_library(LIB_GEOIP NAMES GeoIP REQUIRED)
+include_directories(/usr/local/include)
+
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
 
 add_executable(logswan src/logswan.c)
+
+target_link_libraries(logswan ${LIB_GEOIP})

@@ -22,8 +22,12 @@
 #include <string.h>
 #include <time.h>
 
+#include <GeoIP.h>
+
 #define VERSION "Logswan"
 #define LINE_MAX_LENGTH 4096
+
+GeoIP *geoip;
 
 clock_t begin, end;
 double runtime;
@@ -37,6 +41,7 @@ uint64_t bandwidth = 0;
 uint64_t hits = 0;
 uint64_t hitsIPv4 = 0;
 uint64_t hitsIPv6 = 0;
+uint64_t countries[255];
 
 struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
@@ -70,6 +75,9 @@ int main (int argc, char *argv[]) {
 	/* Starting timer */
 	begin = clock();
 
+	/* Initializing GeoIP */
+	geoip = GeoIP_open("GeoIP.dat", GEOIP_MEMORY_CACHE);
+
 	/* Get log file size */
 	stat(argv[1], &logFileSize);
 
@@ -93,6 +101,11 @@ int main (int argc, char *argv[]) {
 		}
 
 		if (isIPv4 || isIPv6) {
+			/* Increment countries array */
+			if (geoip && isIPv4) {
+				countries[GeoIP_id_by_addr(geoip, token)]++;
+			}
+
 			/* User-identifier */
 			token = strtok(NULL, " ");
 
