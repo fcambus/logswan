@@ -43,6 +43,14 @@ uint64_t hitsIPv4 = 0;
 uint64_t hitsIPv6 = 0;
 uint64_t countries[255];
 
+struct logLine {
+    char *remoteHost;
+    char *date;
+    char *resource;
+    char *statusCode;
+    char *objectSize;
+};
+
 struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
 
