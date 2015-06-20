@@ -51,6 +51,8 @@ struct logLine {
     char *objectSize;
 };
 
+struct logLine parsedLine;
+
 struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
 
@@ -101,42 +103,42 @@ int main (int argc, char *argv[]) {
 		/* Tokenize line */
 
 		/* Remote host */
-		char* token = strtok(lineBuffer, " ");
+		//char* token = strtok(lineBuffer, " ");
+		parsedLine.remoteHost = strtok(lineBuffer, " ");
 
-		if (token) { /* Do not feed NULL tokens to inet_pton */
-			isIPv4 = inet_pton(AF_INET, token, &(ipv4.sin_addr));
-			isIPv6 = inet_pton(AF_INET6, token, &(ipv6.sin6_addr));
+		if (parsedLine.remoteHost) { /* Do not feed NULL tokens to inet_pton */
+			isIPv4 = inet_pton(AF_INET, parsedLine.remoteHost, &(ipv4.sin_addr));
+			isIPv6 = inet_pton(AF_INET6, parsedLine.remoteHost, &(ipv6.sin6_addr));
 		}
 
 		if (isIPv4 || isIPv6) {
 			/* Increment countries array */
 			if (geoip && isIPv4) {
-				countries[GeoIP_id_by_addr(geoip, token)]++;
+				countries[GeoIP_id_by_addr(geoip, parsedLine.remoteHost)]++;
 			}
 
 			/* User-identifier */
-			token = strtok(NULL, " ");
+			strtok(NULL, " ");
 
 			/* User ID */
-			token = strtok(NULL, "[");
+			strtok(NULL, "[");
 
 			/* Date */
-			token = strtok(NULL, "]");
+			parsedLine.date = strtok(NULL, "]");
 
 			/* Requested resource */
 			strtok(NULL, "\"");
-			token = strtok(NULL, "\"");
+			parsedLine.resource = strtok(NULL, "\"");
 
 			/* HTTP status codes */
-			token = strtok(NULL, " ");
+			parsedLine.statusCode = strtok(NULL, " ");
 
 			/* Returned object size */
-			token = strtok(NULL, "\"");
+			parsedLine.objectSize = strtok(NULL, "\"");
 
 			/* Increment bandwidth usage */
-			if (token) { /* Do not feed NULL tokens to strtol */
-				objectSize = strtol(token, &endptr, 10);
-				bandwidth += objectSize;
+			if (parsedLine.objectSize) { /* Do not feed NULL tokens to strtol */				
+				bandwidth += strtol(parsedLine.objectSize, &endptr, 10);
 			}
 
 			/* Increment hits counter */
