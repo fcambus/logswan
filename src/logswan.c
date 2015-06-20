@@ -110,28 +110,20 @@ int main (int argc, char *argv[]) {
 			token = strtok(NULL, " ");
 
 			/* User ID */
-			token = strtok(NULL, " ");
+			token = strtok(NULL, "[");
 
 			/* Date */
-			token = strtok(NULL, " [");
-
-			/* UTC time offset */
-			token = strtok(NULL, " ]");
-
-			/* Method */
-			token = strtok(NULL, " \"");
+			token = strtok(NULL, "]");
 
 			/* Requested resource */
-			token = strtok(NULL, " ");
-
-			/* Protocol */
-			token = strtok(NULL, " \"");
+			strtok(NULL, "\"");
+			token = strtok(NULL, "\"");
 
 			/* HTTP status codes */
 			token = strtok(NULL, " ");
 
 			/* Returned object size */
-			token = strtok(NULL, " ");
+			token = strtok(NULL, "\"");
 
 			/* Increment bandwidth usage */
 			if (token) { /* Do not feed NULL tokens to strtol */
