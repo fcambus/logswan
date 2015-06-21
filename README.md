@@ -8,10 +8,15 @@ Project design goals include : speed, memory-usage efficiency, and keeping the c
 
 Currently implemented features :
 
-- Counting number of hits
-- Counting number of IPv4 and IPv6 hits
+- Counting number of processed lines / invalid lines
+- Counting number of hits (IPv4 and IPv6 hits)
 - Counting bandwidth used
 - Counting log file size
+- GeoIP lookups (IPv4 only for now)
+
+## Dependencies
+
+Logswan requires the GeoIP library and header files.
 
 ## Compiling
 
