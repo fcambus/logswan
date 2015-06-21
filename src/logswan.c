@@ -51,6 +51,9 @@ struct sockaddr_in6 ipv6;
 
 int isIPv4, isIPv6;
 
+int httpStatus[512];
+int statusCode;
+
 struct stat logFileSize;
 FILE *logFile;
 
@@ -106,6 +109,15 @@ int main (int argc, char *argv[]) {
 			/* Increment countries array */
 			if (geoip && isIPv4) {
 				countries[GeoIP_id_by_addr(geoip, parsedLine.remoteHost)]++;
+			}
+
+			/* Count HTTP status codes occurences */
+			if (parsedLine.statusCode) { /* Do not feed NULL tokens to strtol */
+				statusCode = strtol(parsedLine.statusCode, &endptr, 10);
+
+				if (statusCode < 512) {
+					httpStatus[statusCode] += 1;
+				}
 			}
 
 			/* Increment bandwidth usage */

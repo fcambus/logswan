@@ -13,6 +13,7 @@ Currently implemented features :
 - Counting bandwidth used
 - Counting log file size
 - GeoIP lookups (IPv4 only for now)
+- Counting HTTP status codes occurences
 
 ## Dependencies
 
