@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/06/17                                                  */
+/* Last Updated: 2015/06/21                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -44,11 +44,11 @@ uint64_t hitsIPv6 = 0;
 uint64_t countries[255];
 
 struct logLine {
-    char *remoteHost;
-    char *date;
-    char *resource;
-    char *statusCode;
-    char *objectSize;
+	char *remoteHost;
+	char *date;
+	char *resource;
+	char *statusCode;
+	char *objectSize;
 };
 
 struct logLine parsedLine;
@@ -64,6 +64,30 @@ FILE *logFile;
 char *endptr;
 int getoptFlag;
 
+void parseLine(struct logLine* parsedLine, char *lineBuffer) {
+	/* Remote host */
+	parsedLine->remoteHost = strtok(lineBuffer, " ");
+
+	/* User-identifier */
+	strtok(NULL, " ");
+
+	/* User ID */
+	strtok(NULL, "[");
+
+	/* Date */
+	parsedLine->date = strtok(NULL, "]");
+
+	/* Requested resource */
+	strtok(NULL, "\"");
+	parsedLine->resource = strtok(NULL, "\"");
+
+	/* HTTP status codes */
+	parsedLine->statusCode = strtok(NULL, " ");
+
+	/* Returned object size */
+	parsedLine->objectSize = strtok(NULL, "\"");
+}
+
 int main (int argc, char *argv[]) {
 	printf("-------------------------------------------------------------------------------\n" \
 	       "                      Logswan (c) by Frederic Cambus 2015                      \n" \
@@ -74,13 +98,13 @@ int main (int argc, char *argv[]) {
 		return EXIT_FAILURE;
 	}
 
-    while ((getoptFlag = getopt(argc, argv, "v")) != -1) {
-        switch(getoptFlag) {
-			case 'v':
-				printf(VERSION);
-				return 0;
-        }
-    }
+	while ((getoptFlag = getopt(argc, argv, "v")) != -1) {
+		switch(getoptFlag) {
+		case 'v':
+			printf(VERSION);
+			return 0;
+		}
+	}
 
 	/* Starting timer */
 	begin = clock();
@@ -100,12 +124,10 @@ int main (int argc, char *argv[]) {
 	}
 
 	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile) != NULL) {
-		/* Tokenize line */
+		/* Parse and tokenize line */
+		parseLine(&parsedLine, lineBuffer);
 
-		/* Remote host */
-		//char* token = strtok(lineBuffer, " ");
-		parsedLine.remoteHost = strtok(lineBuffer, " ");
-
+		/* Detect if remote host is IPv4 or IPv6 */
 		if (parsedLine.remoteHost) { /* Do not feed NULL tokens to inet_pton */
 			isIPv4 = inet_pton(AF_INET, parsedLine.remoteHost, &(ipv4.sin_addr));
 			isIPv6 = inet_pton(AF_INET6, parsedLine.remoteHost, &(ipv6.sin6_addr));
@@ -117,27 +139,8 @@ int main (int argc, char *argv[]) {
 				countries[GeoIP_id_by_addr(geoip, parsedLine.remoteHost)]++;
 			}
 
-			/* User-identifier */
-			strtok(NULL, " ");
-
-			/* User ID */
-			strtok(NULL, "[");
-
-			/* Date */
-			parsedLine.date = strtok(NULL, "]");
-
-			/* Requested resource */
-			strtok(NULL, "\"");
-			parsedLine.resource = strtok(NULL, "\"");
-
-			/* HTTP status codes */
-			parsedLine.statusCode = strtok(NULL, " ");
-
-			/* Returned object size */
-			parsedLine.objectSize = strtok(NULL, "\"");
-
 			/* Increment bandwidth usage */
-			if (parsedLine.objectSize) { /* Do not feed NULL tokens to strtol */				
+			if (parsedLine.objectSize) { /* Do not feed NULL tokens to strtol */
 				bandwidth += strtol(parsedLine.objectSize, &endptr, 10);
 			}
 
@@ -152,7 +155,7 @@ int main (int argc, char *argv[]) {
 		}
 
 		/* Increment processed lines counter */
-		processedLines++;		
+		processedLines++;
 	}
 
 	/* Stopping timer */
