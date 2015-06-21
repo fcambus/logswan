@@ -11,6 +11,9 @@
 /*                                                                           */
 /*****************************************************************************/
 
+#ifndef PARSE_H
+#define PARSE_H
+
 struct logLine {
 	char *remoteHost;
 	char *date;
@@ -20,3 +23,5 @@ struct logLine {
 };
 
 void parseLine(struct logLine* parsedLine, char *lineBuffer);
+
+#endif
