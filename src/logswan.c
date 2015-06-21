@@ -19,10 +19,11 @@
 #include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <time.h>
 
 #include <GeoIP.h>
+
+#include "parse.h"
 
 #define VERSION "Logswan"
 #define LINE_MAX_LENGTH 4096
@@ -43,14 +44,6 @@ uint64_t hitsIPv4 = 0;
 uint64_t hitsIPv6 = 0;
 uint64_t countries[255];
 
-struct logLine {
-	char *remoteHost;
-	char *date;
-	char *resource;
-	char *statusCode;
-	char *objectSize;
-};
-
 struct logLine parsedLine;
 
 struct sockaddr_in ipv4;
@@ -63,30 +56,6 @@ FILE *logFile;
 
 char *endptr;
 int getoptFlag;
-
-void parseLine(struct logLine* parsedLine, char *lineBuffer) {
-	/* Remote host */
-	parsedLine->remoteHost = strtok(lineBuffer, " ");
-
-	/* User-identifier */
-	strtok(NULL, " ");
-
-	/* User ID */
-	strtok(NULL, "[");
-
-	/* Date */
-	parsedLine->date = strtok(NULL, "]");
-
-	/* Requested resource */
-	strtok(NULL, "\"");
-	parsedLine->resource = strtok(NULL, "\"");
-
-	/* HTTP status codes */
-	parsedLine->statusCode = strtok(NULL, " ");
-
-	/* Returned object size */
-	parsedLine->objectSize = strtok(NULL, "\"");
-}
 
 int main (int argc, char *argv[]) {
 	printf("-------------------------------------------------------------------------------\n" \
