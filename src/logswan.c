@@ -170,6 +170,7 @@ int main (int argc, char *argv[]) {
 	json_t *jsonObject = json_object();
 	json_t *hitsObject = json_object();
 	json_t *countriesObject = json_object();
+	json_t *hoursObject = json_object();
 
 	for (int loop=0; loop<255; loop++) {
 		if (countries[loop] != 0) {
@@ -177,10 +178,21 @@ int main (int argc, char *argv[]) {
 		}
 	}
 
+	char *hoursString[] = {
+		"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"
+	};
+
+	for (int loop=0; loop<24; loop++) {
+		if (hours[loop] != 0) {
+			json_object_set_new(hoursObject, hoursString[loop], json_integer(hours[loop]));
+		}
+	}
+
 	json_object_set_new(hitsObject, "ipv4", json_integer(hitsIPv4));
 	json_object_set_new(hitsObject, "ipv6", json_integer(hitsIPv6));
 	json_object_set_new(hitsObject, "total", json_integer(hits));
 	json_object_set_new(hitsObject, "countries", countriesObject);
+	json_object_set_new(hitsObject, "hours", hoursObject);
 
 	json_object_set_new(jsonObject, "date", json_string(timeStamp));
 	json_object_set_new(jsonObject, "file_size", json_integer((uint64_t)logFileSize.st_size));
@@ -195,6 +207,7 @@ int main (int argc, char *argv[]) {
 	json_decref(jsonObject);
 	json_decref(hitsObject);
 	json_decref(countriesObject);
+	json_decref(hoursObject);
 
 	return EXIT_SUCCESS;
 }
