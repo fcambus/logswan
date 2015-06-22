@@ -167,5 +167,25 @@ int main (int argc, char *argv[]) {
 	printf("Processed %" PRIu64 " lines in %f seconds\n", processedLines, runtime);
 	fclose(logFile);
 
+	json_t *jsonObject = json_object();
+	json_t *hitsObject = json_object();
+
+	json_object_set_new(hitsObject, "ipv4", json_integer(hitsIPv4));
+	json_object_set_new(hitsObject, "ipv6", json_integer(hitsIPv6));
+	json_object_set_new(hitsObject, "total", json_integer(hits));
+
+	json_object_set_new(jsonObject, "date", json_string(timeStamp));
+	json_object_set_new(jsonObject, "file_size", json_integer((uint64_t)logFileSize.st_size));
+	json_object_set_new(jsonObject, "processed_lines", json_integer(processedLines));
+	json_object_set_new(jsonObject, "invalid_lines", json_integer(invalidLines));
+	json_object_set_new(jsonObject, "bandwidth", json_integer(bandwidth));
+	json_object_set_new(jsonObject, "runtime", json_real(runtime));
+	json_object_set_new(jsonObject, "hits", hitsObject);
+
+	printf("%s", json_dumps(jsonObject, 3));
+
+	json_decref(jsonObject);
+	json_decref(hitsObject);
+
 	return EXIT_SUCCESS;
 }
