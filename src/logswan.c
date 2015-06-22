@@ -122,7 +122,7 @@ int main (int argc, char *argv[]) {
 				hour = atoi(parsedDate.hour);
 
 				if (hour < 24) {
-					hours[hour] += 1;
+					hours[hour] ++;
 				}
 			}
 
@@ -131,7 +131,7 @@ int main (int argc, char *argv[]) {
 				statusCode = strtol(parsedLine.statusCode, &endptr, 10);
 
 				if (statusCode < 512) {
-					httpStatus[statusCode] += 1;
+					httpStatus[statusCode] ++;
 				}
 			}
 
