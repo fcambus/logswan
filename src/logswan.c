@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/06/21                                                  */
+/* Last Updated: 2015/06/22                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -44,6 +44,7 @@ uint64_t hitsIPv4 = 0;
 uint64_t hitsIPv6 = 0;
 uint64_t countries[255];
 
+struct date parsedDate;
 struct logLine parsedLine;
 
 struct sockaddr_in ipv4;
@@ -110,6 +111,9 @@ int main (int argc, char *argv[]) {
 			if (geoip && isIPv4) {
 				countries[GeoIP_id_by_addr(geoip, parsedLine.remoteHost)]++;
 			}
+
+			/* Parse date */
+			parseDate(&parsedDate, parsedLine.date);
 
 			/* Count HTTP status codes occurences */
 			if (parsedLine.statusCode) { /* Do not feed NULL tokens to strtol */
