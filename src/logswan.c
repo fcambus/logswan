@@ -22,6 +22,7 @@
 #include <time.h>
 
 #include <GeoIP.h>
+#include <jansson.h>
 
 #include "parse.h"
 
