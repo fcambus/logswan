@@ -55,6 +55,9 @@ int isIPv4, isIPv6;
 int httpStatus[512];
 int statusCode;
 
+int hours[24];
+int hour;
+
 struct stat logFileSize;
 FILE *logFile;
 
@@ -112,8 +115,16 @@ int main (int argc, char *argv[]) {
 				countries[GeoIP_id_by_addr(geoip, parsedLine.remoteHost)]++;
 			}
 
-			/* Parse date */
+			/* Hourly distribution */
 			parseDate(&parsedDate, parsedLine.date);
+
+			if (parsedDate.hour) { /* Do not feed NULL tokens to atoi */
+				hour = atoi(parsedDate.hour);
+
+				if (hour < 24) {
+					hours[hour] += 1;
+				}
+			}
 
 			/* Count HTTP status codes occurences */
 			if (parsedLine.statusCode) { /* Do not feed NULL tokens to strtol */
