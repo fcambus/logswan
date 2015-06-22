@@ -169,10 +169,18 @@ int main (int argc, char *argv[]) {
 
 	json_t *jsonObject = json_object();
 	json_t *hitsObject = json_object();
+	json_t *countriesObject = json_object();
+
+	for (int loop=0; loop<255; loop++) {
+		if (countries[loop] != 0) {
+			json_object_set_new(countriesObject, GeoIP_code_by_id(loop), json_integer(countries[loop]));
+		}
+	}
 
 	json_object_set_new(hitsObject, "ipv4", json_integer(hitsIPv4));
 	json_object_set_new(hitsObject, "ipv6", json_integer(hitsIPv6));
 	json_object_set_new(hitsObject, "total", json_integer(hits));
+	json_object_set_new(hitsObject, "countries", countriesObject);
 
 	json_object_set_new(jsonObject, "date", json_string(timeStamp));
 	json_object_set_new(jsonObject, "file_size", json_integer((uint64_t)logFileSize.st_size));
@@ -186,6 +194,7 @@ int main (int argc, char *argv[]) {
 
 	json_decref(jsonObject);
 	json_decref(hitsObject);
+	json_decref(countriesObject);
 
 	return EXIT_SUCCESS;
 }
