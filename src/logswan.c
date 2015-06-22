@@ -190,7 +190,7 @@ int main (int argc, char *argv[]) {
 	json_object_set_new(jsonObject, "runtime", json_real(runtime));
 	json_object_set_new(jsonObject, "hits", hitsObject);
 
-	printf("%s", json_dumps(jsonObject, 3));
+	printf("%s", json_dumps(jsonObject, JSON_INDENT(3) | JSON_PRESERVE_ORDER));
 
 	json_decref(jsonObject);
 	json_decref(hitsObject);
