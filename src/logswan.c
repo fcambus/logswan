@@ -164,16 +164,7 @@ int main (int argc, char *argv[]) {
 	strftime(timeStamp, 20, "%Y-%m-%d %H:%M:%S", localtime(&now));
 
 	/* Printing results */
-	printf("Date : %s\n", timeStamp);
-	printf("Processed Lines : %" PRIu64 " \n", processedLines);
-	printf("Hits : %" PRIu64 " \n", hits);
-	printf("Hits (IPv4): %" PRIu64 "\n", hitsIPv4);
-	printf("Hits (IPv6): %" PRIu64 "\n", hitsIPv6);
-	printf("Invalid lines : %" PRIu64 "\n", invalidLines);
-	printf("Bandwidth : %" PRIu64 "\n", bandwidth);
-	printf("Log file size : %" PRIu64 "\n", (uint64_t)logFileSize.st_size);
-	printf("Runtime : %f\n", runtime);
-
+	printf("Processed %" PRIu64 " lines in %f seconds\n", processedLines, runtime);
 	fclose(logFile);
 
 	return EXIT_SUCCESS;
