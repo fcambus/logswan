@@ -21,6 +21,10 @@
 #include <stdlib.h>
 #include <time.h>
 
+#ifndef HAVE_STRTONUM
+#include "../compat/strtonum.h"
+#endif
+
 #include <GeoIP.h>
 
 #include "output.h"
