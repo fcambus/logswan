@@ -160,7 +160,7 @@ int main (int argc, char *argv[]) {
 	runtime = (double)(end - begin) / CLOCKS_PER_SEC;
 
 	/* Generate timestamp */
-	time_t now = time(0);
+	time_t now = time(NULL);
 	strftime(timeStamp, 20, "%Y-%m-%d %H:%M:%S", localtime(&now));
 
 	/* Printing results */
