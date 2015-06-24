@@ -32,12 +32,11 @@
 GeoIP *geoip;
 
 clock_t begin, end;
-double runtime;
-char timeStamp[20];
 
 char lineBuffer[LINE_MAX_LENGTH];
 
 struct results {
+	uint64_t fileSize;
 	uint64_t invalidLines;
 	uint64_t processedLines;
 	uint64_t bandwidth;
@@ -47,9 +46,13 @@ struct results {
 	uint64_t countries[255];
 	int hours[24];
 	int httpStatus[512];
+	double runtime;
+	char timeStamp[20];
 };
 
-struct results results;
+typedef struct results Results;
+
+Results results;
 struct date parsedDate;
 struct logLine parsedLine;
 
@@ -92,6 +95,7 @@ int main (int argc, char *argv[]) {
 
 	/* Get log file size */
 	stat(argv[1], &logFileSize);
+	results.fileSize = (uint64_t)logFileSize.st_size;
 
 	printf("Processing file : %s\n\n", argv[1]);
 
@@ -158,14 +162,14 @@ int main (int argc, char *argv[]) {
 
 	/* Stopping timer */
 	end = clock();
-	runtime = (double)(end - begin) / CLOCKS_PER_SEC;
+	results.runtime = (double)(end - begin) / CLOCKS_PER_SEC;
 
 	/* Generate timestamp */
 	time_t now = time(NULL);
-	strftime(timeStamp, 20, "%Y-%m-%d %H:%M:%S", localtime(&now));
+	strftime(results.timeStamp, 20, "%Y-%m-%d %H:%M:%S", localtime(&now));
 
 	/* Printing results */
-	printf("Processed %" PRIu64 " lines in %f seconds\n", results.processedLines, runtime);
+	printf("Processed %" PRIu64 " lines in %f seconds\n", results.processedLines, results.runtime);
 	fclose(logFile);
 
 	json_t *jsonObject = json_object();
@@ -195,12 +199,12 @@ int main (int argc, char *argv[]) {
 	json_object_set_new(hitsObject, "countries", countriesObject);
 	json_object_set_new(hitsObject, "hours", hoursObject);
 
-	json_object_set_new(jsonObject, "date", json_string(timeStamp));
-	json_object_set_new(jsonObject, "file_size", json_integer((uint64_t)logFileSize.st_size));
+	json_object_set_new(jsonObject, "date", json_string(results.timeStamp));
+	json_object_set_new(jsonObject, "file_size", json_integer(results.fileSize));
 	json_object_set_new(jsonObject, "processed_lines", json_integer(results.processedLines));
 	json_object_set_new(jsonObject, "invalid_lines", json_integer(results.invalidLines));
 	json_object_set_new(jsonObject, "bandwidth", json_integer(results.bandwidth));
-	json_object_set_new(jsonObject, "runtime", json_real(runtime));
+	json_object_set_new(jsonObject, "runtime", json_real(results.runtime));
 	json_object_set_new(jsonObject, "hits", hitsObject);
 
 	printf("%s", json_dumps(jsonObject, JSON_INDENT(3) | JSON_PRESERVE_ORDER));
