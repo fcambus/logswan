@@ -37,26 +37,27 @@ char timeStamp[20];
 
 char lineBuffer[LINE_MAX_LENGTH];
 
-uint64_t invalidLines, processedLines = 0;
-uint64_t objectSize = 0;
-uint64_t bandwidth = 0;
-uint64_t hits = 0;
-uint64_t hitsIPv4 = 0;
-uint64_t hitsIPv6 = 0;
-uint64_t countries[255];
+struct results {
+	uint64_t invalidLines;
+	uint64_t processedLines;
+	uint64_t bandwidth;
+	uint64_t hits;
+	uint64_t hitsIPv4;
+	uint64_t hitsIPv6;
+	uint64_t countries[255];
+	int hours[24];
+	int httpStatus[512];
+};
 
+struct results results;
 struct date parsedDate;
 struct logLine parsedLine;
 
 struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
-
 int isIPv4, isIPv6;
 
-int httpStatus[512];
 int statusCode;
-
-int hours[24];
 int hour;
 
 struct stat logFileSize;
@@ -113,7 +114,7 @@ int main (int argc, char *argv[]) {
 		if (isIPv4 || isIPv6) {
 			/* Increment countries array */
 			if (geoip && isIPv4) {
-				countries[GeoIP_id_by_addr(geoip, parsedLine.remoteHost)]++;
+				results.countries[GeoIP_id_by_addr(geoip, parsedLine.remoteHost)]++;
 			}
 
 			/* Hourly distribution */
@@ -123,7 +124,7 @@ int main (int argc, char *argv[]) {
 				hour = atoi(parsedDate.hour);
 
 				if (hour < 24) {
-					hours[hour] ++;
+					results.hours[hour] ++;
 				}
 			}
 
@@ -132,27 +133,27 @@ int main (int argc, char *argv[]) {
 				statusCode = strtol(parsedLine.statusCode, &endptr, 10);
 
 				if (statusCode < 512) {
-					httpStatus[statusCode] ++;
+					results.httpStatus[statusCode] ++;
 				}
 			}
 
 			/* Increment bandwidth usage */
 			if (parsedLine.objectSize) { /* Do not feed NULL tokens to strtol */
-				bandwidth += strtol(parsedLine.objectSize, &endptr, 10);
+				results.bandwidth += strtol(parsedLine.objectSize, &endptr, 10);
 			}
 
 			/* Increment hits counter */
-			hitsIPv4 += isIPv4;
-			hitsIPv6 += isIPv6;
-			hits++;
+			results.hitsIPv4 += isIPv4;
+			results.hitsIPv6 += isIPv6;
+			results.hits++;
 		} else {
 			/* Invalid line */
 
-			invalidLines++;
+			results.invalidLines++;
 		}
 
 		/* Increment processed lines counter */
-		processedLines++;
+		results.processedLines++;
 	}
 
 	/* Stopping timer */
@@ -164,7 +165,7 @@ int main (int argc, char *argv[]) {
 	strftime(timeStamp, 20, "%Y-%m-%d %H:%M:%S", localtime(&now));
 
 	/* Printing results */
-	printf("Processed %" PRIu64 " lines in %f seconds\n", processedLines, runtime);
+	printf("Processed %" PRIu64 " lines in %f seconds\n", results.processedLines, runtime);
 	fclose(logFile);
 
 	json_t *jsonObject = json_object();
@@ -173,8 +174,8 @@ int main (int argc, char *argv[]) {
 	json_t *hoursObject = json_object();
 
 	for (int loop=0; loop<255; loop++) {
-		if (countries[loop] != 0) {
-			json_object_set_new(countriesObject, GeoIP_code_by_id(loop), json_integer(countries[loop]));
+		if (results.countries[loop] != 0) {
+			json_object_set_new(countriesObject, GeoIP_code_by_id(loop), json_integer(results.countries[loop]));
 		}
 	}
 
@@ -183,22 +184,22 @@ int main (int argc, char *argv[]) {
 	};
 
 	for (int loop=0; loop<24; loop++) {
-		if (hours[loop] != 0) {
-			json_object_set_new(hoursObject, hoursString[loop], json_integer(hours[loop]));
+		if (results.hours[loop] != 0) {
+			json_object_set_new(hoursObject, hoursString[loop], json_integer(results.hours[loop]));
 		}
 	}
 
-	json_object_set_new(hitsObject, "ipv4", json_integer(hitsIPv4));
-	json_object_set_new(hitsObject, "ipv6", json_integer(hitsIPv6));
-	json_object_set_new(hitsObject, "total", json_integer(hits));
+	json_object_set_new(hitsObject, "ipv4", json_integer(results.hitsIPv4));
+	json_object_set_new(hitsObject, "ipv6", json_integer(results.hitsIPv6));
+	json_object_set_new(hitsObject, "total", json_integer(results.hits));
 	json_object_set_new(hitsObject, "countries", countriesObject);
 	json_object_set_new(hitsObject, "hours", hoursObject);
 
 	json_object_set_new(jsonObject, "date", json_string(timeStamp));
 	json_object_set_new(jsonObject, "file_size", json_integer((uint64_t)logFileSize.st_size));
-	json_object_set_new(jsonObject, "processed_lines", json_integer(processedLines));
-	json_object_set_new(jsonObject, "invalid_lines", json_integer(invalidLines));
-	json_object_set_new(jsonObject, "bandwidth", json_integer(bandwidth));
+	json_object_set_new(jsonObject, "processed_lines", json_integer(results.processedLines));
+	json_object_set_new(jsonObject, "invalid_lines", json_integer(results.invalidLines));
+	json_object_set_new(jsonObject, "bandwidth", json_integer(results.bandwidth));
 	json_object_set_new(jsonObject, "runtime", json_real(runtime));
 	json_object_set_new(jsonObject, "hits", hitsObject);
 
