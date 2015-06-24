@@ -14,6 +14,8 @@
 #ifndef RESULTS_H
 #define RESULTS_H
 
+#define STATUS_CODE_MAX 512
+
 struct results {
 	uint64_t fileSize;
 	uint64_t invalidLines;
@@ -24,7 +26,7 @@ struct results {
 	uint64_t hitsIPv6;
 	uint64_t countries[255];
 	int hours[24];
-	int httpStatus[512];
+	int httpStatus[STATUS_CODE_MAX];
 	double runtime;
 	char timeStamp[20];
 };

@@ -124,9 +124,9 @@ int main (int argc, char *argv[]) {
 
 			/* Count HTTP status codes occurences */
 			if (parsedLine.statusCode) { /* Do not feed NULL tokens to strtol */
-				statusCode = strtol(parsedLine.statusCode, &endptr, 10);
+				statusCode = strtonum(parsedLine.statusCode, 0, STATUS_CODE_MAX-1, &errstr);
 
-				if (statusCode < 512) {
+				if (!errstr) {
 					results.httpStatus[statusCode] ++;
 				}
 			}
