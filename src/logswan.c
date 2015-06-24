@@ -54,6 +54,8 @@ int hour;
 struct stat logFileSize;
 FILE *logFile;
 
+const char *errstr;
+
 char *endptr;
 int getoptFlag;
 
@@ -113,9 +115,9 @@ int main (int argc, char *argv[]) {
 			parseDate(&parsedDate, parsedLine.date);
 
 			if (parsedDate.hour) { /* Do not feed NULL tokens to atoi */
-				hour = atoi(parsedDate.hour);
+				hour = strtonum(parsedDate.hour, 0, 23, &errstr);
 
-				if (hour < 24) {
+				if (!errstr) {
 					results.hours[hour] ++;
 				}
 			}
