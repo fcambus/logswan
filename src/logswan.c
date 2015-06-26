@@ -57,7 +57,6 @@ FILE *logFile;
 
 const char *errstr;
 
-char *endptr;
 int getoptFlag;
 
 int main (int argc, char *argv[]) {
