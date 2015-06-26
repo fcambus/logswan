@@ -48,6 +48,7 @@ struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
 int isIPv4, isIPv6;
 
+uint64_t bandwidth;
 int statusCode;
 int hour;
 
@@ -114,7 +115,7 @@ int main (int argc, char *argv[]) {
 			/* Hourly distribution */
 			parseDate(&parsedDate, parsedLine.date);
 
-			if (parsedDate.hour) { /* Do not feed NULL tokens to atoi */
+			if (parsedDate.hour) {
 				hour = strtonum(parsedDate.hour, 0, 23, &errstr);
 
 				if (!errstr) {
@@ -123,7 +124,7 @@ int main (int argc, char *argv[]) {
 			}
 
 			/* Count HTTP status codes occurences */
-			if (parsedLine.statusCode) { /* Do not feed NULL tokens to strtol */
+			if (parsedLine.statusCode) {
 				statusCode = strtonum(parsedLine.statusCode, 0, STATUS_CODE_MAX-1, &errstr);
 
 				if (!errstr) {
@@ -132,8 +133,12 @@ int main (int argc, char *argv[]) {
 			}
 
 			/* Increment bandwidth usage */
-			if (parsedLine.objectSize) { /* Do not feed NULL tokens to strtol */
-				results.bandwidth += strtol(parsedLine.objectSize, &endptr, 10);
+			if (parsedLine.objectSize) {
+				bandwidth = strtonum(parsedLine.objectSize, 0, INT64_MAX, &errstr);
+
+				if (!errstr) {					
+					results.bandwidth += bandwidth;
+				}
 			}
 
 			/* Increment hits counter */
