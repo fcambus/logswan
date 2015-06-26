@@ -45,5 +45,5 @@ void parseLine(struct logLine* parsedLine, char *lineBuffer) {
 	parsedLine->statusCode = strtok(NULL, " ");
 
 	/* Returned object size */
-	parsedLine->objectSize = strtok(NULL, "\"");
+	parsedLine->objectSize = strtok(NULL, " \"");
 }
