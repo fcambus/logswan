@@ -43,6 +43,7 @@ char lineBuffer[LINE_MAX_LENGTH];
 Results results;
 struct date parsedDate;
 struct logLine parsedLine;
+struct request parsedRequest;
 
 struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
@@ -132,6 +133,9 @@ int main (int argc, char *argv[]) {
 					results.hours[hour] ++;
 				}
 			}
+
+			/* Parse request */
+			parseRequest(&parsedRequest, parsedLine.resource);		
 
 			/* Count HTTP status codes occurences */
 			if (parsedLine.statusCode) {
