@@ -178,6 +178,7 @@ int main (int argc, char *argv[]) {
 	fclose(logFile);
 
 	fputs(output(results), jsonFile);
+	printf("Created file : %s\n", outputFile);
 	fclose(jsonFile);
 
 	return EXIT_SUCCESS;
