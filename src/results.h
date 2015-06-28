@@ -25,11 +25,11 @@ struct results {
 	uint64_t hitsIPv4;
 	uint64_t hitsIPv6;
 	uint64_t countries[255];
-	int hours[24];
-	int httpStatus[STATUS_CODE_MAX];
+	uint64_t hours[24];
+	uint64_t httpStatus[STATUS_CODE_MAX];
 	double runtime;
 	char timeStamp[20];
-	int protocols[2];
+	uint64_t protocols[2];
 };
 
 typedef struct results Results;
