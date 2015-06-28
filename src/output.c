@@ -17,6 +17,18 @@
 #include "results.h"
 
 char *output(Results results) {
+	char *methods[] = {
+		"OPTIONS",
+		"GET",
+		"HEAD",
+		"POST",
+		"PUT",
+		"DELETE",
+		"TRACE",
+		"CONNECT",
+		"PATCH"
+	};
+
 	char *protocols[] = { 
 		"HTTP/1.0",
 		"HTTP/1.1"
@@ -27,6 +39,7 @@ char *output(Results results) {
 	json_t *countriesArray = json_array();
 	json_t *hoursArray = json_array();
 	json_t *httpStatusArray = json_array();
+	json_t *methodsArray = json_array();
 	json_t *protocolsArray = json_array();
 
 	for (int loop=0; loop<255; loop++) {
@@ -47,6 +60,12 @@ char *output(Results results) {
 		}
 	}
 
+	for (int loop=0; loop<9; loop++) {
+		if (results.methods[loop]) {
+			json_array_append_new(methodsArray, json_pack("{s:s, s:i}", "data", methods[loop], "hits", results.methods[loop]));
+		}
+	}
+
 	for (int loop=0; loop<2; loop++) {
 		if (results.protocols[loop]) {
 			json_array_append_new(protocolsArray, json_pack("{s:s, s:i}", "data", protocols[loop], "hits", results.protocols[loop]));
@@ -59,6 +78,7 @@ char *output(Results results) {
 	json_object_set_new(hitsObject, "countries", countriesArray);
 	json_object_set_new(hitsObject, "hours", hoursArray);
 	json_object_set_new(hitsObject, "http_status", httpStatusArray);
+	json_object_set_new(hitsObject, "methods", methodsArray);
 	json_object_set_new(hitsObject, "protocols", protocolsArray);
 
 	json_object_set_new(jsonObject, "date", json_string(results.timeStamp));
