@@ -17,7 +17,7 @@
 
 void parseDate(struct date* parsedDate, char *date) {
 	parsedDate->day = strtok(date, "/");
-	parsedDate->month = strtok(NULL, "/");	
+	parsedDate->month = strtok(NULL, "/");
 	parsedDate->year = strtok(NULL, ":");
 	parsedDate->hour = strtok(NULL, ":");
 	parsedDate->minute = strtok(NULL, ":");

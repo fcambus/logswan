@@ -24,20 +24,20 @@ char *output(Results results) {
 	json_t *httpStatusArray = json_array();
 
 	for (int loop=0; loop<255; loop++) {
-		if (results.countries[loop] != 0) {
+		if (results.countries[loop]) {
 			json_array_append_new(countriesArray, json_pack("{s:s, s:i}", "data", GeoIP_code_by_id(loop), "hits", results.countries[loop]));
 		}
 	}
 
 	for (int loop=0; loop<24; loop++) {
-		if (results.hours[loop] != 0) {
+		if (results.hours[loop]) {
 			json_array_append_new(hoursArray, json_pack("{s:i, s:i}", "data", loop, "hits", results.hours[loop]));
 		}
 	}
 
 	for (int loop=0; loop<512; loop++) {
-		if (results.httpStatus[loop] != 0) {
-			json_array_append_new(httpStatusArray, json_pack("{s:i, s:i}", "data", loop, "hits", results.httpStatus[loop]));			
+		if (results.httpStatus[loop]) {
+			json_array_append_new(httpStatusArray, json_pack("{s:i, s:i}", "data", loop, "hits", results.httpStatus[loop]));
 		}
 	}
 

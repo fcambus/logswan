@@ -146,7 +146,7 @@ int main (int argc, char *argv[]) {
 			if (parsedLine.objectSize) {
 				bandwidth = strtonum(parsedLine.objectSize, 0, INT64_MAX, &errstr);
 
-				if (!errstr) {					
+				if (!errstr) {
 					results.bandwidth += bandwidth;
 				}
 			}
