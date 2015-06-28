@@ -30,6 +30,7 @@ struct results {
 	double runtime;
 	char timeStamp[20];
 	uint64_t protocols[2];
+	uint64_t methods[9];
 };
 
 typedef struct results Results;

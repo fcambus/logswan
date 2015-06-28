@@ -61,11 +61,23 @@ const char *errstr;
 int getoptFlag;
 
 int main (int argc, char *argv[]) {
+	char *methods[] = {
+		"OPTIONS",
+		"GET",
+		"HEAD",
+		"POST",
+		"PUT",
+		"DELETE",
+		"TRACE",
+		"CONNECT",
+		"PATCH"
+	};
+
 	char *protocols[] = { 
 		"HTTP/1.0",
 		"HTTP/1.1"
 	};
-	
+
 	printf("-------------------------------------------------------------------------------\n" \
 	       "                      Logswan (c) by Frederic Cambus 2015                      \n" \
 	       "-------------------------------------------------------------------------------\n\n");
@@ -142,11 +154,18 @@ int main (int argc, char *argv[]) {
 			/* Parse request */
 			parseRequest(&parsedRequest, parsedLine.resource);					
 
+			for (int loop = 0; loop<9; loop++) {
+				if (!strcmp(methods[loop], parsedRequest.method)) {
+					results.methods[loop] ++;
+				}
+			}
+
 			for (int loop = 0; loop<2; loop++) {
 				if (!strcmp(protocols[loop], parsedRequest.protocol)) {
 					results.protocols[loop] ++;
 				}
 			}
+
 
 			/* Count HTTP status codes occurences */
 			if (parsedLine.statusCode) {
