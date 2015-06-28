@@ -95,6 +95,11 @@ int main (int argc, char *argv[]) {
 		return 1;
 	}
 
+	/* Create output file name */
+	int outputLen = strlen(argv[1]) + 6;
+	char *outputFile = malloc(outputLen);
+	snprintf(outputFile, outputLen, "%s%s", argv[1], ".json");
+
 	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile) != NULL) {
 		/* Parse and tokenize line */
 		parseLine(&parsedLine, lineBuffer);
