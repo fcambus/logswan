@@ -13,12 +13,12 @@ Currently implemented features :
 - Counting bandwidth used
 - Counting log file size
 - GeoIP lookups (IPv4 only for now)
-- Counting HTTP status codes occurences
+- HTTP status codes distribution
 - Hourly hits distribution
 
 ## Dependencies
 
-Logswan requires GeoIP and Jansson libraries and header files.
+Logswan requires `GeoIP` and `Jansson` libraries and header files.
 
 ## Compiling
 

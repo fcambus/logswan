@@ -21,7 +21,8 @@ char *output(Results results) {
 	json_t *hitsObject = json_object();
 	json_t *countriesArray = json_array();
 	json_t *hoursArray = json_array();
-			
+	json_t *httpStatusArray = json_array();
+
 	for (int loop=0; loop<255; loop++) {
 		if (results.countries[loop] != 0) {
 			json_array_append_new(countriesArray, json_pack("{s:s, s:i}", "data", GeoIP_code_by_id(loop), "hits", results.countries[loop]));
@@ -34,11 +35,18 @@ char *output(Results results) {
 		}
 	}
 
+	for (int loop=0; loop<512; loop++) {
+		if (results.httpStatus[loop] != 0) {
+			json_array_append_new(httpStatusArray, json_pack("{s:i, s:i}", "data", loop, "hits", results.httpStatus[loop]));			
+		}
+	}
+
 	json_object_set_new(hitsObject, "ipv4", json_integer(results.hitsIPv4));
 	json_object_set_new(hitsObject, "ipv6", json_integer(results.hitsIPv6));
 	json_object_set_new(hitsObject, "total", json_integer(results.hits));
 	json_object_set_new(hitsObject, "countries", countriesArray);
 	json_object_set_new(hitsObject, "hours", hoursArray);
+	json_object_set_new(hitsObject, "http_status", httpStatusArray);
 
 	json_object_set_new(jsonObject, "date", json_string(results.timeStamp));
 	json_object_set_new(jsonObject, "file_size", json_integer(results.fileSize));
