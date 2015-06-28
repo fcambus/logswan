@@ -31,7 +31,14 @@ struct logLine {
 	char *objectSize;
 };
 
+struct request {
+	char *method;
+	char *resource;
+	char *protocol;
+};
+
 void parseDate(struct date* parsedDate, char *date);
 void parseLine(struct logLine* parsedLine, char *lineBuffer);
+void parseRequest(struct request* parsedRequest, char *request);
 
 #endif

@@ -47,3 +47,8 @@ void parseLine(struct logLine* parsedLine, char *lineBuffer) {
 	/* Returned object size */
 	parsedLine->objectSize = strtok(NULL, " \"");
 }
+
+void parseRequest(struct request* parsedRequest, char *request) {
+	parsedRequest->protocol = strrchr(request, ' ') + 1;	
+	parsedRequest->method = strtok(request, " ");
+}
