@@ -29,6 +29,7 @@ struct results {
 	int httpStatus[STATUS_CODE_MAX];
 	double runtime;
 	char timeStamp[20];
+	int protocols[2];
 };
 
 typedef struct results Results;
