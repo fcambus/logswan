@@ -1,8 +1,11 @@
 # Logswan
 
-Logswan is a Web log analyzer in early stages of development. It is targeted at very large log files, typically APIs logs.
+Logswan is a Web log analyzer in early stages of development. It is targeted at very large log files, typically APIs logs. Project design goals include : speed, memory-usage efficiency, and keeping the code as simple as possible.
 
-Project design goals include : speed, memory-usage efficiency, and keeping the code as simple as possible.
+Logswan is **opinionated software** :
+
+- It only supports the Common Log Format, in order to keep the parsing code as simple as possible
+- It does not split results per day, but log files can be split prior to being processed
 
 ## Features
 
@@ -15,6 +18,7 @@ Currently implemented features :
 - GeoIP lookups (IPv4 only for now)
 - HTTP status codes distribution
 - Hourly hits distribution
+- Counting hits per protocol (HTTP/1.0 or HTTP/1.1)
 
 ## Dependencies
 
