@@ -16,7 +16,7 @@
 
 #include "results.h"
 
-void output(Results results) {
+char *output(Results results) {
 	json_t *jsonObject = json_object();
 	json_t *hitsObject = json_object();
 	json_t *countriesArray = json_array();
@@ -48,5 +48,5 @@ void output(Results results) {
 	json_object_set_new(jsonObject, "runtime", json_real(results.runtime));
 	json_object_set_new(jsonObject, "hits", hitsObject);
 
-	printf("%s", json_dumps(jsonObject, JSON_INDENT(3) | JSON_PRESERVE_ORDER));
+	return json_dumps(jsonObject, JSON_INDENT(3) | JSON_PRESERVE_ORDER);
 }

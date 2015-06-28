@@ -16,6 +16,6 @@
 
 #include "results.h"
 
-void output(Results results);
+char *output(Results results);
 
 #endif
