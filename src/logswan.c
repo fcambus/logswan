@@ -53,7 +53,7 @@ int statusCode;
 int hour;
 
 struct stat logFileSize;
-FILE *logFile;
+FILE *logFile, *jsonFile;
 
 const char *errstr;
 
@@ -90,15 +90,21 @@ int main (int argc, char *argv[]) {
 	printf("Processing file : %s\n\n", argv[1]);
 
 	logFile = fopen(argv[1], "r");
-	if(!logFile) {
+	if (!logFile) {
 		perror("Can't open log file");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
-	/* Create output file name */
+	/* Create output file */
 	int outputLen = strlen(argv[1]) + 6;
 	char *outputFile = malloc(outputLen);
 	snprintf(outputFile, outputLen, "%s%s", argv[1], ".json");
+
+	jsonFile = fopen(outputFile, "w");
+	if (!jsonFile) {
+		perror("Can't create output file");
+		return EXIT_FAILURE;
+	}
 
 	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile) != NULL) {
 		/* Parse and tokenize line */
@@ -171,7 +177,8 @@ int main (int argc, char *argv[]) {
 	printf("Processed %" PRIu64 " lines in %f seconds\n", results.processedLines, results.runtime);
 	fclose(logFile);
 
-	output(results);
+	fputs(output(results), jsonFile);
+	fclose(jsonFile);
 
 	return EXIT_SUCCESS;
 }
