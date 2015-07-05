@@ -20,7 +20,7 @@
 +--------------------- \____/ --- \____/ ----:----------------------h7/dS!----+
                        .                     |      :
                        : .                   :      |
-                       | .     logswan       .      |
+                       | .     Logswan       .      |
                        | :                       .  |
                        |_|_______________________|__|
                          |                       :
@@ -32,7 +32,7 @@ Logswan is a Web log analyzer in early stages of development. It is targeted at 
 
 Logswan is **opinionated software** :
 
-- It only supports the Common Log Format, in order to keep the parsing code as simple as possible
+- It only supports the Common Log Format, in order to keep the parsing code simple
 - It does not split results per day, but log files can be split prior to being processed
 
 ## Features
@@ -47,14 +47,19 @@ Currently implemented features :
 - HTTP status codes distribution
 - Hourly hits distribution
 - Counting hits per protocol (HTTP/1.0 or HTTP/1.1)
+- Counting hits per HTTP Method
 
 ## Dependencies
 
-Logswan requires `GeoIP` and `Jansson` libraries and header files.
+Logswan uses the `CMake` build system and requires `GeoIP` and `Jansson` libraries and header files.
+
+## Installing dependencies
+
+- OpenBSD : `pkg_add -r cmake GeoIP jansson`
+- Linux (Debian / Ubuntu): `apt-get install cmake libgeoip-dev libjansson-dev`
+
 
 ## Compiling
-
-Logswan uses the CMake build system :
 
 	cmake .
 	make
