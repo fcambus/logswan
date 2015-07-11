@@ -13,7 +13,7 @@ cmake_minimum_required (VERSION 2.6)
 project (logswan C)
 
 include(CheckFunctionExists)
-include_directories(/usr/local/include)
+include_directories(/usr/local/include /usr/pkg/include)
 
 check_function_exists(strtonum HAVE_STRTONUM)
 
