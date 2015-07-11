@@ -1,0 +1,1155 @@
+{
+   "date": "2015-07-11 23:27:58",
+   "file_size": 21510440139,
+   "processed_lines": 104646437,
+   "invalid_lines": 111,
+   "bandwidth": 32862130502,
+   "runtime": 185.78477699999999,
+   "hits": {
+      "ipv4": 96550189,
+      "ipv6": 8096137,
+      "total": 104646326,
+      "countries": [
+         {
+            "data": "--",
+            "hits": 1061
+         },
+         {
+            "data": "AP",
+            "hits": 49724
+         },
+         {
+            "data": "EU",
+            "hits": 135816
+         },
+         {
+            "data": "AD",
+            "hits": 3710
+         },
+         {
+            "data": "AE",
+            "hits": 173985
+         },
+         {
+            "data": "AF",
+            "hits": 2785
+         },
+         {
+            "data": "AG",
+            "hits": 88341
+         },
+         {
+            "data": "AI",
+            "hits": 359
+         },
+         {
+            "data": "AL",
+            "hits": 29875
+         },
+         {
+            "data": "AM",
+            "hits": 26089
+         },
+         {
+            "data": "CW",
+            "hits": 7212
+         },
+         {
+            "data": "AO",
+            "hits": 6967
+         },
+         {
+            "data": "AR",
+            "hits": 620902
+         },
+         {
+            "data": "AS",
+            "hits": 317
+         },
+         {
+            "data": "AT",
+            "hits": 190976
+         },
+         {
+            "data": "AU",
+            "hits": 1293784
+         },
+         {
+            "data": "AW",
+            "hits": 1784
+         },
+         {
+            "data": "AZ",
+            "hits": 28439
+         },
+         {
+            "data": "BA",
+            "hits": 28981
+         },
+         {
+            "data": "BB",
+            "hits": 6062
+         },
+         {
+            "data": "BD",
+            "hits": 67887
+         },
+         {
+            "data": "BE",
+            "hits": 145102
+         },
+         {
+            "data": "BF",
+            "hits": 440
+         },
+         {
+            "data": "BG",
+            "hits": 130617
+         },
+         {
+            "data": "BH",
+            "hits": 444048
+         },
+         {
+            "data": "BI",
+            "hits": 484
+         },
+         {
+            "data": "BJ",
+            "hits": 1381
+         },
+         {
+            "data": "BM",
+            "hits": 1963
+         },
+         {
+            "data": "BN",
+            "hits": 8740
+         },
+         {
+            "data": "BO",
+            "hits": 17481
+         },
+         {
+            "data": "BR",
+            "hits": 910252
+         },
+         {
+            "data": "BS",
+            "hits": 8890
+         },
+         {
+            "data": "BT",
+            "hits": 2870
+         },
+         {
+            "data": "BW",
+            "hits": 10209
+         },
+         {
+            "data": "BY",
+            "hits": 113746
+         },
+         {
+            "data": "BZ",
+            "hits": 33600
+         },
+         {
+            "data": "CA",
+            "hits": 2487968
+         },
+         {
+            "data": "CD",
+            "hits": 2069
+         },
+         {
+            "data": "CF",
+            "hits": 232
+         },
+         {
+            "data": "CG",
+            "hits": 6218
+         },
+         {
+            "data": "CH",
+            "hits": 303209
+         },
+         {
+            "data": "CI",
+            "hits": 15774
+         },
+         {
+            "data": "CK",
+            "hits": 151
+         },
+         {
+            "data": "CL",
+            "hits": 285594
+         },
+         {
+            "data": "CM",
+            "hits": 8820
+         },
+         {
+            "data": "CN",
+            "hits": 1558485
+         },
+         {
+            "data": "CO",
+            "hits": 129308
+         },
+         {
+            "data": "CR",
+            "hits": 98060
+         },
+         {
+            "data": "CU",
+            "hits": 701
+         },
+         {
+            "data": "CV",
+            "hits": 946
+         },
+         {
+            "data": "CX",
+            "hits": 3
+         },
+         {
+            "data": "CY",
+            "hits": 17297
+         },
+         {
+            "data": "CZ",
+            "hits": 116641
+         },
+         {
+            "data": "DE",
+            "hits": 2174719
+         },
+         {
+            "data": "DJ",
+            "hits": 380
+         },
+         {
+            "data": "DK",
+            "hits": 218166
+         },
+         {
+            "data": "DM",
+            "hits": 681
+         },
+         {
+            "data": "DO",
+            "hits": 116031
+         },
+         {
+            "data": "DZ",
+            "hits": 156540
+         },
+         {
+            "data": "EC",
+            "hits": 57222
+         },
+         {
+            "data": "EE",
+            "hits": 39969
+         },
+         {
+            "data": "EG",
+            "hits": 428184
+         },
+         {
+            "data": "ER",
+            "hits": 69
+         },
+         {
+            "data": "ES",
+            "hits": 1789915
+         },
+         {
+            "data": "ET",
+            "hits": 85389
+         },
+         {
+            "data": "FI",
+            "hits": 35057
+         },
+         {
+            "data": "FJ",
+            "hits": 3950
+         },
+         {
+            "data": "FK",
+            "hits": 14
+         },
+         {
+            "data": "FM",
+            "hits": 2216
+         },
+         {
+            "data": "FO",
+            "hits": 261
+         },
+         {
+            "data": "FR",
+            "hits": 1589109
+         },
+         {
+            "data": "SX",
+            "hits": 7624
+         },
+         {
+            "data": "GA",
+            "hits": 13729
+         },
+         {
+            "data": "GB",
+            "hits": 5896864
+         },
+         {
+            "data": "GD",
+            "hits": 1425
+         },
+         {
+            "data": "GE",
+            "hits": 133290
+         },
+         {
+            "data": "GF",
+            "hits": 278
+         },
+         {
+            "data": "GH",
+            "hits": 12929
+         },
+         {
+            "data": "GI",
+            "hits": 617
+         },
+         {
+            "data": "GL",
+            "hits": 314
+         },
+         {
+            "data": "GM",
+            "hits": 4349
+         },
+         {
+            "data": "GN",
+            "hits": 1025
+         },
+         {
+            "data": "GP",
+            "hits": 587
+         },
+         {
+            "data": "GQ",
+            "hits": 1216
+         },
+         {
+            "data": "GR",
+            "hits": 249179
+         },
+         {
+            "data": "GT",
+            "hits": 26515
+         },
+         {
+            "data": "GU",
+            "hits": 2374
+         },
+         {
+            "data": "GW",
+            "hits": 98
+         },
+         {
+            "data": "GY",
+            "hits": 2239
+         },
+         {
+            "data": "HK",
+            "hits": 276681
+         },
+         {
+            "data": "HN",
+            "hits": 19092
+         },
+         {
+            "data": "HR",
+            "hits": 54239
+         },
+         {
+            "data": "HT",
+            "hits": 163356
+         },
+         {
+            "data": "HU",
+            "hits": 137427
+         },
+         {
+            "data": "ID",
+            "hits": 3034299
+         },
+         {
+            "data": "IE",
+            "hits": 1959568
+         },
+         {
+            "data": "IL",
+            "hits": 656983
+         },
+         {
+            "data": "IN",
+            "hits": 1277574
+         },
+         {
+            "data": "IO",
+            "hits": 20
+         },
+         {
+            "data": "IQ",
+            "hits": 160483
+         },
+         {
+            "data": "IR",
+            "hits": 374741
+         },
+         {
+            "data": "IS",
+            "hits": 11333
+         },
+         {
+            "data": "IT",
+            "hits": 1145961
+         },
+         {
+            "data": "JM",
+            "hits": 25231
+         },
+         {
+            "data": "JO",
+            "hits": 109418
+         },
+         {
+            "data": "JP",
+            "hits": 536143
+         },
+         {
+            "data": "KE",
+            "hits": 32114
+         },
+         {
+            "data": "KG",
+            "hits": 8094
+         },
+         {
+            "data": "KH",
+            "hits": 22977
+         },
+         {
+            "data": "KI",
+            "hits": 244
+         },
+         {
+            "data": "KM",
+            "hits": 471
+         },
+         {
+            "data": "KN",
+            "hits": 712
+         },
+         {
+            "data": "KP",
+            "hits": 6
+         },
+         {
+            "data": "KR",
+            "hits": 489086
+         },
+         {
+            "data": "KW",
+            "hits": 71225
+         },
+         {
+            "data": "KY",
+            "hits": 2432
+         },
+         {
+            "data": "KZ",
+            "hits": 123634
+         },
+         {
+            "data": "LA",
+            "hits": 23667
+         },
+         {
+            "data": "LB",
+            "hits": 32785
+         },
+         {
+            "data": "LC",
+            "hits": 1435
+         },
+         {
+            "data": "LI",
+            "hits": 265
+         },
+         {
+            "data": "LK",
+            "hits": 53378
+         },
+         {
+            "data": "LR",
+            "hits": 868
+         },
+         {
+            "data": "LS",
+            "hits": 1783
+         },
+         {
+            "data": "LT",
+            "hits": 261765
+         },
+         {
+            "data": "LU",
+            "hits": 5719
+         },
+         {
+            "data": "LV",
+            "hits": 15391
+         },
+         {
+            "data": "LY",
+            "hits": 20287
+         },
+         {
+            "data": "MA",
+            "hits": 129089
+         },
+         {
+            "data": "MC",
+            "hits": 498
+         },
+         {
+            "data": "MD",
+            "hits": 13908
+         },
+         {
+            "data": "MG",
+            "hits": 1236
+         },
+         {
+            "data": "MH",
+            "hits": 260
+         },
+         {
+            "data": "MK",
+            "hits": 30126
+         },
+         {
+            "data": "ML",
+            "hits": 3164
+         },
+         {
+            "data": "MM",
+            "hits": 23877
+         },
+         {
+            "data": "MN",
+            "hits": 24156
+         },
+         {
+            "data": "MO",
+            "hits": 4567
+         },
+         {
+            "data": "MP",
+            "hits": 507
+         },
+         {
+            "data": "MQ",
+            "hits": 2308
+         },
+         {
+            "data": "MR",
+            "hits": 421
+         },
+         {
+            "data": "MS",
+            "hits": 46
+         },
+         {
+            "data": "MT",
+            "hits": 10451
+         },
+         {
+            "data": "MU",
+            "hits": 25626
+         },
+         {
+            "data": "MV",
+            "hits": 21913
+         },
+         {
+            "data": "MW",
+            "hits": 2800
+         },
+         {
+            "data": "MX",
+            "hits": 188779
+         },
+         {
+            "data": "MY",
+            "hits": 358086
+         },
+         {
+            "data": "MZ",
+            "hits": 15896
+         },
+         {
+            "data": "NA",
+            "hits": 10063
+         },
+         {
+            "data": "NC",
+            "hits": 1226
+         },
+         {
+            "data": "NE",
+            "hits": 1121
+         },
+         {
+            "data": "NG",
+            "hits": 102616
+         },
+         {
+            "data": "NI",
+            "hits": 65530
+         },
+         {
+            "data": "NL",
+            "hits": 1013695
+         },
+         {
+            "data": "NO",
+            "hits": 255986
+         },
+         {
+            "data": "NP",
+            "hits": 21450
+         },
+         {
+            "data": "NR",
+            "hits": 25
+         },
+         {
+            "data": "NU",
+            "hits": 1
+         },
+         {
+            "data": "NZ",
+            "hits": 104454
+         },
+         {
+            "data": "OM",
+            "hits": 25275
+         },
+         {
+            "data": "PA",
+            "hits": 24615
+         },
+         {
+            "data": "PE",
+            "hits": 236590
+         },
+         {
+            "data": "PF",
+            "hits": 1787
+         },
+         {
+            "data": "PG",
+            "hits": 2851
+         },
+         {
+            "data": "PH",
+            "hits": 281685
+         },
+         {
+            "data": "PK",
+            "hits": 165624
+         },
+         {
+            "data": "PL",
+            "hits": 535312
+         },
+         {
+            "data": "PM",
+            "hits": 18
+         },
+         {
+            "data": "PR",
+            "hits": 85776
+         },
+         {
+            "data": "PS",
+            "hits": 28331
+         },
+         {
+            "data": "PT",
+            "hits": 145331
+         },
+         {
+            "data": "PW",
+            "hits": 103
+         },
+         {
+            "data": "PY",
+            "hits": 25719
+         },
+         {
+            "data": "QA",
+            "hits": 48599
+         },
+         {
+            "data": "RE",
+            "hits": 1734
+         },
+         {
+            "data": "RO",
+            "hits": 313743
+         },
+         {
+            "data": "RU",
+            "hits": 1519929
+         },
+         {
+            "data": "RW",
+            "hits": 4463
+         },
+         {
+            "data": "SA",
+            "hits": 308754
+         },
+         {
+            "data": "SB",
+            "hits": 485
+         },
+         {
+            "data": "SC",
+            "hits": 1320
+         },
+         {
+            "data": "SD",
+            "hits": 48716
+         },
+         {
+            "data": "SE",
+            "hits": 408582
+         },
+         {
+            "data": "SG",
+            "hits": 594530
+         },
+         {
+            "data": "SI",
+            "hits": 43596
+         },
+         {
+            "data": "SK",
+            "hits": 60257
+         },
+         {
+            "data": "SL",
+            "hits": 351
+         },
+         {
+            "data": "SM",
+            "hits": 360
+         },
+         {
+            "data": "SN",
+            "hits": 3743
+         },
+         {
+            "data": "SO",
+            "hits": 3627
+         },
+         {
+            "data": "SR",
+            "hits": 2881
+         },
+         {
+            "data": "ST",
+            "hits": 39
+         },
+         {
+            "data": "SV",
+            "hits": 18129
+         },
+         {
+            "data": "SY",
+            "hits": 24002
+         },
+         {
+            "data": "SZ",
+            "hits": 687
+         },
+         {
+            "data": "TC",
+            "hits": 563
+         },
+         {
+            "data": "TD",
+            "hits": 94
+         },
+         {
+            "data": "TG",
+            "hits": 5603
+         },
+         {
+            "data": "TH",
+            "hits": 283769
+         },
+         {
+            "data": "TJ",
+            "hits": 5470
+         },
+         {
+            "data": "TK",
+            "hits": 2
+         },
+         {
+            "data": "TM",
+            "hits": 510
+         },
+         {
+            "data": "TN",
+            "hits": 49227
+         },
+         {
+            "data": "TO",
+            "hits": 1176
+         },
+         {
+            "data": "TL",
+            "hits": 132
+         },
+         {
+            "data": "TR",
+            "hits": 1222246
+         },
+         {
+            "data": "TT",
+            "hits": 19912
+         },
+         {
+            "data": "TV",
+            "hits": 15
+         },
+         {
+            "data": "TW",
+            "hits": 320871
+         },
+         {
+            "data": "TZ",
+            "hits": 8021
+         },
+         {
+            "data": "UA",
+            "hits": 262335
+         },
+         {
+            "data": "UG",
+            "hits": 11528
+         },
+         {
+            "data": "US",
+            "hits": 48675984
+         },
+         {
+            "data": "UY",
+            "hits": 49487
+         },
+         {
+            "data": "UZ",
+            "hits": 13745
+         },
+         {
+            "data": "VA",
+            "hits": 14
+         },
+         {
+            "data": "VC",
+            "hits": 955
+         },
+         {
+            "data": "VE",
+            "hits": 117158
+         },
+         {
+            "data": "VG",
+            "hits": 11693
+         },
+         {
+            "data": "VI",
+            "hits": 9736
+         },
+         {
+            "data": "VN",
+            "hits": 3324201
+         },
+         {
+            "data": "VU",
+            "hits": 432
+         },
+         {
+            "data": "WF",
+            "hits": 9
+         },
+         {
+            "data": "WS",
+            "hits": 1238
+         },
+         {
+            "data": "YE",
+            "hits": 4776
+         },
+         {
+            "data": "YT",
+            "hits": 186
+         },
+         {
+            "data": "RS",
+            "hits": 187284
+         },
+         {
+            "data": "ZA",
+            "hits": 675094
+         },
+         {
+            "data": "ZM",
+            "hits": 5205
+         },
+         {
+            "data": "ME",
+            "hits": 4459
+         },
+         {
+            "data": "ZW",
+            "hits": 4457
+         },
+         {
+            "data": "A1",
+            "hits": 48561
+         },
+         {
+            "data": "A2",
+            "hits": 17657
+         },
+         {
+            "data": "AX",
+            "hits": 115
+         },
+         {
+            "data": "GG",
+            "hits": 722
+         },
+         {
+            "data": "IM",
+            "hits": 918
+         },
+         {
+            "data": "JE",
+            "hits": 12866
+         },
+         {
+            "data": "MF",
+            "hits": 173
+         },
+         {
+            "data": "BQ",
+            "hits": 225
+         },
+         {
+            "data": "SS",
+            "hits": 174
+         }
+      ],
+      "hours": [
+         {
+            "data": 0,
+            "hits": 4117411
+         },
+         {
+            "data": 1,
+            "hits": 4225380
+         },
+         {
+            "data": 2,
+            "hits": 4210988
+         },
+         {
+            "data": 3,
+            "hits": 4191402
+         },
+         {
+            "data": 4,
+            "hits": 4124677
+         },
+         {
+            "data": 5,
+            "hits": 3958630
+         },
+         {
+            "data": 6,
+            "hits": 3762195
+         },
+         {
+            "data": 7,
+            "hits": 3638294
+         },
+         {
+            "data": 8,
+            "hits": 3640626
+         },
+         {
+            "data": 9,
+            "hits": 3633456
+         },
+         {
+            "data": 10,
+            "hits": 3771537
+         },
+         {
+            "data": 11,
+            "hits": 3864579
+         },
+         {
+            "data": 12,
+            "hits": 4474364
+         },
+         {
+            "data": 13,
+            "hits": 4699536
+         },
+         {
+            "data": 14,
+            "hits": 5357545
+         },
+         {
+            "data": 15,
+            "hits": 5057490
+         },
+         {
+            "data": 16,
+            "hits": 4972080
+         },
+         {
+            "data": 17,
+            "hits": 4903129
+         },
+         {
+            "data": 18,
+            "hits": 4585458
+         },
+         {
+            "data": 19,
+            "hits": 4688693
+         },
+         {
+            "data": 20,
+            "hits": 4715749
+         },
+         {
+            "data": 21,
+            "hits": 4765290
+         },
+         {
+            "data": 22,
+            "hits": 4706465
+         },
+         {
+            "data": 23,
+            "hits": 4581352
+         }
+      ],
+      "http_status": [
+         {
+            "data": 200,
+            "hits": 104096316
+         },
+         {
+            "data": 206,
+            "hits": 53
+         },
+         {
+            "data": 301,
+            "hits": 1
+         },
+         {
+            "data": 304,
+            "hits": 471
+         },
+         {
+            "data": 400,
+            "hits": 262216
+         },
+         {
+            "data": 403,
+            "hits": 17
+         },
+         {
+            "data": 404,
+            "hits": 79191
+         },
+         {
+            "data": 405,
+            "hits": 10
+         },
+         {
+            "data": 408,
+            "hits": 3
+         },
+         {
+            "data": 416,
+            "hits": 2
+         },
+         {
+            "data": 499,
+            "hits": 208008
+         }
+      ],
+      "methods": [
+         {
+            "data": "OPTIONS",
+            "hits": 171
+         },
+         {
+            "data": "GET",
+            "hits": 104497302
+         },
+         {
+            "data": "HEAD",
+            "hits": 11532
+         },
+         {
+            "data": "POST",
+            "hits": 137293
+         },
+         {
+            "data": "PUT",
+            "hits": 4
+         }
+      ],
+      "protocols": [
+         {
+            "data": "HTTP/1.0",
+            "hits": 11935368
+         },
+         {
+            "data": "HTTP/1.1",
+            "hits": 92710920
+         }
+      ]
+   }
+}
