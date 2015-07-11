@@ -56,6 +56,7 @@ Logswan uses the `CMake` build system and requires `GeoIP` and `Jansson` librari
 ## Installing dependencies
 
 - OpenBSD : `pkg_add -r cmake GeoIP jansson`
+- NetBSD : `pkgin install cmake GeoIP jansson`
 - Mac OS X : `brew install cmake geoip jansson`
 - Linux (Debian / Ubuntu): `apt-get install cmake libgeoip-dev libjansson-dev`
 
