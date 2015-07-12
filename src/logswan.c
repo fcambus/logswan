@@ -220,5 +220,8 @@ int main (int argc, char *argv[]) {
 	printf("Created file : %s\n", outputFile);
 	fclose(jsonFile);
 
+	GeoIP_delete(geoip);
+	GeoIP_delete(geoipv6);
+
 	return EXIT_SUCCESS;
 }
