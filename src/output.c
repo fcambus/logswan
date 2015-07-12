@@ -44,7 +44,7 @@ char *output(Results results) {
 
 	for (int loop=0; loop<255; loop++) {
 		if (results.countries[loop]) {
-			json_array_append_new(countriesArray, json_pack("{s:s, s:i}", "data", GeoIP_code_by_id(loop), "hits", results.countries[loop]));
+			json_array_append_new(countriesArray, json_pack("{s:s, s:s, s:i}", "data", GeoIP_code_by_id(loop), "name", GeoIP_name_by_id(loop), "hits", results.countries[loop]));
 		}
 	}
 
