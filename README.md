@@ -43,7 +43,7 @@ Currently implemented features :
 - Counting number of hits (IPv4 and IPv6 hits)
 - Counting bandwidth used
 - Counting log file size
-- GeoIP lookups (IPv4 only for now)
+- GeoIP lookups (for both IPv4 and IPv6)
 - HTTP status codes distribution
 - Hourly hits distribution
 - Counting hits per protocol (HTTP/1.0 or HTTP/1.1)

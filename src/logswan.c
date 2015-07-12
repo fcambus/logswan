@@ -34,7 +34,7 @@
 #define VERSION "Logswan"
 #define LINE_MAX_LENGTH 4096
 
-GeoIP *geoip;
+GeoIP *geoip, *geoipv6;
 
 clock_t begin, end;
 
@@ -100,7 +100,8 @@ int main (int argc, char *argv[]) {
 
 	/* Initializing GeoIP */
 	geoip = GeoIP_open("GeoIP.dat", GEOIP_MEMORY_CACHE);
-
+    geoipv6 = GeoIP_open("GeoIPv6.dat", GEOIP_MEMORY_CACHE);
+ 
 	/* Get log file size */
 	stat(argv[1], &logFileSize);
 	results.fileSize = (uint64_t)logFileSize.st_size;
@@ -138,6 +139,10 @@ int main (int argc, char *argv[]) {
 			/* Increment countries array */
 			if (geoip && isIPv4) {
 				results.countries[GeoIP_id_by_addr(geoip, parsedLine.remoteHost)]++;
+			}
+
+			if (geoipv6 && isIPv6) {
+				results.countries[GeoIP_id_by_addr_v6(geoipv6, parsedLine.remoteHost)]++;
 			}
 
 			/* Hourly distribution */
