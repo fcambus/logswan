@@ -37,8 +37,8 @@ struct request {
 	char *protocol;
 };
 
-void parseDate(struct date* parsedDate, char *date);
-void parseLine(struct logLine* parsedLine, char *lineBuffer);
-void parseRequest(struct request* parsedRequest, char *request);
+void parseDate(struct date*, char *);
+void parseLine(struct logLine*, char *);
+void parseRequest(struct request*, char *);
 
 #endif
