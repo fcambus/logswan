@@ -20,14 +20,15 @@ check_function_exists(strtonum HAVE_STRTONUM)
 find_library(LIB_GEOIP NAMES GeoIP REQUIRED)
 find_library(LIB_JANSSON NAMES jansson REQUIRED)
 
-set (SRC src/logswan.c src/output.c src/parse.c deps/murmur3.c)
+set (DEPS deps/hll/hll.c deps/MurmurHash3/MurmurHash3.c)
+set (SRC src/logswan.c src/output.c src/parse.c)
 
 if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)
 endif()
 
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
-add_executable(logswan ${SRC})
+add_executable(logswan ${SRC} ${DEPS})
 
 target_link_libraries(logswan ${LIB_GEOIP} ${LIB_JANSSON})
 
