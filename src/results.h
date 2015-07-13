@@ -24,6 +24,9 @@ struct results {
 	uint64_t hits;
 	uint64_t hitsIPv4;
 	uint64_t hitsIPv6;
+	uint64_t visits;
+	uint64_t visitsIPv4;
+	uint64_t visitsIPv6;
 	uint64_t countries[255];
 	uint64_t hours[24];
 	uint64_t httpStatus[STATUS_CODE_MAX];

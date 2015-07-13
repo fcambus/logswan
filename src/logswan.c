@@ -220,6 +220,10 @@ int main (int argc, char *argv[]) {
 		results.processedLines++;
 	}
 
+	/* Counting unique visitors */
+	results.visitsIPv4 = hll_count(&uniqueIPv4);
+	results.visitsIPv6 = hll_count(&uniqueIPv6);
+
 	/* Stopping timer */
 	end = clock();
 	results.runtime = (double)(end - begin) / CLOCKS_PER_SEC;
