@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/06/24                                                  */
+/* Last Updated: 2015/07/14                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -24,6 +24,8 @@
 #ifndef HAVE_STRTONUM
 #include "../compat/strtonum.h"
 #endif
+
+#include "../deps/hll/hll.h"
 
 #include <GeoIP.h>
 
@@ -60,7 +62,12 @@ const char *errstr;
 
 int getoptFlag;
 
+struct HLL uniqueIPv4, uniqueIPv6;
+
 int main (int argc, char *argv[]) {
+	hll_init(&uniqueIPv4, 20);
+	hll_init(&uniqueIPv6, 20);
+
 	char *methods[] = {
 		"OPTIONS",
 		"GET",
@@ -145,6 +152,15 @@ int main (int argc, char *argv[]) {
 				results.countries[GeoIP_id_by_addr_v6(geoipv6, parsedLine.remoteHost)]++;
 			}
 
+			/* Unique visitors */
+			if (isIPv4) {
+				hll_add(&uniqueIPv4, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
+			}
+
+			if (isIPv6) {
+				hll_add(&uniqueIPv6, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
+			}
+
 			/* Hourly distribution */
 			parseDate(&parsedDate, parsedLine.date);
 
@@ -222,6 +238,9 @@ int main (int argc, char *argv[]) {
 
 	GeoIP_delete(geoip);
 	GeoIP_delete(geoipv6);
+
+    hll_destroy(&uniqueIPv4);
+    hll_destroy(&uniqueIPv6);
 
 	return EXIT_SUCCESS;
 }
