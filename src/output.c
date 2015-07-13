@@ -14,6 +14,7 @@
 #include <GeoIP.h>
 #include <jansson.h>
 
+#include "logswan.h"
 #include "results.h"
 
 char *output(Results results) {
@@ -82,6 +83,7 @@ char *output(Results results) {
 	json_object_set_new(hitsObject, "protocols", protocolsArray);
 
 	json_object_set_new(jsonObject, "date", json_string(results.timeStamp));
+	json_object_set_new(jsonObject, "generator", json_string(VERSION));
 	json_object_set_new(jsonObject, "file_size", json_integer(results.fileSize));
 	json_object_set_new(jsonObject, "processed_lines", json_integer(results.processedLines));
 	json_object_set_new(jsonObject, "invalid_lines", json_integer(results.invalidLines));
