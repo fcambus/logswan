@@ -29,12 +29,10 @@
 
 #include <GeoIP.h>
 
+#include "logswan.h"
 #include "output.h"
 #include "parse.h"
 #include "results.h"
-
-#define VERSION "Logswan"
-#define LINE_MAX_LENGTH 4096
 
 GeoIP *geoip, *geoipv6;
 
