@@ -1,0 +1,4 @@
+- Antti Kiuru for the Logswan ASCII logo
+- Ted Unangst and Todd Miller for strtonum.c
+- Austin Appleby for the MurmurHash3 hash function
+- Artem Zaytsev for the HyperLogLog C library (https://github.com/avz/hll)
