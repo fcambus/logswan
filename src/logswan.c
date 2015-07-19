@@ -89,8 +89,8 @@ int main (int argc, char *argv[]) {
 
 	/* Initializing GeoIP */
 	geoip = GeoIP_open("GeoIP.dat", GEOIP_MEMORY_CACHE);
-    geoipv6 = GeoIP_open("GeoIPv6.dat", GEOIP_MEMORY_CACHE);
- 
+	geoipv6 = GeoIP_open("GeoIPv6.dat", GEOIP_MEMORY_CACHE);
+
 	/* Get log file size */
 	stat(argv[1], &logFileSize);
 	results.fileSize = (uint64_t)logFileSize.st_size;
@@ -155,7 +155,7 @@ int main (int argc, char *argv[]) {
 			}
 
 			/* Parse request */
-			parseRequest(&parsedRequest, parsedLine.resource);					
+			parseRequest(&parsedRequest, parsedLine.resource);
 
 			for (int loop = 0; loop<9; loop++) {
 				if (!strcmp(methods[loop], parsedRequest.method)) {
@@ -225,8 +225,8 @@ int main (int argc, char *argv[]) {
 	GeoIP_delete(geoip);
 	GeoIP_delete(geoipv6);
 
-    hll_destroy(&uniqueIPv4);
-    hll_destroy(&uniqueIPv6);
+	hll_destroy(&uniqueIPv4);
+	hll_destroy(&uniqueIPv6);
 
 	return EXIT_SUCCESS;
 }
