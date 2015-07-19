@@ -17,4 +17,4 @@
 extern char *methods[];
 extern char *protocols[];
 
-#endif
+#endif /* DEFINITIONS_H */

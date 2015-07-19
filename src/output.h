@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/06/24                                                  */
+/* Last Updated: 2015/07/19                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -18,4 +18,4 @@
 
 char *output(Results);
 
-#endif
+#endif /* OUTPUT_H */
