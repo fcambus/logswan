@@ -21,7 +21,7 @@ find_library(LIB_GEOIP NAMES GeoIP REQUIRED)
 find_library(LIB_JANSSON NAMES jansson REQUIRED)
 
 set (DEPS deps/hll/hll.c deps/MurmurHash3/MurmurHash3.c)
-set (SRC src/logswan.c src/output.c src/parse.c)
+set (SRC src/logswan.c src/definitions.c src/output.c src/parse.c)
 
 if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)

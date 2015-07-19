@@ -15,26 +15,10 @@
 #include <jansson.h>
 
 #include "logswan.h"
+#include "definitions.h"
 #include "results.h"
 
 char *output(Results results) {
-	char *methods[] = {
-		"OPTIONS",
-		"GET",
-		"HEAD",
-		"POST",
-		"PUT",
-		"DELETE",
-		"TRACE",
-		"CONNECT",
-		"PATCH"
-	};
-
-	char *protocols[] = { 
-		"HTTP/1.0",
-		"HTTP/1.1"
-	};
-
 	json_t *jsonObject = json_object();
 	json_t *hitsObject = json_object();
 	json_t *countriesArray = json_array();

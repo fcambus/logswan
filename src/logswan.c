@@ -30,6 +30,7 @@
 #include <GeoIP.h>
 
 #include "logswan.h"
+#include "definitions.h"
 #include "output.h"
 #include "parse.h"
 #include "results.h"
@@ -65,23 +66,6 @@ struct HLL uniqueIPv4, uniqueIPv6;
 int main (int argc, char *argv[]) {
 	hll_init(&uniqueIPv4, 20);
 	hll_init(&uniqueIPv6, 20);
-
-	char *methods[] = {
-		"OPTIONS",
-		"GET",
-		"HEAD",
-		"POST",
-		"PUT",
-		"DELETE",
-		"TRACE",
-		"CONNECT",
-		"PATCH"
-	};
-
-	char *protocols[] = { 
-		"HTTP/1.0",
-		"HTTP/1.1"
-	};
 
 	printf("-------------------------------------------------------------------------------\n" \
 	       "                      Logswan (c) by Frederic Cambus 2015                      \n" \
