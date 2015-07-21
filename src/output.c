@@ -21,6 +21,7 @@
 char *output(Results results) {
 	json_t *jsonObject = json_object();
 	json_t *hitsObject = json_object();
+	json_t *visitsObject = json_object();
 	json_t *countriesArray = json_array();
 	json_t *hoursArray = json_array();
 	json_t *httpStatusArray = json_array();
@@ -66,6 +67,10 @@ char *output(Results results) {
 	json_object_set_new(hitsObject, "methods", methodsArray);
 	json_object_set_new(hitsObject, "protocols", protocolsArray);
 
+	json_object_set_new(visitsObject, "ipv4", json_integer(results.visitsIPv4));
+	json_object_set_new(visitsObject, "ipv6", json_integer(results.visitsIPv6));
+	json_object_set_new(visitsObject, "total", json_integer(results.visitsIPv4 + results.visitsIPv6));
+
 	json_object_set_new(jsonObject, "date", json_string(results.timeStamp));
 	json_object_set_new(jsonObject, "generator", json_string(VERSION));
 	json_object_set_new(jsonObject, "file_size", json_integer(results.fileSize));
@@ -74,6 +79,7 @@ char *output(Results results) {
 	json_object_set_new(jsonObject, "bandwidth", json_integer(results.bandwidth));
 	json_object_set_new(jsonObject, "runtime", json_real(results.runtime));
 	json_object_set_new(jsonObject, "hits", hitsObject);
+	json_object_set_new(jsonObject, "visits", visitsObject);
 
 	return json_dumps(jsonObject, JSON_INDENT(3) | JSON_PRESERVE_ORDER);
 }
