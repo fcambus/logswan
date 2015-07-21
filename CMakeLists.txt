@@ -30,6 +30,6 @@ endif()
 add_definitions(-Wall -Werror -std=c99 -pedantic)
 add_executable(logswan ${SRC} ${DEPS})
 
-target_link_libraries(logswan ${LIB_GEOIP} ${LIB_JANSSON})
+target_link_libraries(logswan ${LIB_GEOIP} ${LIB_JANSSON} m)
 
 install(TARGETS logswan DESTINATION bin)
