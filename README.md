@@ -48,6 +48,7 @@ Currently implemented features :
 - Hourly hits distribution
 - Counting hits per protocol (HTTP/1.0 or HTTP/1.1)
 - Counting hits per HTTP Method
+- Counting unique IP addresses (for both IPv4 and IPv6)
 
 ## Dependencies
 
