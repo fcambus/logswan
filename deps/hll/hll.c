@@ -128,7 +128,7 @@ int hll_load(struct HLL *hll, const void *registers, size_t size) {
 		s >>= 1;
 	}
 
-	if(!bits || (1 << bits) != size) {
+	if(!bits || ((size_t)1 << bits) != size) {
 		errno = EINVAL;
 		return -1;
 	}
