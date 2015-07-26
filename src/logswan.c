@@ -84,6 +84,9 @@ int main (int argc, char *argv[]) {
 		}
 	}
 
+	argc -= optind; 
+	argv += optind;
+
 	if (!intputFile) {
 		printf("ERROR : No input file specified.\n");
 		return EXIT_FAILURE;
