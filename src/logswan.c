@@ -79,7 +79,7 @@ int main (int argc, char *argv[]) {
 	while ((getoptFlag = getopt(argc, argv, "v")) != -1) {
 		switch(getoptFlag) {
 		case 'v':
-			printf(VERSION);
+			printf("%s\n", VERSION);
 			return 0;
 		}
 	}
