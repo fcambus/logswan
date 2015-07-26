@@ -64,6 +64,8 @@ int getoptFlag;
 struct HLL uniqueIPv4, uniqueIPv6;
 
 int main (int argc, char *argv[]) {
+	char *intputFile;
+
 	hll_init(&uniqueIPv4, 20);
 	hll_init(&uniqueIPv6, 20);
 
@@ -71,17 +73,20 @@ int main (int argc, char *argv[]) {
 	       "                      Logswan (c) by Frederic Cambus 2015                      \n" \
 	       "-------------------------------------------------------------------------------\n\n");
 
-	if (argc != 2) {
-		printf("ERROR : No input file specified.\n");
-		return EXIT_FAILURE;
-	}
-
-	while ((getoptFlag = getopt(argc, argv, "v")) != -1) {
+	while ((getoptFlag = getopt(argc, argv, "i:v")) != -1) {
 		switch(getoptFlag) {
+		case 'i':
+			intputFile = optarg;
+			break;
 		case 'v':
 			printf("%s\n", VERSION);
 			return 0;
 		}
+	}
+
+	if (!intputFile) {
+		printf("ERROR : No input file specified.\n");
+		return EXIT_FAILURE;
 	}
 
 	/* Starting timer */
@@ -92,21 +97,21 @@ int main (int argc, char *argv[]) {
 	geoipv6 = GeoIP_open("GeoIPv6.dat", GEOIP_MEMORY_CACHE);
 
 	/* Get log file size */
-	stat(argv[1], &logFileSize);
+	stat(intputFile, &logFileSize);
 	results.fileSize = (uint64_t)logFileSize.st_size;
 
-	printf("Processing file : %s\n\n", argv[1]);
+	printf("Processing file : %s\n\n", intputFile);
 
-	logFile = fopen(argv[1], "r");
+	logFile = fopen(intputFile, "r");
 	if (!logFile) {
 		perror("Can't open log file");
 		return EXIT_FAILURE;
 	}
 
 	/* Create output file */
-	int outputLen = strlen(argv[1]) + 6;
+	int outputLen = strlen(intputFile) + 6;
 	char *outputFile = malloc(outputLen);
-	snprintf(outputFile, outputLen, "%s%s", argv[1], ".json");
+	snprintf(outputFile, outputLen, "%s%s", intputFile, ".json");
 
 	jsonFile = fopen(outputFile, "w");
 	if (!jsonFile) {
