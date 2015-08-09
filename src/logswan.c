@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/07/19                                                  */
+/* Last Updated: 2015/08/09                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -105,8 +105,7 @@ int main (int argc, char *argv[]) {
 
 	printf("Processing file : %s\n\n", intputFile);
 
-	logFile = fopen(intputFile, "r");
-	if (!logFile) {
+	if (!(logFile = fopen(intputFile, "r"))) {
 		perror("Can't open log file");
 		return EXIT_FAILURE;
 	}
@@ -116,8 +115,7 @@ int main (int argc, char *argv[]) {
 	char *outputFile = malloc(outputLen);
 	snprintf(outputFile, outputLen, "%s%s", intputFile, ".json");
 
-	jsonFile = fopen(outputFile, "w");
-	if (!jsonFile) {
+	if (!(jsonFile = fopen(outputFile, "w"))) {
 		perror("Can't create output file");
 		return EXIT_FAILURE;
 	}
