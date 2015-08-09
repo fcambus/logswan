@@ -80,7 +80,7 @@ int main (int argc, char *argv[]) {
 			break;
 		case 'v':
 			printf("%s\n", VERSION);
-			return 0;
+			return EXIT_SUCCESS;
 		}
 	}
 
