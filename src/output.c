@@ -74,12 +74,12 @@ char *output(Results results) {
 	json_object_set_new(jsonObject, "bandwidth", json_integer(results.bandwidth));
 	json_object_set_new(jsonObject, "runtime", json_real(results.runtime));
 	json_object_set_new(jsonObject, "hits", hitsObject);
+	json_object_set_new(jsonObject, "visits", visitsObject);
 	json_object_set_new(jsonObject, "countries", countriesArray);
 	json_object_set_new(jsonObject, "hours", hoursArray);
-	json_object_set_new(jsonObject, "status", httpStatusArray);
 	json_object_set_new(jsonObject, "methods", methodsArray);
 	json_object_set_new(jsonObject, "protocols", protocolsArray);
-	json_object_set_new(jsonObject, "visits", visitsObject);
+	json_object_set_new(jsonObject, "status", httpStatusArray);
 
 	return json_dumps(jsonObject, JSON_INDENT(3) | JSON_PRESERVE_ORDER);
 }
