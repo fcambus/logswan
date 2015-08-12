@@ -1,15 +1,20 @@
 {
-   "date": "2015-08-12 18:59:56",
+   "date": "2015-08-12 19:11:49",
    "generator": "Logswan",
    "file_size": 21510440139,
    "processed_lines": 104646437,
    "invalid_lines": 111,
    "bandwidth": 32862130502,
-   "runtime": 217.84287800000001,
+   "runtime": 215.27956,
    "hits": {
       "ipv4": 96550189,
       "ipv6": 8096137,
       "total": 104646326
+   },
+   "visits": {
+      "ipv4": 8506183,
+      "ipv6": 1201380,
+      "total": 9707563
    },
    "countries": [
       {
@@ -1316,6 +1321,38 @@
          "hits": 4581352
       }
    ],
+   "methods": [
+      {
+         "data": "OPTIONS",
+         "hits": 171
+      },
+      {
+         "data": "GET",
+         "hits": 104497302
+      },
+      {
+         "data": "HEAD",
+         "hits": 11532
+      },
+      {
+         "data": "POST",
+         "hits": 137293
+      },
+      {
+         "data": "PUT",
+         "hits": 4
+      }
+   ],
+   "protocols": [
+      {
+         "data": "HTTP/1.0",
+         "hits": 11935368
+      },
+      {
+         "data": "HTTP/1.1",
+         "hits": 92710920
+      }
+   ],
    "status": [
       {
          "data": 200,
@@ -1361,42 +1398,5 @@
          "data": 499,
          "hits": 208008
       }
-   ],
-   "methods": [
-      {
-         "data": "OPTIONS",
-         "hits": 171
-      },
-      {
-         "data": "GET",
-         "hits": 104497302
-      },
-      {
-         "data": "HEAD",
-         "hits": 11532
-      },
-      {
-         "data": "POST",
-         "hits": 137293
-      },
-      {
-         "data": "PUT",
-         "hits": 4
-      }
-   ],
-   "protocols": [
-      {
-         "data": "HTTP/1.0",
-         "hits": 11935368
-      },
-      {
-         "data": "HTTP/1.1",
-         "hits": 92710920
-      }
-   ],
-   "visits": {
-      "ipv4": 8506183,
-      "ipv6": 1201380,
-      "total": 9707563
-   }
+   ]
 }
