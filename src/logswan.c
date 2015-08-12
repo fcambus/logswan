@@ -211,6 +211,7 @@ int main (int argc, char *argv[]) {
 	/* Counting unique visitors */
 	results.visitsIPv4 = hll_count(&uniqueIPv4);
 	results.visitsIPv6 = hll_count(&uniqueIPv6);
+	results.visits = results.visitsIPv4 + results.visitsIPv6;
 
 	/* Stopping timer */
 	end = clock();

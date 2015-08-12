@@ -64,7 +64,7 @@ char *output(Results results) {
 
 	json_object_set_new(visitsObject, "ipv4", json_integer(results.visitsIPv4));
 	json_object_set_new(visitsObject, "ipv6", json_integer(results.visitsIPv6));
-	json_object_set_new(visitsObject, "total", json_integer(results.visitsIPv4 + results.visitsIPv6));
+	json_object_set_new(visitsObject, "total", json_integer(results.visits));
 
 	json_object_set_new(jsonObject, "date", json_string(results.timeStamp));
 	json_object_set_new(jsonObject, "generator", json_string(VERSION));
