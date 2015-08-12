@@ -29,7 +29,7 @@ struct results {
 	uint64_t visitsIPv6;
 	uint64_t countries[255];
 	uint64_t hours[24];
-	uint64_t httpStatus[STATUS_CODE_MAX];
+	uint64_t status[STATUS_CODE_MAX];
 	double runtime;
 	char timeStamp[20];
 	uint64_t protocols[2];

@@ -41,8 +41,8 @@ char *output(Results results) {
 	}
 
 	for (int loop=0; loop<512; loop++) {
-		if (results.httpStatus[loop]) {
-			json_array_append_new(httpStatusArray, json_pack("{s:i, s:i}", "data", loop, "hits", results.httpStatus[loop]));
+		if (results.status[loop]) {
+			json_array_append_new(httpStatusArray, json_pack("{s:i, s:i}", "data", loop, "hits", results.status[loop]));
 		}
 	}
 
@@ -76,7 +76,7 @@ char *output(Results results) {
 	json_object_set_new(jsonObject, "hits", hitsObject);
 	json_object_set_new(jsonObject, "countries", countriesArray);
 	json_object_set_new(jsonObject, "hours", hoursArray);
-	json_object_set_new(jsonObject, "http_status", httpStatusArray);
+	json_object_set_new(jsonObject, "status", httpStatusArray);
 	json_object_set_new(jsonObject, "methods", methodsArray);
 	json_object_set_new(jsonObject, "protocols", protocolsArray);
 	json_object_set_new(jsonObject, "visits", visitsObject);

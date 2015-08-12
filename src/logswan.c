@@ -181,7 +181,7 @@ int main (int argc, char *argv[]) {
 				statusCode = strtonum(parsedLine.statusCode, 0, STATUS_CODE_MAX-1, &errstr);
 
 				if (!errstr) {
-					results.httpStatus[statusCode] ++;
+					results.status[statusCode] ++;
 				}
 			}
 
