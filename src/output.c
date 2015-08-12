@@ -61,11 +61,6 @@ char *output(Results results) {
 	json_object_set_new(hitsObject, "ipv4", json_integer(results.hitsIPv4));
 	json_object_set_new(hitsObject, "ipv6", json_integer(results.hitsIPv6));
 	json_object_set_new(hitsObject, "total", json_integer(results.hits));
-	json_object_set_new(hitsObject, "countries", countriesArray);
-	json_object_set_new(hitsObject, "hours", hoursArray);
-	json_object_set_new(hitsObject, "http_status", httpStatusArray);
-	json_object_set_new(hitsObject, "methods", methodsArray);
-	json_object_set_new(hitsObject, "protocols", protocolsArray);
 
 	json_object_set_new(visitsObject, "ipv4", json_integer(results.visitsIPv4));
 	json_object_set_new(visitsObject, "ipv6", json_integer(results.visitsIPv6));
@@ -79,6 +74,11 @@ char *output(Results results) {
 	json_object_set_new(jsonObject, "bandwidth", json_integer(results.bandwidth));
 	json_object_set_new(jsonObject, "runtime", json_real(results.runtime));
 	json_object_set_new(jsonObject, "hits", hitsObject);
+	json_object_set_new(jsonObject, "countries", countriesArray);
+	json_object_set_new(jsonObject, "hours", hoursArray);
+	json_object_set_new(jsonObject, "http_status", httpStatusArray);
+	json_object_set_new(jsonObject, "methods", methodsArray);
+	json_object_set_new(jsonObject, "protocols", protocolsArray);
 	json_object_set_new(jsonObject, "visits", visitsObject);
 
 	return json_dumps(jsonObject, JSON_INDENT(3) | JSON_PRESERVE_ORDER);
