@@ -73,24 +73,18 @@ int main (int argc, char *argv[]) {
 	       "                      Logswan (c) by Frederic Cambus 2015                      \n" \
 	       "-------------------------------------------------------------------------------\n\n");
 
-	while ((getoptFlag = getopt(argc, argv, "i:v")) != -1) {
+	while ((getoptFlag = getopt(argc, argv, "v")) != -1) {
 		switch(getoptFlag) {
-		case 'i':
-			intputFile = optarg;
-			break;
 		case 'v':
 			printf("%s\n", VERSION);
 			return EXIT_SUCCESS;
 		}
 	}
+    
+	intputFile = argv[optind];
 
 	argc -= optind; 
 	argv += optind;
-
-	if (!intputFile) {
-		printf("ERROR : No input file specified.\n");
-		return EXIT_FAILURE;
-	}
 
 	/* Starting timer */
 	begin = clock();
