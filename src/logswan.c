@@ -97,8 +97,8 @@ int main (int argc, char *argv[]) {
 	begin = clock();
 
 	/* Initializing GeoIP */
-	geoip = GeoIP_open("GeoIP.dat", GEOIP_MEMORY_CACHE);
-	geoipv6 = GeoIP_open("GeoIPv6.dat", GEOIP_MEMORY_CACHE);
+	geoip = GeoIP_open("/usr/local/share/GeoIP/GeoIP.dat", GEOIP_MEMORY_CACHE);
+	geoipv6 = GeoIP_open("/usr/local/share/GeoIP/GeoIPv6.dat", GEOIP_MEMORY_CACHE);
 
 	/* Get log file size */
 	stat(intputFile, &logFileSize);
