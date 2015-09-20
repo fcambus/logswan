@@ -67,6 +67,8 @@ Logswan uses the `CMake` build system and requires `GeoIP` and `Jansson` librari
 	cmake .
 	make
 
+Logswan has been sucessfully compiled and tested on Mac OS X, OpenBSD, NetBSD, and Linux with both Clang and GCC.
+
 ## Usage 
 
 Logswan takes the input log file as parameter :
