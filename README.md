@@ -71,6 +71,26 @@ Logswan uses the `CMake` build system and requires `GeoIP` and `Jansson` librari
 
 Logswan has been sucessfully compiled and tested on Mac OS X, OpenBSD, NetBSD, and Linux with both Clang and GCC.
 
+### GeoIP databases
+
+Logswan requires the free GeoLite databases to be installed in `/usr/local/share/GeoIP`.
+Files can be downloaded here : http://dev.maxmind.com/geoip/legacy/geolite/
+
+#### For IPv4 support only :
+
+  mkdir -p /usr/local/share/GeoIP
+  cd /usr/local/share/GeoIP
+  wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+  gunzip *gz
+
+#### For IPv4 and IPv6 support :
+
+  mkdir -p /usr/local/share/GeoIP
+  cd /usr/local/share/GeoIP
+  wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+  wget http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
+  gunzip *gz
+
 ## Usage 
 
 Logswan takes the input log file as parameter :
