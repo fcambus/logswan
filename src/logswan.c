@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/08/09                                                  */
+/* Last Updated: 2015/09/20                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -73,10 +73,17 @@ int main (int argc, char *argv[]) {
 	       "                      Logswan (c) by Frederic Cambus 2015                      \n" \
 	       "-------------------------------------------------------------------------------\n\n");
 
-	while ((getoptFlag = getopt(argc, argv, "v")) != -1) {
+	while ((getoptFlag = getopt(argc, argv, "hv")) != -1) {
 		switch(getoptFlag) {
+		case 'h':
+			printf("USAGE : logswan [-hv] logfile\n\n" \
+				   "Options are as follow :\n\n" \
+				   "	-h Display usage\n" \
+	               "	-v Display version\n\n");
+			return EXIT_SUCCESS;
+
 		case 'v':
-			printf("%s\n", VERSION);
+			printf("%s\n\n", VERSION);
 			return EXIT_SUCCESS;
 		}
 	}
