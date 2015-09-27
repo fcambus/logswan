@@ -91,10 +91,15 @@ int main (int argc, char *argv[]) {
 			return EXIT_SUCCESS;
 		}
 	}
-    
-	intputFile = argv[optind];
 
-	argc -= optind; 
+	if (optind < argc) {
+		intputFile = argv[optind];
+	} else {
+		displayUsage();
+		return EXIT_SUCCESS;
+	}
+
+	argc -= optind;
 	argv += optind;
 
 	/* Starting timer */
