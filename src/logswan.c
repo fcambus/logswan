@@ -63,6 +63,13 @@ int getoptFlag;
 
 struct HLL uniqueIPv4, uniqueIPv6;
 
+void displayUsage() {
+	printf("USAGE : logswan [options] inputfile\n\n" \
+	       "Options are :\n\n" \
+	       "	-h Display usage\n" \
+	       "	-v Display version\n\n");
+}
+
 int main (int argc, char *argv[]) {
 	char *intputFile;
 
@@ -76,10 +83,7 @@ int main (int argc, char *argv[]) {
 	while ((getoptFlag = getopt(argc, argv, "hv")) != -1) {
 		switch(getoptFlag) {
 		case 'h':
-			printf("USAGE : logswan [-hv] logfile\n\n" \
-				   "Options are as follow :\n\n" \
-				   "	-h Display usage\n" \
-	               "	-v Display version\n\n");
+			displayUsage();
 			return EXIT_SUCCESS;
 
 		case 'v':
