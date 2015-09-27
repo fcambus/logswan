@@ -93,9 +93,12 @@ Files can be downloaded here : http://dev.maxmind.com/geoip/legacy/geolite/
 
 ## Usage 
 
-Logswan takes the input log file as parameter :
+	USAGE : logswan [options] inputfile
 
-	logswan inputfile
+Options are :
+
+	-h Display usage
+	-v Display version
 
 ## License
 
@@ -109,5 +112,7 @@ Logswan is developed by Frederic Cambus
 - Twitter: http://twitter.com/fcambus
 
 ## Resources
+
+Project Homepage : http://www.logswan.org
 
 GitHub : https://github.com/fcambus/logswan
