@@ -1,10 +1,10 @@
 /*****************************************************************************/
 /*                                                                           */
-/* Logswan (c) by Frederic Cambus 2015                                       */
+/* Logswan 1.00 (c) by Frederic Cambus 2015                                  */
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/09/20                                                  */
+/* Last Updated: 2015/09/28                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -77,7 +77,7 @@ int main (int argc, char *argv[]) {
 	hll_init(&uniqueIPv6, 20);
 
 	printf("-------------------------------------------------------------------------------\n" \
-	       "                      Logswan (c) by Frederic Cambus 2015                      \n" \
+	       "                    Logswan 1.00 (c) by Frederic Cambus 2015                   \n" \
 	       "-------------------------------------------------------------------------------\n\n");
 
 	while ((getoptFlag = getopt(argc, argv, "hv")) != -1) {
