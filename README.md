@@ -28,7 +28,9 @@
 ```
 # Logswan
 
-Logswan is a Web log analyzer using probabilistic data structures. It is targeted at very large log files, typically APIs logs. It has constant memory usage regardless of the log file size.
+Logswan is a Web log analyzer using probabilistic data structures. It is targeted at very large log files, typically APIs logs. It has constant memory usage regardless of the log file size, and takes approximatively 4MB of RAM.
+
+Unique visitors counting is performed using two HyperLogLog counters (one for IPv4, and another one for IPv6), providing a relative accuracy of 0.10%.
 
 Project design goals include : speed, memory-usage efficiency, and keeping the code as simple as possible.
 
@@ -50,7 +52,7 @@ Currently implemented features :
 - Hourly hits distribution
 - Counting hits per protocol (HTTP/1.0 or HTTP/1.1)
 - Counting hits per HTTP Method
-- Counting unique IP addresses (for both IPv4 and IPv6)
+- Counting visits (unique IP addresses for both IPv4 and IPv6)
 
 ## Dependencies
 
@@ -78,18 +80,18 @@ Files can be downloaded here : http://dev.maxmind.com/geoip/legacy/geolite/
 
 #### For IPv4 support only :
 
-  mkdir -p /usr/local/share/GeoIP
-  cd /usr/local/share/GeoIP
-  wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
-  gunzip *gz
+	mkdir -p /usr/local/share/GeoIP
+	cd /usr/local/share/GeoIP
+	wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+	gunzip *gz
 
 #### For IPv4 and IPv6 support :
 
-  mkdir -p /usr/local/share/GeoIP
-  cd /usr/local/share/GeoIP
-  wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
-  wget http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
-  gunzip *gz
+	mkdir -p /usr/local/share/GeoIP
+	cd /usr/local/share/GeoIP
+	wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+	wget http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
+	gunzip *gz
 
 ## Usage 
 
