@@ -173,18 +173,21 @@ int main (int argc, char *argv[]) {
 			/* Parse request */
 			parseRequest(&parsedRequest, parsedLine.resource);
 
-			for (int loop = 0; loop<9; loop++) {
-				if (!strcmp(methods[loop], parsedRequest.method)) {
-					results.methods[loop] ++;
+			if (parsedRequest.method) {
+				for (int loop = 0; loop<9; loop++) {
+					if (!strcmp(methods[loop], parsedRequest.method)) {
+						results.methods[loop] ++;
+					}
 				}
 			}
 
-			for (int loop = 0; loop<2; loop++) {
-				if (!strcmp(protocols[loop], parsedRequest.protocol)) {
-					results.protocols[loop] ++;
+			if (parsedRequest.protocol) {
+				for (int loop = 0; loop<2; loop++) {
+					if (!strcmp(protocols[loop], parsedRequest.protocol)) {
+						results.protocols[loop] ++;
+					}
 				}
 			}
-
 
 			/* Count HTTP status codes occurences */
 			if (parsedLine.statusCode) {
