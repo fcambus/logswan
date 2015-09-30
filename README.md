@@ -73,6 +73,14 @@ Logswan uses the `CMake` build system and requires `GeoIP` and `Jansson` librari
 
 Logswan has been sucessfully compiled and tested on Mac OS X, OpenBSD, NetBSD, and Linux with both Clang and GCC.
 
+## Installation
+
+Logswan packages are available for :
+
+### Pkgsrc (NetBSD, SmartOS, Mac OS X, etc.)
+
+  pkgin install logswan
+
 ### GeoIP databases
 
 Logswan requires the free GeoLite databases to be installed in `/usr/local/share/GeoIP`.
