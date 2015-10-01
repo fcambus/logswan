@@ -1,0 +1,11 @@
+Logswan 1.01 (2015-10-01)
+
+- Documentation updates
+- Fixing segfault when request data is empty or malformed (Thanks Jonathan
+  Armani for reporting and proposing a fix)
+
+
+
+Logswan 1.00 (2015-09-28)
+
+- Initial release
