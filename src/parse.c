@@ -49,6 +49,10 @@ void parseLine(struct logLine* parsedLine, char *lineBuffer) {
 }
 
 void parseRequest(struct request* parsedRequest, char *request) {
-	parsedRequest->protocol = strrchr(request, ' ') + 1;
-	parsedRequest->method = strtok(request, " ");
+	char *pch = strrchr(request, ' ');
+
+	if (pch) {
+		parsedRequest->protocol = pch + 1;
+		parsedRequest->method = strtok(request, " ");
+	}
 }
