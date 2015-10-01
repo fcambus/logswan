@@ -79,7 +79,7 @@ Logswan packages are available for :
 
 ### Pkgsrc (NetBSD, SmartOS, Mac OS X, etc.)
 
-  pkgin install logswan
+	pkgin install logswan
 
 ### GeoIP databases
 
