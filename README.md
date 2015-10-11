@@ -90,15 +90,15 @@ Files can be downloaded here : http://dev.maxmind.com/geoip/legacy/geolite/
 
 	mkdir -p /usr/local/share/GeoIP
 	cd /usr/local/share/GeoIP
-	wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+	wget https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
 	gunzip *gz
 
 #### For IPv4 and IPv6 support :
 
 	mkdir -p /usr/local/share/GeoIP
 	cd /usr/local/share/GeoIP
-	wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
-	wget http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
+	wget https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+	wget https://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
 	gunzip *gz
 
 ## Usage 
