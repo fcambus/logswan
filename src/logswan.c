@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/10/01                                                  */
+/* Last Updated: 2015/11/01                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -160,13 +160,15 @@ int main (int argc, char *argv[]) {
 			}
 
 			/* Hourly distribution */
-			parseDate(&parsedDate, parsedLine.date);
+			if (parsedLine.date) {
+				parseDate(&parsedDate, parsedLine.date);
 
-			if (parsedDate.hour) {
-				hour = strtonum(parsedDate.hour, 0, 23, &errstr);
+				if (parsedDate.hour) {
+					hour = strtonum(parsedDate.hour, 0, 23, &errstr);
 
-				if (!errstr) {
-					results.hours[hour] ++;
+					if (!errstr) {
+						results.hours[hour] ++;
+					}
 				}
 			}
 
