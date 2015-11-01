@@ -171,7 +171,7 @@ int main (int argc, char *argv[]) {
 			}
 
 			/* Parse request */
-			parseRequest(&parsedRequest, parsedLine.resource);
+			parseRequest(&parsedRequest, parsedLine.request);
 
 			if (parsedRequest.method) {
 				for (int loop = 0; loop<9; loop++) {

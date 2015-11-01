@@ -39,7 +39,7 @@ void parseLine(struct logLine* parsedLine, char *lineBuffer) {
 
 	/* Requested resource */
 	strtok(NULL, "\"");
-	parsedLine->resource = strtok(NULL, "\"");
+	parsedLine->request = strtok(NULL, "\"");
 
 	/* HTTP status codes */
 	parsedLine->statusCode = strtok(NULL, " ");

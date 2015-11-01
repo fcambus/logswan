@@ -26,7 +26,7 @@ struct date {
 struct logLine {
 	char *remoteHost;
 	char *date;
-	char *resource;
+	char *request;
 	char *statusCode;
 	char *objectSize;
 };
