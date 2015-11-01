@@ -173,20 +173,22 @@ int main (int argc, char *argv[]) {
 			}
 
 			/* Parse request */
-			parseRequest(&parsedRequest, parsedLine.request);
+			if (parsedLine.request) {
+				parseRequest(&parsedRequest, parsedLine.request);
 
-			if (parsedRequest.method) {
-				for (int loop = 0; loop<9; loop++) {
-					if (!strcmp(methods[loop], parsedRequest.method)) {
-						results.methods[loop] ++;
+				if (parsedRequest.method) {
+					for (int loop = 0; loop<9; loop++) {
+						if (!strcmp(methods[loop], parsedRequest.method)) {
+							results.methods[loop] ++;
+						}
 					}
 				}
-			}
 
-			if (parsedRequest.protocol) {
-				for (int loop = 0; loop<2; loop++) {
-					if (!strcmp(protocols[loop], parsedRequest.protocol)) {
-						results.protocols[loop] ++;
+				if (parsedRequest.protocol) {
+					for (int loop = 0; loop<2; loop++) {
+						if (!strcmp(protocols[loop], parsedRequest.protocol)) {
+							results.protocols[loop] ++;
+						}
 					}
 				}
 			}
