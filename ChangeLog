@@ -1,3 +1,12 @@
+Logswan 1.02 (2015-11-02)
+
+- Renaming 'resource' variable to 'request' in the 'logLine' struct
+- Do not attempt to parse empty date tokens
+- Do not attempt to parse empty request tokens (Thanks Brian Carpenter for
+reporting the issue)
+
+
+
 Logswan 1.01 (2015-10-01)
 
 - Documentation updates
