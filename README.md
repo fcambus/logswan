@@ -77,6 +77,10 @@ Logswan has been sucessfully compiled and tested on Mac OS X, OpenBSD, NetBSD, a
 
 Logswan packages are available for :
 
+### OpenBSD
+
+	pkg_add logswan
+
 ### Pkgsrc (NetBSD, SmartOS, Mac OS X, etc.)
 
 	pkgin install logswan
