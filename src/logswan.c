@@ -55,7 +55,7 @@ int statusCode;
 int hour;
 
 struct stat logFileSize;
-FILE *logFile, *jsonFile;
+FILE *logFile;
 
 const char *errstr;
 
@@ -111,16 +111,6 @@ int main (int argc, char *argv[]) {
 
 	if (!(logFile = fopen(intputFile, "r"))) {
 		perror("Can't open log file");
-		return EXIT_FAILURE;
-	}
-
-	/* Create output file */
-	int outputLen = strlen(intputFile) + 6;
-	char *outputFile = malloc(outputLen);
-	snprintf(outputFile, outputLen, "%s%s", intputFile, ".json");
-
-	if (!(jsonFile = fopen(outputFile, "w"))) {
-		perror("Can't create output file");
 		return EXIT_FAILURE;
 	}
 
@@ -236,9 +226,7 @@ int main (int argc, char *argv[]) {
 	fprintf(stderr, "Processed %" PRIu64 " lines in %f seconds\n", results.processedLines, results.runtime);
 	fclose(logFile);
 
-	fputs(output(results), jsonFile);
-	printf("Created file : %s\n", outputFile);
-	fclose(jsonFile);
+	fputs(output(results), stdout);
 
 	GeoIP_delete(geoip);
 	GeoIP_delete(geoipv6);
