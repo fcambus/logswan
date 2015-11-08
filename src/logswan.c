@@ -76,10 +76,6 @@ int main (int argc, char *argv[]) {
 	hll_init(&uniqueIPv4, 20);
 	hll_init(&uniqueIPv6, 20);
 
-	printf("-------------------------------------------------------------------------------\n" \
-	       "                    Logswan 1.02 (c) by Frederic Cambus 2015                   \n" \
-	       "-------------------------------------------------------------------------------\n\n");
-
 	while ((getoptFlag = getopt(argc, argv, "hv")) != -1) {
 		switch(getoptFlag) {
 		case 'h':
@@ -112,8 +108,6 @@ int main (int argc, char *argv[]) {
 	/* Get log file size */
 	stat(intputFile, &logFileSize);
 	results.fileSize = (uint64_t)logFileSize.st_size;
-
-	printf("Processing file : %s\n\n", intputFile);
 
 	if (!(logFile = fopen(intputFile, "r"))) {
 		perror("Can't open log file");
