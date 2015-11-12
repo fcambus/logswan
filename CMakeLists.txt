@@ -4,7 +4,7 @@
 # https://github.com/fcambus/logswan                                          #
 #                                                                             #
 # Created:      2015/05/31                                                    #
-# Last Updated: 2015/11/02                                                    #
+# Last Updated: 2015/11/12                                                    #
 #                                                                             #
 ###############################################################################
 
@@ -28,6 +28,7 @@ if(NOT HAVE_STRTONUM)
 endif()
 
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
+add_definitions(-DDBPATH="/usr/local/share/GeoIP/")
 add_executable(logswan ${SRC} ${DEPS})
 
 target_link_libraries(logswan ${LIB_GEOIP} ${LIB_JANSSON} m)
