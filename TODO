@@ -1,1 +1,4 @@
 - Use strtok_r instead of strtok to tokenize lines?
+- Add GeoIP continent information
+- Companion tool to split logs by day
+- Create a manual page
