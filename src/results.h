@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/11/02                                                  */
+/* Last Updated: 2015/12/03                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -13,8 +13,6 @@
 
 #ifndef RESULTS_H
 #define RESULTS_H
-
-#define STATUS_CODE_MAX 512
 
 struct results {
 	uint64_t fileSize;
