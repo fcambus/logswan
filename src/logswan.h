@@ -19,4 +19,7 @@
 #define LINE_MAX_LENGTH 65536
 #define STATUS_CODE_MAX 512
 
+#define METHODS 9
+#define PROTOCOLS 2
+
 #endif /* LOGSWAN_H */
