@@ -16,6 +16,7 @@
 
 #define VERSION "Logswan 1.02"
 
+#define HLL_BITS 20
 #define LINE_MAX_LENGTH 65536
 #define STATUS_CODE_MAX 512
 

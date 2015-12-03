@@ -73,8 +73,8 @@ void displayUsage() {
 int main (int argc, char *argv[]) {
 	char *intputFile;
 
-	hll_init(&uniqueIPv4, 20);
-	hll_init(&uniqueIPv6, 20);
+	hll_init(&uniqueIPv4, HLL_BITS);
+	hll_init(&uniqueIPv6, HLL_BITS);
 
 	while ((getoptFlag = getopt(argc, argv, "hv")) != -1) {
 		switch(getoptFlag) {
