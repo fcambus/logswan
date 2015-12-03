@@ -30,29 +30,28 @@
 
 Logswan is a fast Web log analyzer using probabilistic data structures. It is targeted at very large log files, typically APIs logs. It has constant memory usage regardless of the log file size, and takes approximatively 4MB of RAM.
 
-Unique visitors counting is performed using two HyperLogLog counters (one for IPv4, and another one for IPv6), providing a relative accuracy of 0.10%.
+Unique visitors counting is performed using two HyperLogLog counters (one for IPv4, and another one for IPv6), providing a relative accuracy of 0.10%. String representations of IP addresses are used and preferred as they offer better precision.
 
 Project design goals include : speed, memory-usage efficiency, and keeping the code as simple as possible.
 
 Logswan is **opinionated software** :
 
-- It only supports the Common Log Format, in order to keep the parsing code simple
+- It only supports the Common Log Format, in order to keep the parsing code simple. It can of course process the Combined Log Format as well (referer and user agent fields will be discarded)
 - It does not split results per day, but log files can be split prior to being processed
 
 ## Features
 
 Currently implemented features :
 
+- Counting bandwidth used
 - Counting number of processed lines / invalid lines
 - Counting number of hits (IPv4 and IPv6 hits)
-- Counting bandwidth used
-- Counting log file size
-- GeoIP lookups (for both IPv4 and IPv6)
-- HTTP status codes distribution
-- Hourly hits distribution
-- Counting hits per protocol (HTTP/1.0 or HTTP/1.1)
-- Counting hits per HTTP Method
 - Counting visits (unique IP addresses for both IPv4 and IPv6)
+- GeoIP lookups (for both IPv4 and IPv6)
+- Hourly hits distribution
+- HTTP method distribution
+- HTTP protocol (HTTP/1.0 or HTTP/1.1) distribution
+- HTTP status codes distribution
 
 ## Dependencies
 
