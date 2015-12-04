@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/12/03                                                  */
+/* Last Updated: 2015/12/04                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -30,8 +30,8 @@ struct results {
 	uint64_t status[STATUS_CODE_MAX];
 	double runtime;
 	char timeStamp[20];
-	uint64_t protocols[2];
-	uint64_t methods[9];
+	uint64_t protocols[PROTOCOLS];
+	uint64_t methods[METHODS];
 };
 
 typedef struct results Results;
