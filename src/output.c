@@ -40,19 +40,19 @@ char *output(Results results) {
 		}
 	}
 
-	for (int loop=0; loop<512; loop++) {
+	for (int loop=0; loop<STATUS_CODE_MAX; loop++) {
 		if (results.status[loop]) {
 			json_array_append_new(httpStatusArray, json_pack("{s:i, s:i}", "data", loop, "hits", results.status[loop]));
 		}
 	}
 
-	for (int loop=0; loop<9; loop++) {
+	for (int loop=0; loop<METHODS; loop++) {
 		if (results.methods[loop]) {
 			json_array_append_new(methodsArray, json_pack("{s:s, s:i}", "data", methods[loop], "hits", results.methods[loop]));
 		}
 	}
 
-	for (int loop=0; loop<2; loop++) {
+	for (int loop=0; loop<PROTOCOLS; loop++) {
 		if (results.protocols[loop]) {
 			json_array_append_new(protocolsArray, json_pack("{s:s, s:i}", "data", protocols[loop], "hits", results.protocols[loop]));
 		}
