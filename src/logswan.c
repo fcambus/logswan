@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/11/12                                                  */
+/* Last Updated: 2015/12/05                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -107,6 +107,7 @@ int main (int argc, char *argv[]) {
 
 	/* Get log file size */
 	stat(intputFile, &logFileSize);
+	results.fileName = intputFile;
 	results.fileSize = (uint64_t)logFileSize.st_size;
 
 	if (!(logFile = fopen(intputFile, "r"))) {

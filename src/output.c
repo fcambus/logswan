@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/11/02                                                  */
+/* Last Updated: 2015/12/05                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -68,6 +68,7 @@ char *output(Results results) {
 
 	json_object_set_new(jsonObject, "date", json_string(results.timeStamp));
 	json_object_set_new(jsonObject, "generator", json_string(VERSION));
+	json_object_set_new(jsonObject, "file_name", json_string(results.fileName));
 	json_object_set_new(jsonObject, "file_size", json_integer(results.fileSize));
 	json_object_set_new(jsonObject, "processed_lines", json_integer(results.processedLines));
 	json_object_set_new(jsonObject, "invalid_lines", json_integer(results.invalidLines));

@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/12/04                                                  */
+/* Last Updated: 2015/12/05                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -15,6 +15,7 @@
 #define RESULTS_H
 
 struct results {
+	char *fileName;
 	uint64_t fileSize;
 	uint64_t invalidLines;
 	uint64_t processedLines;
