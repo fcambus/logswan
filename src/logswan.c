@@ -165,6 +165,7 @@ int main (int argc, char *argv[]) {
 					for (int loop = 0; loop<METHODS; loop++) {
 						if (!strcmp(methods[loop], parsedRequest.method)) {
 							results.methods[loop] ++;
+							break;
 						}
 					}
 				}
@@ -173,6 +174,7 @@ int main (int argc, char *argv[]) {
 					for (int loop = 0; loop<PROTOCOLS; loop++) {
 						if (!strcmp(protocols[loop], parsedRequest.protocol)) {
 							results.protocols[loop] ++;
+							break;
 						}
 					}
 				}
