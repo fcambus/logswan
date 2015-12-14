@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/12/05                                                  */
+/* Last Updated: 2015/12/14                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -53,6 +53,7 @@ int isIPv4, isIPv6;
 uint64_t bandwidth;
 int statusCode;
 int hour;
+int countryId;
 
 struct stat logFileSize;
 FILE *logFile;
@@ -128,12 +129,14 @@ int main (int argc, char *argv[]) {
 		if (isIPv4 || isIPv6) {
 			/* Increment countries array */
 			if (geoip && isIPv4) {
-				results.countries[GeoIP_id_by_addr(geoip, parsedLine.remoteHost)]++;
+				countryId = GeoIP_id_by_addr(geoip, parsedLine.remoteHost);
 			}
 
 			if (geoipv6 && isIPv6) {
-				results.countries[GeoIP_id_by_addr_v6(geoipv6, parsedLine.remoteHost)]++;
+				countryId = GeoIP_id_by_addr_v6(geoipv6, parsedLine.remoteHost);
 			}
+
+			results.countries[countryId]++;
 
 			/* Unique visitors */
 			if (isIPv4) {
