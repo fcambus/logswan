@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/12/03                                                  */
+/* Last Updated: 2015/12/15                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -16,11 +16,13 @@
 
 #define VERSION "Logswan 1.02"
 
-#define HLL_BITS 20
-#define LINE_MAX_LENGTH 65536
-#define STATUS_CODE_MAX 512
+enum {
+	HLL_BITS = 20,
+	LINE_MAX_LENGTH = 65536,
+	STATUS_CODE_MAX = 512,
 
-#define METHODS 9
-#define PROTOCOLS 2
+	METHODS = 9,
+	PROTOCOLS = 2	
+};
 
 #endif /* LOGSWAN_H */
