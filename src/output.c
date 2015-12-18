@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/12/05                                                  */
+/* Last Updated: 2015/12/19                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -22,11 +22,18 @@ char *output(Results results) {
 	json_t *jsonObject = json_object();
 	json_t *hitsObject = json_object();
 	json_t *visitsObject = json_object();
+	json_t *continentsArray = json_array();
 	json_t *countriesArray = json_array();
 	json_t *hoursArray = json_array();
 	json_t *httpStatusArray = json_array();
 	json_t *methodsArray = json_array();
 	json_t *protocolsArray = json_array();
+
+	for (int loop=0; loop<CONTINENTS; loop++) {
+		if (results.continents[loop]) {
+			json_array_append_new(continentsArray, json_pack("{s:s, s:s, s:i}", "data", continentsId[loop], "name", continentsNames[loop], "hits", results.continents[loop]));
+		}
+	}
 
 	for (int loop=0; loop<255; loop++) {
 		if (results.countries[loop]) {
@@ -76,6 +83,7 @@ char *output(Results results) {
 	json_object_set_new(jsonObject, "runtime", json_real(results.runtime));
 	json_object_set_new(jsonObject, "hits", hitsObject);
 	json_object_set_new(jsonObject, "visits", visitsObject);
+	json_object_set_new(jsonObject, "continents", continentsArray);
 	json_object_set_new(jsonObject, "countries", countriesArray);
 	json_object_set_new(jsonObject, "hours", hoursArray);
 	json_object_set_new(jsonObject, "methods", methodsArray);

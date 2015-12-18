@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/12/14                                                  */
+/* Last Updated: 2015/12/19                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -137,6 +137,14 @@ int main (int argc, char *argv[]) {
 			}
 
 			results.countries[countryId]++;
+
+			/* Increment continents array */
+			for (int loop = 0; loop<CONTINENTS; loop++) {
+				if (!strcmp(continentsId[loop], GeoIP_continent_by_id(countryId))) {
+					results.continents[loop] ++;
+					break;
+				}
+			}
 
 			/* Unique visitors */
 			if (isIPv4) {

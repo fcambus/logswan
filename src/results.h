@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/12/05                                                  */
+/* Last Updated: 2015/12/19                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -26,6 +26,7 @@ struct results {
 	uint64_t visits;
 	uint64_t visitsIPv4;
 	uint64_t visitsIPv6;
+	uint64_t continents[CONTINENTS];
 	uint64_t countries[255];
 	uint64_t hours[24];
 	uint64_t status[STATUS_CODE_MAX];
