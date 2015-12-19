@@ -15,7 +15,7 @@
 #include <jansson.h>
 
 #include "logswan.h"
-#include "definitions.h"
+#include "config.h"
 #include "results.h"
 
 char *output(Results results) {

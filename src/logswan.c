@@ -30,7 +30,7 @@
 #include <GeoIP.h>
 
 #include "logswan.h"
-#include "definitions.h"
+#include "config.h"
 #include "output.h"
 #include "parse.h"
 #include "results.h"

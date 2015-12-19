@@ -11,12 +11,12 @@
 /*                                                                           */
 /*****************************************************************************/
 
-#ifndef DEFINITIONS_H
-#define DEFINITIONS_H
+#ifndef CONFIG_H
+#define CONFIG_H
 
 extern char *continentsId[];
 extern char *continentsNames[];
 extern char *methods[];
 extern char *protocols[];
 
-#endif /* DEFINITIONS_H */
+#endif /* CONFIG_H */
