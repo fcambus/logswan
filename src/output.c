@@ -14,7 +14,6 @@
 #include <GeoIP.h>
 #include <jansson.h>
 
-#include "logswan.h"
 #include "config.h"
 #include "results.h"
 

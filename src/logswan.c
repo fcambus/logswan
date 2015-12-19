@@ -29,7 +29,6 @@
 
 #include <GeoIP.h>
 
-#include "logswan.h"
 #include "config.h"
 #include "output.h"
 #include "parse.h"

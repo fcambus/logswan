@@ -14,6 +14,18 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#define VERSION "Logswan 1.02"
+
+enum {
+	HLL_BITS = 20,
+	LINE_MAX_LENGTH = 65536,
+	STATUS_CODE_MAX = 512,
+
+	CONTINENTS = 6,
+	METHODS = 9,
+	PROTOCOLS = 2	
+};
+
 extern char *continentsId[];
 extern char *continentsNames[];
 extern char *methods[];
