@@ -30,10 +30,10 @@ char *continentsNames[] = {
 };
 
 char *methods[] = {
-	"OPTIONS",
 	"GET",
-	"HEAD",
 	"POST",
+	"HEAD",
+	"OPTIONS",
 	"PUT",
 	"DELETE",
 	"TRACE",
