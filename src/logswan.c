@@ -111,9 +111,16 @@ int main (int argc, char *argv[]) {
 	results.fileName = intputFile;
 	results.fileSize = (uint64_t)logFileSize.st_size;
 
-	if (!(logFile = fopen(intputFile, "r"))) {
-		perror("Can't open log file");
-		return EXIT_FAILURE;
+	/* Open log file */
+	if (!strcmp(intputFile, "-")) {
+		/* Read from standard input */
+		logFile = stdin;
+	} else {
+		/* Attempt to read from file */
+		if (!(logFile = fopen(intputFile, "r"))) {
+			perror("Can't open log file");
+			return EXIT_FAILURE;
+		}
 	}
 
 	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile) != NULL) {
