@@ -15,7 +15,7 @@
 #include <jansson.h>
 
 #include "config.h"
-#include "results.h"
+#include "output.h"
 
 char *output(Results results) {
 	json_t *jsonObject = json_object();
