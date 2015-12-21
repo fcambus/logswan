@@ -28,7 +28,7 @@ if(NOT HAVE_STRTONUM)
 endif()
 
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
-add_definitions(-DDBPATH="/usr/local/share/GeoIP/")
+add_definitions(-DDBPATH="${CMAKE_INSTALL_PREFIX}/share/GeoIP")
 add_executable(logswan ${SRC} ${DEPS})
 
 target_link_libraries(logswan ${LIB_GEOIP} ${LIB_JANSSON} m)
