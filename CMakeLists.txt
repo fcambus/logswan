@@ -27,8 +27,12 @@ if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)
 endif()
 
+if(NOT DEFINED DBPATH)
+  set(DBPATH ${CMAKE_INSTALL_PREFIX}/share/GeoIP)
+endif()
+
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
-add_definitions(-DDBPATH="${CMAKE_INSTALL_PREFIX}/share/GeoIP")
+add_definitions(-DDBPATH="${DBPATH}")
 add_executable(logswan ${SRC} ${DEPS})
 
 target_link_libraries(logswan ${LIB_GEOIP} ${LIB_JANSSON} m)
