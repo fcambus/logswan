@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/12/19                                                  */
+/* Last Updated: 2015/12/22                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -102,8 +102,8 @@ int main (int argc, char *argv[]) {
 	begin = clock();
 
 	/* Initializing GeoIP */
-	geoip = GeoIP_open(DBPATH "/GeoIP.dat", GEOIP_MEMORY_CACHE);
-	geoipv6 = GeoIP_open(DBPATH "/GeoIPv6.dat", GEOIP_MEMORY_CACHE);
+	geoip = GeoIP_open(DATADIR "/GeoIP.dat", GEOIP_MEMORY_CACHE);
+	geoipv6 = GeoIP_open(DATADIR "/GeoIPv6.dat", GEOIP_MEMORY_CACHE);
 
 	/* Get log file size */
 	stat(intputFile, &logFileSize);

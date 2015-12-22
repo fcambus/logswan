@@ -4,7 +4,7 @@
 # https://github.com/fcambus/logswan                                          #
 #                                                                             #
 # Created:      2015/05/31                                                    #
-# Last Updated: 2015/11/12                                                    #
+# Last Updated: 2015/12/22                                                    #
 #                                                                             #
 ###############################################################################
 
@@ -27,12 +27,12 @@ if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)
 endif()
 
-if(NOT DEFINED DBPATH)
-  set(DBPATH ${CMAKE_INSTALL_PREFIX}/share/GeoIP)
+if(NOT DEFINED DATADIR)
+  set(DATADIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP)
 endif()
 
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
-add_definitions(-DDBPATH="${DBPATH}")
+add_definitions(-DDATADIR="${DATADIR}")
 add_executable(logswan ${SRC} ${DEPS})
 
 target_link_libraries(logswan ${LIB_GEOIP} ${LIB_JANSSON} m)
