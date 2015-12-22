@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/12/19                                                  */
+/* Last Updated: 2015/12/22                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -34,7 +34,7 @@ char *output(Results results) {
 		}
 	}
 
-	for (int loop=0; loop<255; loop++) {
+	for (int loop=0; loop<COUNTRIES; loop++) {
 		if (results.countries[loop]) {
 			json_array_append_new(countriesArray, json_pack("{s:s, s:s, s:i}", "data", GeoIP_code_by_id(loop), "name", GeoIP_name_by_id(loop), "hits", results.countries[loop]));
 		}

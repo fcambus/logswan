@@ -4,7 +4,7 @@
 /* https://github.com/fcambus/logswan                                        */
 /*                                                                           */
 /* Created:      2015/05/31                                                  */
-/* Last Updated: 2015/12/19                                                  */
+/* Last Updated: 2015/12/22                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -22,6 +22,7 @@ enum {
 	STATUS_CODE_MAX = 512,
 
 	CONTINENTS = 6,
+	COUNTRIES = 255,
 	METHODS = 9,
 	PROTOCOLS = 2	
 };
