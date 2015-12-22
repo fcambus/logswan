@@ -24,7 +24,7 @@ enum {
 	CONTINENTS = 6,
 	COUNTRIES = 255,
 	METHODS = 9,
-	PROTOCOLS = 2	
+	PROTOCOLS = 2
 };
 
 extern char *continentsId[];

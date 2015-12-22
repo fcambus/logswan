@@ -12,20 +12,20 @@
 /*****************************************************************************/
 
 char *continentsId[] = {
-	"AF", 
-	"AS", 
-	"EU", 
-	"NA", 
-	"OC", 
+	"AF",
+	"AS",
+	"EU",
+	"NA",
+	"OC",
 	"SA"
 };
 
 char *continentsNames[] = {
-	"Africa", 
-	"Asia", 
-	"Europe", 
-	"North America", 
-	"Oceania", 
+	"Africa",
+	"Asia",
+	"Europe",
+	"North America",
+	"Oceania",
 	"South America"
 };
 
