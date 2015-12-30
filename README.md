@@ -38,6 +38,7 @@ Logswan is **opinionated software** :
 
 - It only supports the Common Log Format, in order to keep the parsing code simple. It can of course process the Combined Log Format as well (referer and user agent fields will be discarded)
 - It does not split results per day, but log files can be split prior to being processed
+- Input file size and bandwidth usage are reported in bytes, there are no plans to format or round them
 
 ## Features
 
@@ -106,7 +107,9 @@ Files can be downloaded here : http://dev.maxmind.com/geoip/legacy/geolite/
 
 ## Usage 
 
-	USAGE : logswan [options] inputfile
+	logswan [-hv] file
+
+If file is a single dash (`-'), logswan reads from the standard input.
 
 Options are :
 
