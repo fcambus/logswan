@@ -116,6 +116,8 @@ Options are :
 	-h Display usage
 	-v Display version
 
+Logswan outputs JSON data to **stdout**. 
+
 ## License
 
 Logswan is released under the BSD 3-Clause license. See `LICENSE` file for details.
