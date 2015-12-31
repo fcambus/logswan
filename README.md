@@ -73,6 +73,12 @@ Logswan uses the `CMake` build system and requires `GeoIP` and `Jansson` librari
 
 Logswan has been sucessfully compiled and tested on Mac OS X, OpenBSD, NetBSD, and Linux with both Clang and GCC.
 
+By default, Logswan looks for GeoIP databases in `${CMAKE_INSTALL_PREFIX}/share/GeoIP`, which points to `/usr/local/share/GeoIP` by default.
+
+A custom directory can be set using the `DATADIR` variable when invoking CMake :
+
+	cmake -DDATADIR=/var/db/GeoIP .
+
 ## Installation
 
 Logswan packages are available for :
