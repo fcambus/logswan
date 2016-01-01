@@ -1,3 +1,27 @@
+Logswan 1.03 (2016-01-01)
+
+- Remove header display and do not print name of processed file
+- Print results to stderr instead of stdout
+- Output JSON data to stdout instead of creating a new file
+- Define GeoIP databases path in CMakeLists.txt
+- Adding log file name in the JSON output
+- Removing some hardcoded values and replacing them with constants
+  defined in config.h
+- Breaking the loop when a match is found in the request parser
+- Using enumeration constants instead of macros
+- Process GeoIP continent information
+- Re-ordering protocols and methods with more common occurences on top of
+  the list, allowing to break earlier when iterating through the array
+- Adding support for reading logs from standard input
+- Renaming 'definitions' files to 'config'
+- Increasing countries array size, as an attempt to be future-proof
+- Initial support for using pledge() on OpenBSD
+- Documentation updates (HLL precision, Features list, GeoIP databases)
+- Updated output file example
+- Added a manual page
+
+
+
 Logswan 1.02 (2015-11-02)
 
 - Renaming 'resource' variable to 'request' in the 'logLine' struct

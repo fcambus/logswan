@@ -1,3 +1,2 @@
 - Use strtok_r instead of strtok to tokenize lines?
 - Companion tool to split logs by day
-- Create a manual page
