@@ -35,7 +35,6 @@
 #include "config.h"
 #include "output.h"
 #include "parse.h"
-#include "results.h"
 
 GeoIP *geoip, *geoipv6;
 
