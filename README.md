@@ -73,12 +73,6 @@ Logswan uses the `CMake` build system and requires `GeoIP` and `Jansson` librari
 
 Logswan has been sucessfully compiled and tested on Mac OS X, OpenBSD, NetBSD, and Linux with both Clang and GCC.
 
-By default, Logswan looks for GeoIP databases in `${CMAKE_INSTALL_PREFIX}/share/GeoIP`, which points to `/usr/local/share/GeoIP` by default.
-
-A custom directory can be set using the `DATADIR` variable when invoking CMake :
-
-	cmake -DDATADIR=/var/db/GeoIP .
-
 ## Installation
 
 Logswan packages are available for :
@@ -93,23 +87,22 @@ Logswan packages are available for :
 
 ### GeoIP databases
 
-Logswan requires the free GeoLite databases to be installed in `/usr/local/share/GeoIP`.
-Files can be downloaded here : http://dev.maxmind.com/geoip/legacy/geolite/
+By default, Logswan looks for GeoIP databases in `${CMAKE_INSTALL_PREFIX}/share/GeoIP`, which points to `/usr/local/share/GeoIP` by default.
+
+A custom directory can be set using the `DATADIR` variable when invoking CMake :
+
+	cmake -DDATADIR=/var/db/GeoIP .
+
+The free GeoLite databases can be downloaded here : http://dev.maxmind.com/geoip/legacy/geolite/
 
 #### For IPv4 support only :
 
-	mkdir -p /usr/local/share/GeoIP
-	cd /usr/local/share/GeoIP
-	wget https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
-	gunzip *gz
+	https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
 
 #### For IPv4 and IPv6 support :
 
-	mkdir -p /usr/local/share/GeoIP
-	cd /usr/local/share/GeoIP
-	wget https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
-	wget https://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
-	gunzip *gz
+	https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+	https://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
 
 ## Usage 
 
