@@ -1,1402 +1,1300 @@
 {
-   "date": "2015-09-28 19:11:00",
-   "generator": "Logswan 1.02",
-   "file_size": 21510440139,
-   "processed_lines": 104646437,
-   "invalid_lines": 111,
-   "bandwidth": 32862130502,
-   "runtime": 215.27956,
+   "date": "2016-01-01 15:26:57",
+   "generator": "Logswan 1.03",
+   "file_name": "access.log",
+   "file_size": 51768298953,
+   "processed_lines": 442575959,
+   "invalid_lines": 0,
+   "bandwidth": 281438771929,
+   "runtime": 822.05192,
    "hits": {
-      "ipv4": 96550189,
-      "ipv6": 8096137,
-      "total": 104646326
+      "ipv4": 381901625,
+      "ipv6": 60674334,
+      "total": 442575959
    },
    "visits": {
-      "ipv4": 8506183,
-      "ipv6": 1201380,
-      "total": 9707563
+      "ipv4": 557049,
+      "ipv6": 83514,
+      "total": 640563
    },
-   "countries": [
+   "continents": [
       {
-         "data": "--",
-         "name": "N/A",
-         "hits": 1117
+         "data": "AF",
+         "name": "Africa",
+         "hits": 448112
       },
       {
-         "data": "AP",
-         "name": "Asia/Pacific Region",
-         "hits": 49724
+         "data": "AS",
+         "name": "Asia",
+         "hits": 15801688
       },
       {
          "data": "EU",
          "name": "Europe",
-         "hits": 136793
+         "hits": 73003833
+      },
+      {
+         "data": "NA",
+         "name": "North America",
+         "hits": 348599622
+      },
+      {
+         "data": "OC",
+         "name": "Oceania",
+         "hits": 2920428
+      },
+      {
+         "data": "SA",
+         "name": "South America",
+         "hits": 1730953
+      }
+   ],
+   "countries": [
+      {
+         "data": "--",
+         "name": "N/A",
+         "hits": 3493
+      },
+      {
+         "data": "AP",
+         "name": "Asia/Pacific Region",
+         "hits": 1421
+      },
+      {
+         "data": "EU",
+         "name": "Europe",
+         "hits": 207907
       },
       {
          "data": "AD",
          "name": "Andorra",
-         "hits": 3710
+         "hits": 49
       },
       {
          "data": "AE",
          "name": "United Arab Emirates",
-         "hits": 173990
+         "hits": 36484
       },
       {
          "data": "AF",
          "name": "Afghanistan",
-         "hits": 2785
+         "hits": 693
       },
       {
          "data": "AG",
          "name": "Antigua and Barbuda",
-         "hits": 88341
+         "hits": 889
       },
       {
          "data": "AI",
          "name": "Anguilla",
-         "hits": 363
+         "hits": 35
       },
       {
          "data": "AL",
          "name": "Albania",
-         "hits": 29875
+         "hits": 16625
       },
       {
          "data": "AM",
          "name": "Armenia",
-         "hits": 26089
+         "hits": 1498
       },
       {
          "data": "CW",
          "name": "Curacao",
-         "hits": 7212
+         "hits": 1883
       },
       {
          "data": "AO",
          "name": "Angola",
-         "hits": 6967
+         "hits": 2863
       },
       {
          "data": "AR",
          "name": "Argentina",
-         "hits": 620958
-      },
-      {
-         "data": "AS",
-         "name": "American Samoa",
-         "hits": 317
+         "hits": 137557
       },
       {
          "data": "AT",
          "name": "Austria",
-         "hits": 193122
+         "hits": 151039
       },
       {
          "data": "AU",
          "name": "Australia",
-         "hits": 1315987
+         "hits": 2156658
       },
       {
          "data": "AW",
          "name": "Aruba",
-         "hits": 1784
+         "hits": 259
       },
       {
          "data": "AZ",
          "name": "Azerbaijan",
-         "hits": 28439
+         "hits": 3633
       },
       {
          "data": "BA",
          "name": "Bosnia and Herzegovina",
-         "hits": 29148
+         "hits": 16079
       },
       {
          "data": "BB",
          "name": "Barbados",
-         "hits": 6063
+         "hits": 2296
       },
       {
          "data": "BD",
          "name": "Bangladesh",
-         "hits": 67893
+         "hits": 51338
       },
       {
          "data": "BE",
          "name": "Belgium",
-         "hits": 186440
+         "hits": 107093
       },
       {
          "data": "BF",
          "name": "Burkina Faso",
-         "hits": 440
+         "hits": 693
       },
       {
          "data": "BG",
          "name": "Bulgaria",
-         "hits": 130713
+         "hits": 47103
       },
       {
          "data": "BH",
          "name": "Bahrain",
-         "hits": 444048
+         "hits": 2996
       },
       {
          "data": "BI",
          "name": "Burundi",
-         "hits": 484
+         "hits": 1281
       },
       {
          "data": "BJ",
          "name": "Benin",
-         "hits": 1381
+         "hits": 539
       },
       {
          "data": "BM",
          "name": "Bermuda",
-         "hits": 1964
+         "hits": 3332
       },
       {
          "data": "BN",
          "name": "Brunei Darussalam",
-         "hits": 8740
+         "hits": 4053
       },
       {
          "data": "BO",
          "name": "Bolivia",
-         "hits": 17588
+         "hits": 15498
       },
       {
          "data": "BR",
          "name": "Brazil",
-         "hits": 925299
+         "hits": 1069411
       },
       {
          "data": "BS",
          "name": "Bahamas",
-         "hits": 8892
+         "hits": 2422
       },
       {
          "data": "BT",
          "name": "Bhutan",
-         "hits": 2875
+         "hits": 280
       },
       {
          "data": "BW",
          "name": "Botswana",
-         "hits": 10209
+         "hits": 434
       },
       {
          "data": "BY",
          "name": "Belarus",
-         "hits": 113811
+         "hits": 19761
       },
       {
          "data": "BZ",
          "name": "Belize",
-         "hits": 33600
+         "hits": 805
       },
       {
          "data": "CA",
          "name": "Canada",
-         "hits": 2574776
+         "hits": 71968841
       },
       {
          "data": "CD",
          "name": "Congo, The Democratic Republic of the",
-         "hits": 2069
-      },
-      {
-         "data": "CF",
-         "name": "Central African Republic",
-         "hits": 232
+         "hits": 196
       },
       {
          "data": "CG",
          "name": "Congo",
-         "hits": 6218
+         "hits": 119
       },
       {
          "data": "CH",
          "name": "Switzerland",
-         "hits": 329196
+         "hits": 754726
       },
       {
          "data": "CI",
          "name": "Cote D'Ivoire",
-         "hits": 15774
-      },
-      {
-         "data": "CK",
-         "name": "Cook Islands",
-         "hits": 151
+         "hits": 1225
       },
       {
          "data": "CL",
          "name": "Chile",
-         "hits": 285608
+         "hits": 55860
       },
       {
          "data": "CM",
          "name": "Cameroon",
-         "hits": 8820
+         "hits": 2751
       },
       {
          "data": "CN",
          "name": "China",
-         "hits": 1564532
+         "hits": 914193
       },
       {
          "data": "CO",
          "name": "Colombia",
-         "hits": 129316
+         "hits": 230363
       },
       {
          "data": "CR",
          "name": "Costa Rica",
-         "hits": 98076
+         "hits": 18802
       },
       {
          "data": "CU",
          "name": "Cuba",
-         "hits": 701
+         "hits": 1624
       },
       {
          "data": "CV",
          "name": "Cape Verde",
-         "hits": 946
-      },
-      {
-         "data": "CX",
-         "name": "Christmas Island",
-         "hits": 3
+         "hits": 21
       },
       {
          "data": "CY",
          "name": "Cyprus",
-         "hits": 17301
+         "hits": 5404
       },
       {
          "data": "CZ",
          "name": "Czech Republic",
-         "hits": 149093
+         "hits": 17002601
       },
       {
          "data": "DE",
          "name": "Germany",
-         "hits": 2510312
+         "hits": 4607953
       },
       {
          "data": "DJ",
          "name": "Djibouti",
-         "hits": 380
+         "hits": 49
       },
       {
          "data": "DK",
          "name": "Denmark",
-         "hits": 218275
+         "hits": 645974
       },
       {
          "data": "DM",
          "name": "Dominica",
-         "hits": 681
+         "hits": 3808
       },
       {
          "data": "DO",
          "name": "Dominican Republic",
-         "hits": 116054
+         "hits": 20307
       },
       {
          "data": "DZ",
          "name": "Algeria",
-         "hits": 156540
+         "hits": 23667
       },
       {
          "data": "EC",
          "name": "Ecuador",
-         "hits": 58319
+         "hits": 34741
       },
       {
          "data": "EE",
          "name": "Estonia",
-         "hits": 95788
+         "hits": 33957
       },
       {
          "data": "EG",
          "name": "Egypt",
-         "hits": 428185
+         "hits": 95823
       },
       {
          "data": "ER",
          "name": "Eritrea",
-         "hits": 69
+         "hits": 42
       },
       {
          "data": "ES",
          "name": "Spain",
-         "hits": 1797643
+         "hits": 523803
       },
       {
          "data": "ET",
          "name": "Ethiopia",
-         "hits": 85389
+         "hits": 1414
       },
       {
          "data": "FI",
          "name": "Finland",
-         "hits": 36314
+         "hits": 5176164
       },
       {
          "data": "FJ",
          "name": "Fiji",
-         "hits": 3950
-      },
-      {
-         "data": "FK",
-         "name": "Falkland Islands (Malvinas)",
-         "hits": 14
+         "hits": 770
       },
       {
          "data": "FM",
          "name": "Micronesia, Federated States of",
-         "hits": 2216
+         "hits": 105
       },
       {
          "data": "FO",
          "name": "Faroe Islands",
-         "hits": 261
+         "hits": 8358
       },
       {
          "data": "FR",
          "name": "France",
-         "hits": 1725849
+         "hits": 3483081
       },
       {
          "data": "SX",
          "name": "Sint Maarten (Dutch part)",
-         "hits": 7624
+         "hits": 994
       },
       {
          "data": "GA",
          "name": "Gabon",
-         "hits": 13729
+         "hits": 70
       },
       {
          "data": "GB",
          "name": "United Kingdom",
-         "hits": 5975511
+         "hits": 14513198
       },
       {
          "data": "GD",
          "name": "Grenada",
-         "hits": 1425
+         "hits": 77
       },
       {
          "data": "GE",
          "name": "Georgia",
-         "hits": 133290
-      },
-      {
-         "data": "GF",
-         "name": "French Guiana",
-         "hits": 278
+         "hits": 4389
       },
       {
          "data": "GH",
          "name": "Ghana",
-         "hits": 12930
+         "hits": 11487
       },
       {
          "data": "GI",
          "name": "Gibraltar",
-         "hits": 617
+         "hits": 91
       },
       {
          "data": "GL",
          "name": "Greenland",
-         "hits": 314
+         "hits": 147
       },
       {
          "data": "GM",
          "name": "Gambia",
-         "hits": 4349
+         "hits": 7
       },
       {
          "data": "GN",
          "name": "Guinea",
-         "hits": 1025
+         "hits": 756
       },
       {
          "data": "GP",
          "name": "Guadeloupe",
-         "hits": 587
+         "hits": 1092
       },
       {
          "data": "GQ",
          "name": "Equatorial Guinea",
-         "hits": 1216
+         "hits": 14
       },
       {
          "data": "GR",
          "name": "Greece",
-         "hits": 254259
+         "hits": 118643
       },
       {
          "data": "GT",
          "name": "Guatemala",
-         "hits": 26520
+         "hits": 17927
       },
       {
          "data": "GU",
          "name": "Guam",
-         "hits": 2374
+         "hits": 77
       },
       {
          "data": "GW",
          "name": "Guinea-Bissau",
-         "hits": 98
+         "hits": 21
       },
       {
          "data": "GY",
          "name": "Guyana",
-         "hits": 2240
+         "hits": 980
       },
       {
          "data": "HK",
          "name": "Hong Kong",
-         "hits": 377505
+         "hits": 164948
       },
       {
          "data": "HN",
          "name": "Honduras",
-         "hits": 19092
+         "hits": 7938
       },
       {
          "data": "HR",
          "name": "Croatia",
-         "hits": 54295
+         "hits": 92302
       },
       {
          "data": "HT",
          "name": "Haiti",
-         "hits": 163356
+         "hits": 700
       },
       {
          "data": "HU",
          "name": "Hungary",
-         "hits": 138278
+         "hits": 779807
       },
       {
          "data": "ID",
          "name": "Indonesia",
-         "hits": 3035063
+         "hits": 249606
       },
       {
          "data": "IE",
          "name": "Ireland",
-         "hits": 1961693
+         "hits": 490483
       },
       {
          "data": "IL",
          "name": "Israel",
-         "hits": 657086
+         "hits": 296016
       },
       {
          "data": "IN",
          "name": "India",
-         "hits": 1279306
-      },
-      {
-         "data": "IO",
-         "name": "British Indian Ocean Territory",
-         "hits": 20
+         "hits": 1977689
       },
       {
          "data": "IQ",
          "name": "Iraq",
-         "hits": 160483
+         "hits": 23023
       },
       {
          "data": "IR",
          "name": "Iran, Islamic Republic of",
-         "hits": 374741
+         "hits": 123760
       },
       {
          "data": "IS",
          "name": "Iceland",
-         "hits": 11385
+         "hits": 23667
       },
       {
          "data": "IT",
          "name": "Italy",
-         "hits": 1147390
+         "hits": 2723224
       },
       {
          "data": "JM",
          "name": "Jamaica",
-         "hits": 25231
+         "hits": 668514
       },
       {
          "data": "JO",
          "name": "Jordan",
-         "hits": 109418
+         "hits": 120218
       },
       {
          "data": "JP",
          "name": "Japan",
-         "hits": 546623
+         "hits": 2216788
       },
       {
          "data": "KE",
          "name": "Kenya",
-         "hits": 32181
+         "hits": 30310
       },
       {
          "data": "KG",
          "name": "Kyrgyzstan",
-         "hits": 8094
+         "hits": 931
       },
       {
          "data": "KH",
          "name": "Cambodia",
-         "hits": 22996
-      },
-      {
-         "data": "KI",
-         "name": "Kiribati",
-         "hits": 244
-      },
-      {
-         "data": "KM",
-         "name": "Comoros",
-         "hits": 471
+         "hits": 4137
       },
       {
          "data": "KN",
          "name": "Saint Kitts and Nevis",
-         "hits": 712
-      },
-      {
-         "data": "KP",
-         "name": "Korea, Democratic People's Republic of",
-         "hits": 6
+         "hits": 63
       },
       {
          "data": "KR",
          "name": "Korea, Republic of",
-         "hits": 489845
+         "hits": 1487990
       },
       {
          "data": "KW",
          "name": "Kuwait",
-         "hits": 71225
+         "hits": 13692
       },
       {
          "data": "KY",
          "name": "Cayman Islands",
-         "hits": 2432
+         "hits": 448
       },
       {
          "data": "KZ",
          "name": "Kazakhstan",
-         "hits": 123634
+         "hits": 16254
       },
       {
          "data": "LA",
          "name": "Lao People's Democratic Republic",
-         "hits": 23667
+         "hits": 1022
       },
       {
          "data": "LB",
          "name": "Lebanon",
-         "hits": 32785
+         "hits": 125090
       },
       {
          "data": "LC",
          "name": "Saint Lucia",
-         "hits": 1435
+         "hits": 217
       },
       {
          "data": "LI",
          "name": "Liechtenstein",
-         "hits": 265
+         "hits": 8967
       },
       {
          "data": "LK",
          "name": "Sri Lanka",
-         "hits": 53386
+         "hits": 12880
       },
       {
          "data": "LR",
          "name": "Liberia",
-         "hits": 868
+         "hits": 588
       },
       {
          "data": "LS",
          "name": "Lesotho",
-         "hits": 1783
+         "hits": 98
       },
       {
          "data": "LT",
          "name": "Lithuania",
-         "hits": 269160
+         "hits": 67053
       },
       {
          "data": "LU",
          "name": "Luxembourg",
-         "hits": 6294
+         "hits": 387758
       },
       {
          "data": "LV",
          "name": "Latvia",
-         "hits": 15861
+         "hits": 33838
       },
       {
          "data": "LY",
          "name": "Libya",
-         "hits": 20287
+         "hits": 3108
       },
       {
          "data": "MA",
          "name": "Morocco",
-         "hits": 129090
+         "hits": 39739
       },
       {
          "data": "MC",
          "name": "Monaco",
-         "hits": 498
+         "hits": 273
       },
       {
          "data": "MD",
          "name": "Moldova, Republic of",
-         "hits": 13913
+         "hits": 38318
       },
       {
          "data": "MG",
          "name": "Madagascar",
-         "hits": 1236
-      },
-      {
-         "data": "MH",
-         "name": "Marshall Islands",
-         "hits": 260
+         "hits": 455
       },
       {
          "data": "MK",
          "name": "Macedonia",
-         "hits": 30132
+         "hits": 9352
       },
       {
          "data": "ML",
          "name": "Mali",
-         "hits": 3164
+         "hits": 140
       },
       {
          "data": "MM",
          "name": "Myanmar",
-         "hits": 23877
+         "hits": 7763
       },
       {
          "data": "MN",
          "name": "Mongolia",
-         "hits": 24156
+         "hits": 1085
       },
       {
          "data": "MO",
          "name": "Macau",
-         "hits": 4567
-      },
-      {
-         "data": "MP",
-         "name": "Northern Mariana Islands",
-         "hits": 507
+         "hits": 2485
       },
       {
          "data": "MQ",
          "name": "Martinique",
-         "hits": 2308
+         "hits": 476
       },
       {
          "data": "MR",
          "name": "Mauritania",
-         "hits": 421
-      },
-      {
-         "data": "MS",
-         "name": "Montserrat",
-         "hits": 46
+         "hits": 168
       },
       {
          "data": "MT",
          "name": "Malta",
-         "hits": 10451
+         "hits": 14420
       },
       {
          "data": "MU",
          "name": "Mauritius",
-         "hits": 25638
+         "hits": 12838
       },
       {
          "data": "MV",
          "name": "Maldives",
-         "hits": 21913
+         "hits": 4438
       },
       {
          "data": "MW",
          "name": "Malawi",
-         "hits": 2800
+         "hits": 525
       },
       {
          "data": "MX",
          "name": "Mexico",
-         "hits": 188818
+         "hits": 389333
       },
       {
          "data": "MY",
          "name": "Malaysia",
-         "hits": 364017
+         "hits": 193879
       },
       {
          "data": "MZ",
          "name": "Mozambique",
-         "hits": 15896
+         "hits": 2919
       },
       {
          "data": "NA",
          "name": "Namibia",
-         "hits": 10063
+         "hits": 147
       },
       {
          "data": "NC",
          "name": "New Caledonia",
-         "hits": 1226
+         "hits": 42
       },
       {
          "data": "NE",
          "name": "Niger",
-         "hits": 1121
+         "hits": 448
       },
       {
          "data": "NG",
          "name": "Nigeria",
-         "hits": 102616
+         "hits": 41776
       },
       {
          "data": "NI",
          "name": "Nicaragua",
-         "hits": 65530
+         "hits": 4774
       },
       {
          "data": "NL",
          "name": "Netherlands",
-         "hits": 1082173
+         "hits": 12552421
       },
       {
          "data": "NO",
          "name": "Norway",
-         "hits": 292885
+         "hits": 107128
       },
       {
          "data": "NP",
          "name": "Nepal",
-         "hits": 21452
-      },
-      {
-         "data": "NR",
-         "name": "Nauru",
-         "hits": 25
-      },
-      {
-         "data": "NU",
-         "name": "Niue",
-         "hits": 1
+         "hits": 3650584
       },
       {
          "data": "NZ",
          "name": "New Zealand",
-         "hits": 105819
+         "hits": 759479
       },
       {
          "data": "OM",
          "name": "Oman",
-         "hits": 25275
+         "hits": 13034
       },
       {
          "data": "PA",
          "name": "Panama",
-         "hits": 24615
+         "hits": 6545
       },
       {
          "data": "PE",
          "name": "Peru",
-         "hits": 273415
+         "hits": 37590
       },
       {
          "data": "PF",
          "name": "French Polynesia",
-         "hits": 1787
+         "hits": 588
       },
       {
          "data": "PG",
          "name": "Papua New Guinea",
-         "hits": 2851
+         "hits": 2667
       },
       {
          "data": "PH",
          "name": "Philippines",
-         "hits": 281708
+         "hits": 486514
       },
       {
          "data": "PK",
          "name": "Pakistan",
-         "hits": 165635
+         "hits": 124551
       },
       {
          "data": "PL",
          "name": "Poland",
-         "hits": 538320
-      },
-      {
-         "data": "PM",
-         "name": "Saint Pierre and Miquelon",
-         "hits": 18
+         "hits": 779289
       },
       {
          "data": "PR",
          "name": "Puerto Rico",
-         "hits": 85779
+         "hits": 16632
       },
       {
          "data": "PS",
          "name": "Palestinian Territory",
-         "hits": 28331
+         "hits": 446992
       },
       {
          "data": "PT",
          "name": "Portugal",
-         "hits": 151386
+         "hits": 813029
       },
       {
          "data": "PW",
          "name": "Palau",
-         "hits": 103
+         "hits": 42
       },
       {
          "data": "PY",
          "name": "Paraguay",
-         "hits": 25719
+         "hits": 92260
       },
       {
          "data": "QA",
          "name": "Qatar",
-         "hits": 48599
+         "hits": 11956
       },
       {
          "data": "RE",
          "name": "Reunion",
-         "hits": 1734
+         "hits": 3563
       },
       {
          "data": "RO",
          "name": "Romania",
-         "hits": 317376
+         "hits": 2795814
       },
       {
          "data": "RU",
          "name": "Russian Federation",
-         "hits": 1538721
+         "hits": 912121
       },
       {
          "data": "RW",
          "name": "Rwanda",
-         "hits": 4463
+         "hits": 840
       },
       {
          "data": "SA",
          "name": "Saudi Arabia",
-         "hits": 313400
-      },
-      {
-         "data": "SB",
-         "name": "Solomon Islands",
-         "hits": 485
+         "hits": 29092
       },
       {
          "data": "SC",
          "name": "Seychelles",
-         "hits": 1320
+         "hits": 1806
       },
       {
          "data": "SD",
          "name": "Sudan",
-         "hits": 48723
+         "hits": 12124
       },
       {
          "data": "SE",
          "name": "Sweden",
-         "hits": 410613
+         "hits": 2447109
       },
       {
          "data": "SG",
          "name": "Singapore",
-         "hits": 612609
+         "hits": 2656311
       },
       {
          "data": "SI",
          "name": "Slovenia",
-         "hits": 44150
+         "hits": 18956
       },
       {
          "data": "SK",
          "name": "Slovakia",
-         "hits": 60522
+         "hits": 36218
       },
       {
          "data": "SL",
          "name": "Sierra Leone",
-         "hits": 351
+         "hits": 21
       },
       {
          "data": "SM",
          "name": "San Marino",
-         "hits": 360
+         "hits": 224
       },
       {
          "data": "SN",
          "name": "Senegal",
-         "hits": 3743
+         "hits": 581
       },
       {
          "data": "SO",
          "name": "Somalia",
-         "hits": 3627
+         "hits": 105
       },
       {
          "data": "SR",
          "name": "Suriname",
-         "hits": 2881
-      },
-      {
-         "data": "ST",
-         "name": "Sao Tome and Principe",
-         "hits": 39
+         "hits": 4095
       },
       {
          "data": "SV",
          "name": "El Salvador",
-         "hits": 18129
+         "hits": 31367
       },
       {
          "data": "SY",
          "name": "Syrian Arab Republic",
-         "hits": 24002
+         "hits": 16310
       },
       {
          "data": "SZ",
          "name": "Swaziland",
-         "hits": 687
-      },
-      {
-         "data": "TC",
-         "name": "Turks and Caicos Islands",
-         "hits": 563
-      },
-      {
-         "data": "TD",
-         "name": "Chad",
-         "hits": 94
+         "hits": 112
       },
       {
          "data": "TG",
          "name": "Togo",
-         "hits": 5603
+         "hits": 469
       },
       {
          "data": "TH",
          "name": "Thailand",
-         "hits": 284616
+         "hits": 108416
       },
       {
          "data": "TJ",
          "name": "Tajikistan",
-         "hits": 5470
-      },
-      {
-         "data": "TK",
-         "name": "Tokelau",
-         "hits": 2
+         "hits": 224
       },
       {
          "data": "TM",
          "name": "Turkmenistan",
-         "hits": 510
+         "hits": 504
       },
       {
          "data": "TN",
          "name": "Tunisia",
-         "hits": 49229
-      },
-      {
-         "data": "TO",
-         "name": "Tonga",
-         "hits": 1176
+         "hits": 52892
       },
       {
          "data": "TL",
          "name": "Timor-Leste",
-         "hits": 132
+         "hits": 21
       },
       {
          "data": "TR",
          "name": "Turkey",
-         "hits": 1222366
+         "hits": 210749
       },
       {
          "data": "TT",
          "name": "Trinidad and Tobago",
-         "hits": 19931
-      },
-      {
-         "data": "TV",
-         "name": "Tuvalu",
-         "hits": 15
+         "hits": 7791
       },
       {
          "data": "TW",
          "name": "Taiwan",
-         "hits": 321170
+         "hits": 52017
       },
       {
          "data": "TZ",
          "name": "Tanzania, United Republic of",
-         "hits": 8021
+         "hits": 6335
       },
       {
          "data": "UA",
          "name": "Ukraine",
-         "hits": 262513
+         "hits": 175105
       },
       {
          "data": "UG",
          "name": "Uganda",
-         "hits": 11529
+         "hits": 6391
       },
       {
          "data": "US",
          "name": "United States",
-         "hits": 55579939
+         "hits": 275414713
       },
       {
          "data": "UY",
          "name": "Uruguay",
-         "hits": 49488
+         "hits": 19040
       },
       {
          "data": "UZ",
          "name": "Uzbekistan",
-         "hits": 13745
+         "hits": 2191
       },
       {
          "data": "VA",
          "name": "Holy See (Vatican City State)",
-         "hits": 14
+         "hits": 7
       },
       {
          "data": "VC",
          "name": "Saint Vincent and the Grenadines",
-         "hits": 955
+         "hits": 91
       },
       {
          "data": "VE",
          "name": "Venezuela",
-         "hits": 117179
+         "hits": 33558
       },
       {
          "data": "VG",
          "name": "Virgin Islands, British",
-         "hits": 11722
+         "hits": 4291
       },
       {
          "data": "VI",
          "name": "Virgin Islands, U.S.",
-         "hits": 9736
+         "hits": 147
       },
       {
          "data": "VN",
          "name": "Vietnam",
-         "hits": 3324295
-      },
-      {
-         "data": "VU",
-         "name": "Vanuatu",
-         "hits": 432
-      },
-      {
-         "data": "WF",
-         "name": "Wallis and Futuna",
-         "hits": 9
-      },
-      {
-         "data": "WS",
-         "name": "Samoa",
-         "hits": 1238
+         "hits": 118020
       },
       {
          "data": "YE",
          "name": "Yemen",
-         "hits": 4776
+         "hits": 14875
       },
       {
          "data": "YT",
          "name": "Mayotte",
-         "hits": 186
+         "hits": 35
       },
       {
          "data": "RS",
          "name": "Serbia",
-         "hits": 187367
+         "hits": 47397
       },
       {
          "data": "ZA",
          "name": "South Africa",
-         "hits": 675483
+         "hits": 80654
       },
       {
          "data": "ZM",
          "name": "Zambia",
-         "hits": 5205
+         "hits": 3682
       },
       {
          "data": "ME",
          "name": "Montenegro",
-         "hits": 4459
+         "hits": 1505
       },
       {
          "data": "ZW",
          "name": "Zimbabwe",
-         "hits": 4457
+         "hits": 889
       },
       {
          "data": "A1",
          "name": "Anonymous Proxy",
-         "hits": 48561
+         "hits": 66948
       },
       {
          "data": "A2",
          "name": "Satellite Provider",
-         "hits": 17657
+         "hits": 882
       },
       {
          "data": "AX",
          "name": "Aland Islands",
-         "hits": 115
+         "hits": 161
       },
       {
          "data": "GG",
          "name": "Guernsey",
-         "hits": 722
+         "hits": 7
       },
       {
          "data": "IM",
          "name": "Isle of Man",
-         "hits": 918
+         "hits": 2485
       },
       {
          "data": "JE",
          "name": "Jersey",
-         "hits": 12867
+         "hits": 441
       },
       {
          "data": "MF",
          "name": "Saint Martin",
-         "hits": 173
-      },
-      {
-         "data": "BQ",
-         "name": "Bonaire, Saint Eustatius and Saba",
-         "hits": 225
+         "hits": 42
       },
       {
          "data": "SS",
          "name": "South Sudan",
-         "hits": 174
+         "hits": 882
       }
    ],
    "hours": [
       {
          "data": 0,
-         "hits": 4117411
+         "hits": 18191425
       },
       {
          "data": 1,
-         "hits": 4225380
+         "hits": 19101285
       },
       {
          "data": 2,
-         "hits": 4210988
+         "hits": 18275187
       },
       {
          "data": 3,
-         "hits": 4191402
+         "hits": 17760085
       },
       {
          "data": 4,
-         "hits": 4124677
+         "hits": 17563406
       },
       {
          "data": 5,
-         "hits": 3958630
+         "hits": 17896221
       },
       {
          "data": 6,
-         "hits": 3762195
+         "hits": 16487464
       },
       {
          "data": 7,
-         "hits": 3638294
+         "hits": 15944579
       },
       {
          "data": 8,
-         "hits": 3640626
+         "hits": 19057962
       },
       {
          "data": 9,
-         "hits": 3633456
+         "hits": 19114991
       },
       {
          "data": 10,
-         "hits": 3771537
+         "hits": 18047232
       },
       {
          "data": 11,
-         "hits": 3864579
+         "hits": 16965739
       },
       {
          "data": 12,
-         "hits": 4474364
+         "hits": 16405711
       },
       {
          "data": 13,
-         "hits": 4699536
+         "hits": 17330096
       },
       {
          "data": 14,
-         "hits": 5357545
+         "hits": 17229478
       },
       {
          "data": 15,
-         "hits": 5057490
+         "hits": 18303082
       },
       {
          "data": 16,
-         "hits": 4972080
+         "hits": 18437020
       },
       {
          "data": 17,
-         "hits": 4903129
+         "hits": 19563509
       },
       {
          "data": 18,
-         "hits": 4585458
+         "hits": 20926479
       },
       {
          "data": 19,
-         "hits": 4688693
+         "hits": 20192991
       },
       {
          "data": 20,
-         "hits": 4715749
+         "hits": 20573714
       },
       {
          "data": 21,
-         "hits": 4765290
+         "hits": 20323569
       },
       {
          "data": 22,
-         "hits": 4706465
+         "hits": 20160084
       },
       {
          "data": 23,
-         "hits": 4581352
+         "hits": 18724650
       }
    ],
    "methods": [
       {
-         "data": "OPTIONS",
-         "hits": 171
-      },
-      {
          "data": "GET",
-         "hits": 104497302
-      },
-      {
-         "data": "HEAD",
-         "hits": 11532
+         "hits": 442563975
       },
       {
          "data": "POST",
-         "hits": 137293
+         "hits": 693
+      },
+      {
+         "data": "HEAD",
+         "hits": 8302
+      },
+      {
+         "data": "OPTIONS",
+         "hits": 2954
       },
       {
          "data": "PUT",
-         "hits": 4
+         "hits": 28
       }
    ],
    "protocols": [
       {
-         "data": "HTTP/1.0",
-         "hits": 11935368
+         "data": "HTTP/1.1",
+         "hits": 438518878
       },
       {
-         "data": "HTTP/1.1",
-         "hits": 92710920
+         "data": "HTTP/1.0",
+         "hits": 4057081
       }
    ],
    "status": [
       {
          "data": 200,
-         "hits": 104096316
-      },
-      {
-         "data": 206,
-         "hits": 53
+         "hits": 323325898
       },
       {
          "data": 301,
-         "hits": 1
+         "hits": 11437104
       },
       {
          "data": 304,
-         "hits": 471
+         "hits": 84
       },
       {
          "data": 400,
-         "hits": 262216
-      },
-      {
-         "data": 403,
-         "hits": 17
+         "hits": 370258
       },
       {
          "data": 404,
-         "hits": 79191
+         "hits": 6201531
       },
       {
          "data": 405,
-         "hits": 10
+         "hits": 3388
       },
       {
-         "data": 408,
-         "hits": 3
-      },
-      {
-         "data": 416,
-         "hits": 2
+         "data": 411,
+         "hits": 63
       },
       {
          "data": 499,
-         "hits": 208008
+         "hits": 14
+      },
+      {
+         "data": 500,
+         "hits": 101236947
+      },
+      {
+         "data": 502,
+         "hits": 224
+      },
+      {
+         "data": 504,
+         "hits": 182
       }
    ]
 }
