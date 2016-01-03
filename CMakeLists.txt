@@ -19,9 +19,14 @@ project(logswan C)
 include(CheckFunctionExists)
 include_directories(/usr/local/include /usr/pkg/include)
 
+list(APPEND CMAKE_REQUIRED_DEFINITIONS -D_OPENBSD_SOURCE)
 check_function_exists(strtonum HAVE_STRTONUM)
 
-find_library(LIB_GEOIP NAMES GeoIP REQUIRED)
+# GeoIP
+find_path(GEOIP_INCLUDE_DIR GeoIP.h)
+find_library(GEOIP_LIBRARIES NAMES GeoIP REQUIRED)
+include_directories(${GEOIP_INCLUDE_DIR})
+
 find_library(LIB_JANSSON NAMES jansson REQUIRED)
 
 set(CMAKE_BUILD_TYPE Release)
@@ -32,14 +37,12 @@ if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)
 endif()
 
-if(NOT DEFINED DATADIR)
-  set(DATADIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP)
-endif()
+SET(GEOIPDATA ${CMAKE_INSTALL_PREFIX}/share/GeoIP CACHE PATH "Path to GeoIP data files")
 
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
-add_definitions(-DDATADIR="${DATADIR}")
+add_definitions(-DDATADIR="${GEOIPDATA}")
 add_executable(logswan ${SRC} ${DEPS})
 
-target_link_libraries(logswan ${LIB_GEOIP} ${LIB_JANSSON} m)
+target_link_libraries(logswan ${GEOIP_LIBRARIES} ${LIB_JANSSON} m)
 
 install(TARGETS logswan DESTINATION bin)
