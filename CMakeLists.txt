@@ -17,6 +17,7 @@ cmake_minimum_required (VERSION 2.6)
 project(logswan C)
 
 include(CheckFunctionExists)
+include(GNUInstallDirs) 
 
 # Check if system has strtonum
 list(APPEND CMAKE_REQUIRED_DEFINITIONS -D_OPENBSD_SOURCE)
@@ -49,3 +50,4 @@ add_executable(logswan ${SRC} ${DEPS})
 target_link_libraries(logswan ${GEOIP_LIBRARIES} ${JANSSON_LIBRARIES} m)
 
 install(TARGETS logswan DESTINATION bin)
+install(FILES logswan.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1/)
