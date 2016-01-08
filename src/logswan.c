@@ -155,7 +155,7 @@ int main (int argc, char *argv[]) {
 			results.countries[countryId]++;
 
 			/* Increment continents array */
-			for (int loop = 0; loop<CONTINENTS; loop++) {
+			for (size_t loop = 0; loop<CONTINENTS; loop++) {
 				if (!strcmp(continentsId[loop], GeoIP_continent_by_id(countryId))) {
 					results.continents[loop] ++;
 					break;
@@ -189,7 +189,7 @@ int main (int argc, char *argv[]) {
 				parseRequest(&parsedRequest, parsedLine.request);
 
 				if (parsedRequest.method) {
-					for (int loop = 0; loop<METHODS; loop++) {
+					for (size_t loop = 0; loop<METHODS; loop++) {
 						if (!strcmp(methods[loop], parsedRequest.method)) {
 							results.methods[loop] ++;
 							break;
@@ -198,7 +198,7 @@ int main (int argc, char *argv[]) {
 				}
 
 				if (parsedRequest.protocol) {
-					for (int loop = 0; loop<PROTOCOLS; loop++) {
+					for (size_t loop = 0; loop<PROTOCOLS; loop++) {
 						if (!strcmp(protocols[loop], parsedRequest.protocol)) {
 							results.protocols[loop] ++;
 							break;

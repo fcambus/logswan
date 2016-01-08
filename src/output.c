@@ -29,37 +29,37 @@ char *output(Results results) {
 	json_t *methodsArray = json_array();
 	json_t *protocolsArray = json_array();
 
-	for (int loop=0; loop<CONTINENTS; loop++) {
+	for (size_t loop=0; loop<CONTINENTS; loop++) {
 		if (results.continents[loop]) {
 			json_array_append_new(continentsArray, json_pack("{s:s, s:s, s:i}", "data", continentsId[loop], "name", continentsNames[loop], "hits", results.continents[loop]));
 		}
 	}
 
-	for (int loop=0; loop<COUNTRIES; loop++) {
+	for (size_t loop=0; loop<COUNTRIES; loop++) {
 		if (results.countries[loop]) {
 			json_array_append_new(countriesArray, json_pack("{s:s, s:s, s:i}", "data", GeoIP_code_by_id(loop), "name", GeoIP_name_by_id(loop), "hits", results.countries[loop]));
 		}
 	}
 
-	for (int loop=0; loop<24; loop++) {
+	for (size_t loop=0; loop<24; loop++) {
 		if (results.hours[loop]) {
 			json_array_append_new(hoursArray, json_pack("{s:i, s:i}", "data", loop, "hits", results.hours[loop]));
 		}
 	}
 
-	for (int loop=0; loop<STATUS_CODE_MAX; loop++) {
+	for (size_t loop=0; loop<STATUS_CODE_MAX; loop++) {
 		if (results.status[loop]) {
 			json_array_append_new(httpStatusArray, json_pack("{s:i, s:i}", "data", loop, "hits", results.status[loop]));
 		}
 	}
 
-	for (int loop=0; loop<METHODS; loop++) {
+	for (size_t loop=0; loop<METHODS; loop++) {
 		if (results.methods[loop]) {
 			json_array_append_new(methodsArray, json_pack("{s:s, s:i}", "data", methods[loop], "hits", results.methods[loop]));
 		}
 	}
 
-	for (int loop=0; loop<PROTOCOLS; loop++) {
+	for (size_t loop=0; loop<PROTOCOLS; loop++) {
 		if (results.protocols[loop]) {
 			json_array_append_new(protocolsArray, json_pack("{s:s, s:i}", "data", protocols[loop], "hits", results.protocols[loop]));
 		}
