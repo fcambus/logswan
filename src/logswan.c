@@ -5,7 +5,7 @@
 /* http://www.logswan.org                                                    */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2016-01-01                                                  */
+/* Last Updated: 2016-01-08                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -37,35 +37,6 @@
 #include "output.h"
 #include "parse.h"
 
-GeoIP *geoip, *geoipv6;
-
-clock_t begin, end;
-
-char lineBuffer[LINE_MAX_LENGTH];
-
-Results results;
-struct date parsedDate;
-struct logLine parsedLine;
-struct request parsedRequest;
-
-struct sockaddr_in ipv4;
-struct sockaddr_in6 ipv6;
-int isIPv4, isIPv6;
-
-uint64_t bandwidth;
-int statusCode;
-int hour;
-int countryId;
-
-struct stat logFileSize;
-FILE *logFile;
-
-const char *errstr;
-
-int getoptFlag;
-
-struct HLL uniqueIPv4, uniqueIPv6;
-
 void displayUsage() {
 	printf("USAGE : logswan [options] inputfile\n\n" \
 	       "Options are :\n\n" \
@@ -74,8 +45,35 @@ void displayUsage() {
 }
 
 int main (int argc, char *argv[]) {
-	char *intputFile;
+	GeoIP *geoip, *geoipv6;
 
+	clock_t begin, end;
+
+	char lineBuffer[LINE_MAX_LENGTH];
+
+	Results results;
+	struct date parsedDate;
+	struct logLine parsedLine;
+	struct request parsedRequest;
+
+	struct sockaddr_in ipv4;
+	struct sockaddr_in6 ipv6;
+	uint8_t isIPv4, isIPv6;
+
+	uint64_t bandwidth;
+	uint16_t statusCode;
+	uint8_t hour;
+	uint16_t countryId;
+
+	struct stat logFileSize;
+	FILE *logFile;
+
+	const char *errstr;
+
+	int8_t getoptFlag;
+
+	struct HLL uniqueIPv4, uniqueIPv6;
+	char *intputFile;
 
 	#if defined(__OpenBSD__)
 		if (pledge("stdio rpath", NULL) == -1) {
