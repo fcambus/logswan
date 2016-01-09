@@ -5,7 +5,7 @@
 # http://www.logswan.org                                                      #
 #                                                                             #
 # Created:      2015-05-31                                                    #
-# Last Updated: 2016-01-01                                                    #
+# Last Updated: 2016-01-09                                                    #
 #                                                                             #
 # Logswan is released under the BSD 3-Clause license.                         #
 # See LICENSE file for details.                                               #
@@ -14,7 +14,7 @@
 
 cmake_minimum_required (VERSION 2.6)
 
-project (logswan C)
+project(logswan C)
 
 include(CheckFunctionExists)
 include_directories(/usr/local/include /usr/pkg/include)
@@ -24,8 +24,9 @@ check_function_exists(strtonum HAVE_STRTONUM)
 find_library(LIB_GEOIP NAMES GeoIP REQUIRED)
 find_library(LIB_JANSSON NAMES jansson REQUIRED)
 
-set (DEPS deps/hll/hll.c deps/MurmurHash3/MurmurHash3.c)
-set (SRC src/logswan.c src/config.c src/output.c src/parse.c)
+set(CMAKE_BUILD_TYPE Release)
+set(DEPS deps/hll/hll.c deps/MurmurHash3/MurmurHash3.c)
+set(SRC src/logswan.c src/config.c src/output.c src/parse.c)
 
 if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)
