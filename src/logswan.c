@@ -5,7 +5,7 @@
 /* http://www.logswan.org                                                    */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2016-01-08                                                  */
+/* Last Updated: 2016-01-09                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -226,16 +226,15 @@ int main (int argc, char *argv[]) {
 			/* Increment hits counter */
 			results.hitsIPv4 += isIPv4;
 			results.hitsIPv6 += isIPv6;
-			results.hits++;
 		} else {
 			/* Invalid line */
-
 			results.invalidLines++;
 		}
-
-		/* Increment processed lines counter */
-		results.processedLines++;
 	}
+
+	/* Counting hits and processed lines */
+	results.hits = results.hitsIPv4 + results.hitsIPv6;
+	results.processedLines = results.hits + results.invalidLines;
 
 	/* Counting unique visitors */
 	results.visitsIPv4 = hll_count(&uniqueIPv4);
