@@ -42,7 +42,7 @@ endif()
 SET(GEOIPDATA ${CMAKE_INSTALL_PREFIX}/share/GeoIP CACHE PATH "Path to GeoIP data files")
 
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
-add_definitions(-DDATADIR="${GEOIPDATA}")
+add_definitions(-DDATADIR="${GEOIPDATA}/")
 add_executable(logswan ${SRC} ${DEPS})
 
 target_link_libraries(logswan ${GEOIP_LIBRARIES} ${JANSSON_LIBRARIES} m)
