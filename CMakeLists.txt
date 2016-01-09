@@ -23,11 +23,14 @@ list(APPEND CMAKE_REQUIRED_DEFINITIONS -D_OPENBSD_SOURCE)
 check_function_exists(strtonum HAVE_STRTONUM)
 
 # GeoIP
-find_path(GEOIP_INCLUDE_DIR GeoIP.h)
+find_path(GEOIP_INCLUDE_DIRS GeoIP.h)
 find_library(GEOIP_LIBRARIES NAMES GeoIP REQUIRED)
-include_directories(${GEOIP_INCLUDE_DIR})
+include_directories(${GEOIP_INCLUDE_DIRS})
 
-find_library(LIB_JANSSON NAMES jansson REQUIRED)
+# Jansson
+find_path(JANSSON_INCLUDE_DIRS jansson.h)
+find_library(JANSSON_LIBRARIES NAMES jansson REQUIRED)
+include_directories(${JANSSON_INCLUDE_DIRS})
 
 set(CMAKE_BUILD_TYPE Release)
 set(DEPS deps/hll/hll.c deps/MurmurHash3/MurmurHash3.c)
@@ -43,6 +46,6 @@ add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
 add_definitions(-DDATADIR="${GEOIPDATA}")
 add_executable(logswan ${SRC} ${DEPS})
 
-target_link_libraries(logswan ${GEOIP_LIBRARIES} ${LIB_JANSSON} m)
+target_link_libraries(logswan ${GEOIP_LIBRARIES} ${JANSSON_LIBRARIES} m)
 
 install(TARGETS logswan DESTINATION bin)
