@@ -58,12 +58,12 @@ int main (int argc, char *argv[]) {
 
 	struct sockaddr_in ipv4;
 	struct sockaddr_in6 ipv6;
-	uint32_t isIPv4, isIPv6;
+	uint32_t isIPv4 = 0, isIPv6 = 0;
 
 	uint64_t bandwidth;
 	uint32_t statusCode;
 	uint32_t hour;
-	uint32_t countryId;
+	uint32_t countryId = 0;
 
 	struct stat logFileSize;
 	FILE *logFile;
