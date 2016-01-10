@@ -1,3 +1,17 @@
+Logswan 1.04 (2016-01-10)
+
+- Moving global variables into main
+- Using 'size_t' instead of 'int' for array indexes in for loops
+- Using 'uint32_t' for all non 'uint64_t' integers
+- Do not increment hits and processed lines counter for each parsed line,
+  compute total only once when everything is parsed
+- Setting 'CMAKE_BUILD_TYPE' to 'Release' and formatting fixes
+- Sanitize CMake script to build under NetBSD (Thanks Kamil Rytarowski)
+- Initializing some uninitialized variables
+- Renaming 'DATADIR' variables to 'GEOIPDIR'
+
+
+
 Logswan 1.03 (2016-01-01)
 
 - Remove header display and do not print name of processed file
@@ -17,7 +31,7 @@ Logswan 1.03 (2016-01-01)
 - Increasing countries array size, as an attempt to be future-proof
 - Initial support for using pledge() on OpenBSD
 - Documentation updates (HLL precision, Features list, GeoIP databases)
-- Updated output file example
+- Updated JSON output example
 - Added a manual page
 
 

@@ -1,11 +1,11 @@
 /*****************************************************************************/
 /*                                                                           */
-/* Logswan 1.03                                                              */
+/* Logswan 1.04                                                              */
 /* Copyright (c) 2015-2016, Frederic Cambus                                  */
 /* http://www.logswan.org                                                    */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2016-01-01                                                  */
+/* Last Updated: 2016-01-10                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -15,7 +15,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define VERSION "Logswan 1.03"
+#define VERSION "Logswan 1.04"
 
 enum {
 	HLL_BITS = 20,

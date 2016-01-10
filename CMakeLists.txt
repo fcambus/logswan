@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# Logswan 1.03                                                                #
+# Logswan 1.04                                                                #
 # Copyright (c) 2015-2016, Frederic Cambus                                    #
 # http://www.logswan.org                                                      #
 #                                                                             #
@@ -17,7 +17,7 @@ cmake_minimum_required (VERSION 2.6)
 project(logswan C)
 
 include(CheckFunctionExists)
-include(GNUInstallDirs) 
+include(GNUInstallDirs)
 
 # Check if system has strtonum
 list(APPEND CMAKE_REQUIRED_DEFINITIONS -D_OPENBSD_SOURCE)
