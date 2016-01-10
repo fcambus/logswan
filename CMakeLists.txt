@@ -5,7 +5,7 @@
 # http://www.logswan.org                                                      #
 #                                                                             #
 # Created:      2015-05-31                                                    #
-# Last Updated: 2016-01-09                                                    #
+# Last Updated: 2016-01-10                                                    #
 #                                                                             #
 # Logswan is released under the BSD 3-Clause license.                         #
 # See LICENSE file for details.                                               #
@@ -18,6 +18,7 @@ project(logswan C)
 
 include(CheckFunctionExists)
 
+# Check if system has strtonum
 list(APPEND CMAKE_REQUIRED_DEFINITIONS -D_OPENBSD_SOURCE)
 check_function_exists(strtonum HAVE_STRTONUM)
 
@@ -39,10 +40,10 @@ if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)
 endif()
 
-SET(GEOIPDATA ${CMAKE_INSTALL_PREFIX}/share/GeoIP CACHE PATH "Path to GeoIP data files")
+SET(GEOIPDIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP CACHE PATH "Path to GeoIP data files")
 
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
-add_definitions(-DDATADIR="${GEOIPDATA}/")
+add_definitions(-DGEOIPDIR="${GEOIPDIR}/")
 add_executable(logswan ${SRC} ${DEPS})
 
 target_link_libraries(logswan ${GEOIP_LIBRARIES} ${JANSSON_LIBRARIES} m)

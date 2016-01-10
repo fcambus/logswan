@@ -89,9 +89,9 @@ Logswan packages are available for :
 
 By default, Logswan looks for GeoIP databases in `${CMAKE_INSTALL_PREFIX}/share/GeoIP`, which points to `/usr/local/share/GeoIP` by default.
 
-A custom directory can be set using the `DATADIR` variable when invoking CMake :
+A custom directory can be set using the `GEOIPDIR` variable when invoking CMake :
 
-	cmake -DDATADIR=/var/db/GeoIP .
+	cmake -DGEOIPDIR=/var/db/GeoIP .
 
 The free GeoLite databases can be downloaded here : http://dev.maxmind.com/geoip/legacy/geolite/
 
