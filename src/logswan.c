@@ -26,10 +26,10 @@
 #include <unistd.h>
 
 #ifndef HAVE_STRTONUM
-#include "../compat/strtonum.h"
+#include "strtonum.h"
 #endif
 
-#include "../deps/hll/hll.h"
+#include "hll.h"
 
 #include <GeoIP.h>
 

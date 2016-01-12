@@ -23,6 +23,10 @@ include(GNUInstallDirs)
 list(APPEND CMAKE_REQUIRED_DEFINITIONS -D_OPENBSD_SOURCE)
 check_function_exists(strtonum HAVE_STRTONUM)
 
+# Additional include directories for compat functions + dependencies
+include_directories("compat")
+include_directories("deps/hll")
+
 # GeoIP
 find_path(GEOIP_INCLUDE_DIRS GeoIP.h)
 find_library(GEOIP_LIBRARIES NAMES GeoIP REQUIRED)
