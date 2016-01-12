@@ -117,6 +117,13 @@ Options are :
 
 Logswan outputs JSON data to **stdout**. 
 
+## Measuring Logswan memory usage
+
+Heap profiling can be done using valgrind, as follow :
+
+	valgrind --tool=massif logswan access.log
+	ms_print massif.out.*
+
 ## License
 
 Logswan is released under the BSD 3-Clause license. See `LICENSE` file for details.
