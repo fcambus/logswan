@@ -5,7 +5,7 @@
 /* http://www.logswan.org                                                    */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2016-01-10                                                  */
+/* Last Updated: 2016-01-12                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -26,27 +26,29 @@ void parseDate(struct date* parsedDate, char *date) {
 }
 
 void parseLine(struct logLine* parsedLine, char *lineBuffer) {
-	/* Remote host */
-	parsedLine->remoteHost = strtok(lineBuffer, " ");
+	if (*lineBuffer) {
+		/* Remote host */
+		parsedLine->remoteHost = strtok(lineBuffer, " ");
 
-	/* User-identifier */
-	strtok(NULL, " ");
+		/* User-identifier */
+		strtok(NULL, " ");
 
-	/* User ID */
-	strtok(NULL, "[");
+		/* User ID */
+		strtok(NULL, "[");
 
-	/* Date */
-	parsedLine->date = strtok(NULL, "]");
+		/* Date */
+		parsedLine->date = strtok(NULL, "]");
 
-	/* Requested resource */
-	strtok(NULL, "\"");
-	parsedLine->request = strtok(NULL, "\"");
+		/* Requested resource */
+		strtok(NULL, "\"");
+		parsedLine->request = strtok(NULL, "\"");
 
-	/* HTTP status codes */
-	parsedLine->statusCode = strtok(NULL, " ");
+		/* HTTP status codes */
+		parsedLine->statusCode = strtok(NULL, " ");
 
-	/* Returned object size */
-	parsedLine->objectSize = strtok(NULL, " \"");
+		/* Returned object size */
+		parsedLine->objectSize = strtok(NULL, " \"");
+	}
 }
 
 void parseRequest(struct request* parsedRequest, char *request) {
