@@ -19,9 +19,10 @@ project(logswan C)
 include(CheckFunctionExists)
 include(GNUInstallDirs)
 
-# Check if system has strtonum
+# Check if system has strtonum and pledge
 list(APPEND CMAKE_REQUIRED_DEFINITIONS -D_OPENBSD_SOURCE)
 check_function_exists(strtonum HAVE_STRTONUM)
+check_function_exists(pledge HAVE_PLEDGE)
 
 # Additional include directories for compat functions + dependencies
 include_directories("compat")
