@@ -142,6 +142,9 @@ int main (int argc, char *argv[]) {
 
 		if (isIPv4 || isIPv6) {
 			if (isIPv4) {
+				/* Increment hits counter */
+				results.hitsIPv4++;
+
 				/* Unique visitors */
 				hll_add(&uniqueIPv4, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
 
@@ -151,6 +154,9 @@ int main (int argc, char *argv[]) {
 			}
 
 			if (isIPv6) {
+				/* Increment hits counter */
+				results.hitsIPv6++;
+
 				/* Unique visitors */
 				hll_add(&uniqueIPv6, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
 
@@ -223,10 +229,6 @@ int main (int argc, char *argv[]) {
 					results.bandwidth += bandwidth;
 				}
 			}
-
-			/* Increment hits counter */
-			results.hitsIPv4 += isIPv4;
-			results.hitsIPv6 += isIPv6;
 		} else {
 			/* Invalid line */
 			results.invalidLines++;
