@@ -5,7 +5,7 @@
 /* http://www.logswan.org                                                    */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2016-01-10                                                  */
+/* Last Updated: 2016-01-13                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 3-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -141,15 +141,25 @@ int main (int argc, char *argv[]) {
 		}
 
 		if (isIPv4 || isIPv6) {
+			if (isIPv4) {
+				/* Unique visitors */
+				hll_add(&uniqueIPv4, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
+
+				if (geoip) {
+					countryId = GeoIP_id_by_addr(geoip, parsedLine.remoteHost);
+				}
+			}
+
+			if (isIPv6) {
+				/* Unique visitors */
+				hll_add(&uniqueIPv6, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
+
+				if (geoipv6) {
+					countryId = GeoIP_id_by_addr_v6(geoipv6, parsedLine.remoteHost);
+				}
+			}
+
 			/* Increment countries array */
-			if (geoip && isIPv4) {
-				countryId = GeoIP_id_by_addr(geoip, parsedLine.remoteHost);
-			}
-
-			if (geoipv6 && isIPv6) {
-				countryId = GeoIP_id_by_addr_v6(geoipv6, parsedLine.remoteHost);
-			}
-
 			results.countries[countryId]++;
 
 			/* Increment continents array */
@@ -158,15 +168,6 @@ int main (int argc, char *argv[]) {
 					results.continents[loop] ++;
 					break;
 				}
-			}
-
-			/* Unique visitors */
-			if (isIPv4) {
-				hll_add(&uniqueIPv4, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
-			}
-
-			if (isIPv6) {
-				hll_add(&uniqueIPv6, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
 			}
 
 			/* Hourly distribution */
