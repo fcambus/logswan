@@ -79,11 +79,9 @@ int main (int argc, char *argv[]) {
 	struct HLL uniqueIPv4, uniqueIPv6;
 	char *intputFile;
 
-#ifdef __OpenBSD__
 	if (pledge("stdio rpath", NULL) == -1) {
 		err(EXIT_FAILURE, "pledge");
 	}
-#endif
 
 	hll_init(&uniqueIPv4, HLL_BITS);
 	hll_init(&uniqueIPv6, HLL_BITS);
