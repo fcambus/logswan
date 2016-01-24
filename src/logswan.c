@@ -132,7 +132,7 @@ int main (int argc, char *argv[]) {
 		}
 	}
 
-	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile) != NULL) {
+	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile)) {
 		/* Parse and tokenize line */
 		parseLine(&parsedLine, lineBuffer);
 
