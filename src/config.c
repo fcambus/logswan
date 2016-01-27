@@ -46,3 +46,18 @@ char *protocols[] = {
 	"HTTP/1.1",
 	"HTTP/1.0"
 };
+
+char *months[] = {
+	"Jan",
+	"Feb",
+	"Mar",
+	"Apr",
+	"May",
+	"Jun",
+	"Jul",
+	"Aug",
+	"Sep",
+	"Oct",
+	"Nov",
+	"Dec"
+};
