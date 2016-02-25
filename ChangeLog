@@ -1,3 +1,18 @@
+Logswan 1.05 (2016-02-25)
+
+- Documentation update (notes on measuring Logswan memory usage)
+- Add additional include directories for compat functions + dependencies
+  to avoid using relative path in includes
+- Check that *lineBuffer is not NUL before attempting to parse log line
+- Perform GeoIP lookup and HLL add in the same if block
+- Increment IPv4 and IPv6 hits counters individually and conditionally
+- Use CMake to check if the system has OpenBSD's pledge available and
+  link pledge conditionally using a null implementation when compiled
+  on non OpenBSD systems
+- Adding an array of months, for the upcoming split log functionalities
+
+
+
 Logswan 1.04 (2016-01-10)
 
 - Moving global variables into main
