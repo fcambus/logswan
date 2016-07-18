@@ -5,9 +5,9 @@
 # http://www.logswan.org                                                      #
 #                                                                             #
 # Created:      2015-05-31                                                    #
-# Last Updated: 2016-02-25                                                    #
+# Last Updated: 2016-07-18                                                    #
 #                                                                             #
-# Logswan is released under the BSD 3-Clause license.                         #
+# Logswan is released under the BSD 2-Clause license.                         #
 # See LICENSE file for details.                                               #
 #                                                                             #
 ###############################################################################

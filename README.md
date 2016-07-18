@@ -126,7 +126,7 @@ Heap profiling can be done using valgrind, as follow :
 
 ## License
 
-Logswan is released under the BSD 3-Clause license. See `LICENSE` file for details.
+Logswan is released under the BSD 2-Clause license. See `LICENSE` file for details.
 
 ## Author
 
