@@ -5,7 +5,7 @@
 /* http://www.logswan.org                                                    */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2016-07-18                                                  */
+/* Last Updated: 2016-10-30                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -16,14 +16,15 @@
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
+#include <sys/types.h>
 #include <err.h>
-#include <errno.h>
 #include <getopt.h>
 #include <inttypes.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
-#include <unistd.h>
 
 #ifndef HAVE_PLEDGE
 #include "pledge.h"

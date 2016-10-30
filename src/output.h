@@ -5,7 +5,7 @@
 /* http://www.logswan.org                                                    */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2016-07-18                                                  */
+/* Last Updated: 2016-10-30                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -14,6 +14,9 @@
 
 #ifndef OUTPUT_H
 #define OUTPUT_H
+
+#include <sys/types.h>
+#include "config.h"
 
 struct results {
 	char *fileName;
