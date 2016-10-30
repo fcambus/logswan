@@ -168,14 +168,16 @@ int main (int argc, char *argv[]) {
 				}
 			}
 
-			/* Increment countries array */
-			results.countries[countryId]++;
+			if (geoip || geoipv6) {
+				/* Increment countries array */
+				results.countries[countryId]++;
 
-			/* Increment continents array */
-			for (size_t loop = 0; loop<CONTINENTS; loop++) {
-				if (!strcmp(continentsId[loop], GeoIP_continent_by_id(countryId))) {
-					results.continents[loop] ++;
-					break;
+				/* Increment continents array */
+				for (size_t loop = 0; loop<CONTINENTS; loop++) {
+					if (!strcmp(continentsId[loop], GeoIP_continent_by_id(countryId))) {
+						results.continents[loop] ++;
+						break;
+					}
 				}
 			}
 
