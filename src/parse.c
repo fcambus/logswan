@@ -5,7 +5,7 @@
 /* http://www.logswan.org                                                    */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2016-07-18                                                  */
+/* Last Updated: 2016-10-30                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -17,45 +17,50 @@
 #include "parse.h"
 
 void parseDate(struct date* parsedDate, char *date) {
-	parsedDate->day = strtok(date, "/");
-	parsedDate->month = strtok(NULL, "/");
-	parsedDate->year = strtok(NULL, ":");
-	parsedDate->hour = strtok(NULL, ":");
-	parsedDate->minute = strtok(NULL, ":");
-	parsedDate->second = strtok(NULL, " ");
+	char *last;
+
+	parsedDate->day = strtok_r(date, "/", &last);
+	parsedDate->month = strtok_r(NULL, "/", &last);
+	parsedDate->year = strtok_r(NULL, ":", &last);
+	parsedDate->hour = strtok_r(NULL, ":", &last);
+	parsedDate->minute = strtok_r(NULL, ":", &last);
+	parsedDate->second = strtok_r(NULL, " ", &last);
 }
 
 void parseLine(struct logLine* parsedLine, char *lineBuffer) {
+	char *last;
+
 	if (*lineBuffer) {
 		/* Remote host */
-		parsedLine->remoteHost = strtok(lineBuffer, " ");
+		parsedLine->remoteHost = strtok_r(lineBuffer, " ", &last);
 
 		/* User-identifier */
-		strtok(NULL, " ");
+		strtok_r(NULL, " ", &last);
 
 		/* User ID */
-		strtok(NULL, "[");
+		strtok_r(NULL, "[", &last);
 
 		/* Date */
-		parsedLine->date = strtok(NULL, "]");
+		parsedLine->date = strtok_r(NULL, "]", &last);
 
 		/* Requested resource */
-		strtok(NULL, "\"");
-		parsedLine->request = strtok(NULL, "\"");
+		strtok_r(NULL, "\"", &last);
+		parsedLine->request = strtok_r(NULL, "\"", &last);
 
 		/* HTTP status codes */
-		parsedLine->statusCode = strtok(NULL, " ");
+		parsedLine->statusCode = strtok_r(NULL, " ", &last);
 
 		/* Returned object size */
-		parsedLine->objectSize = strtok(NULL, " \"");
+		parsedLine->objectSize = strtok_r(NULL, " \"", &last);
 	}
 }
 
 void parseRequest(struct request* parsedRequest, char *request) {
+	char *last;
 	char *pch = strrchr(request, ' ');
 
 	if (pch) {
 		parsedRequest->protocol = pch + 1;
-		parsedRequest->method = strtok(request, " ");
+		parsedRequest->method = strtok_r(request, " ", &last);
 	}
 }
