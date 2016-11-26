@@ -12,7 +12,8 @@
 /*                                                                           */
 /*****************************************************************************/
 
-#define __USE_POSIX
+#define _POSIX_C_SOURCE 200112L
+
 #include <string.h>
 
 #include "parse.h"
