@@ -26,7 +26,7 @@
                          |                       :
                                                  .
 ```
-# Logswan
+# Logswan [![Build Status][1]][2]
 
 Logswan is a fast Web log analyzer using probabilistic data structures. It is targeted at very large log files, typically APIs logs. It has constant memory usage regardless of the log file size, and takes approximatively 4MB of RAM.
 
@@ -140,3 +140,6 @@ Logswan is developed by Frederic Cambus
 Project Homepage : http://www.logswan.org
 
 GitHub : https://github.com/fcambus/logswan
+
+[1]: https://travis-ci.org/fcambus/logswan.png?branch=master
+[2]: https://travis-ci.org/fcambus/logswan
