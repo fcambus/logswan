@@ -2,4 +2,7 @@ language: c
 compiler:
   - clang
   - gcc
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libgeoip-dev libjansson-dev
 script: cmake . && make
