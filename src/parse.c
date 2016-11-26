@@ -5,13 +5,14 @@
 /* http://www.logswan.org                                                    */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2016-10-30                                                  */
+/* Last Updated: 2016-11-26                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
 /*                                                                           */
 /*****************************************************************************/
 
+#define __USE_POSIX
 #include <string.h>
 
 #include "parse.h"
