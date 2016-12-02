@@ -6,3 +6,16 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libgeoip-dev libjansson-dev
 script: cmake . && make
+
+env:
+  global:
+    - secure: "WgUfuMV2b+wJpFSF5WV7ByT0bHbfg6xtzYIDZAWlMJmnmg6Bo+K4sEH4lQiedLuBBySnepbj8N/ju8gj2Ts7LV4kPsfyF7u0ppeSrJHhFL/xha/Lg/gtBmtOylBfV7IxlZNEbxdZbi4Y7nXW1tJFm0gMUyHIVSc/rJSOhTmYoFcVEXFx296Nr9qaS8MuBGeZEr8DW4sWNX5WlhzrogBxy7nnnCv0CtvkBBy+wzdDSalFxNSmPjR/pdNKKLGrodIrorTBdk094lq/FuQDZ89XVitGzFkvfGuiQx7qDvbRJ2M43bgYfoQMrYu0Blne7zWsDE8VqF3keZ9g2630lPz5zLaIul3gz4lpM2TdaI6AzQLm7yu5bVZWbp4AZXjvMVscq54Fe/CPMRHljLbp5SuPJ87kzgScZxdj0ol94Y1FNp1QbcjITTrbtCyuqWF5Im0wqyULprI4/+s6Mqi293eovnqBZkV7aS1Sod6fVVfXmNmyiGISc2In8xIDuj7GyKNilK5GK3IzRLZNp9+l4a3H8yKSq60ydtfwjsbqZak06EswA4te4J72jcFanXkbvdSsw7jBDQJPgeMtwWLkHS7X+0xT2slZW65Sa3+3m7NKTQE8TQxUFAJzqHSO6GAah9D5ce2xK403Ck80Mpn2V+XdjbMc1rj4ReyVt5LPzfSM1NE="
+
+addons:
+  coverity_scan:
+    project:
+      name: "fcambus/logswan"
+      description: "Fast Web log analyzer using probabilistic data structures"
+    build_command_prepend: cmake .
+    build_command: make
+    branch_pattern: coverity_scan
