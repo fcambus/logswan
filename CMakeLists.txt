@@ -50,7 +50,7 @@ if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)
 endif()
 
-SET(GEOIPDIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP CACHE PATH "Path to GeoIP data files")
+SET(GEOIPDIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP CACHE PATH "Path to GeoIP databases")
 
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
 add_definitions(-DGEOIPDIR="${GEOIPDIR}/")
