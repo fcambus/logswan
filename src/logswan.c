@@ -50,7 +50,7 @@ void displayUsage() {
 }
 
 int main (int argc, char *argv[]) {
-	GeoIP *geoip, *geoipv6;
+	GeoIP *geoipv4, *geoipv6;
 
 	clock_t begin, end;
 
@@ -113,7 +113,7 @@ int main (int argc, char *argv[]) {
 	begin = clock();
 
 	/* Initializing GeoIP */
-	geoip = GeoIP_open(GEOIPDIR "GeoIP.dat", GEOIP_MEMORY_CACHE);
+	geoipv4 = GeoIP_open(GEOIPDIR "GeoIP.dat", GEOIP_MEMORY_CACHE);
 	geoipv6 = GeoIP_open(GEOIPDIR "GeoIPv6.dat", GEOIP_MEMORY_CACHE);
 
 	/* Get log file size */
@@ -151,8 +151,8 @@ int main (int argc, char *argv[]) {
 				/* Unique visitors */
 				hll_add(&uniqueIPv4, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
 
-				if (geoip) {
-					countryId = GeoIP_id_by_addr(geoip, parsedLine.remoteHost);
+				if (geoipv4) {
+					countryId = GeoIP_id_by_addr(geoipv4, parsedLine.remoteHost);
 				}
 			}
 
@@ -168,7 +168,7 @@ int main (int argc, char *argv[]) {
 				}
 			}
 
-			if (geoip || geoipv6) {
+			if (geoipv4 || geoipv6) {
 				/* Increment countries array */
 				results.countries[countryId]++;
 
@@ -263,7 +263,7 @@ int main (int argc, char *argv[]) {
 
 	fputs(output(results), stdout);
 
-	GeoIP_delete(geoip);
+	GeoIP_delete(geoipv4);
 	GeoIP_delete(geoipv6);
 
 	hll_destroy(&uniqueIPv4);
