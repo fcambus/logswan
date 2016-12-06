@@ -268,9 +268,10 @@ int main (int argc, char *argv[]) {
 
 	/* Printing results */
 	fprintf(stderr, "Processed %" PRIu64 " lines in %f seconds\n", results.processedLines, results.runtime);
-	fclose(logFile);
-
 	fputs(output(results), stdout);
+
+	/* Clean up */
+	fclose(logFile);
 
 	GeoIP_delete(geoipv4);
 	GeoIP_delete(geoipv6);
