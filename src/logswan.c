@@ -53,7 +53,7 @@ void displayUsage() {
 
 int main (int argc, char *argv[]) {
 	bool geoip = false;
-	GeoIP *geoipv4, *geoipv6;
+	GeoIP *geoipv4 = NULL, *geoipv6 = NULL;
 
 	clock_t begin, end;
 
