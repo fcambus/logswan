@@ -106,12 +106,13 @@ The free GeoLite databases can be downloaded here : http://dev.maxmind.com/geoip
 
 ## Usage 
 
-	logswan [-hv] file
+	logswan [-ghv] file
 
 If file is a single dash (`-'), logswan reads from the standard input.
 
 Options are :
 
+	-g Enable GeoIP lookups
 	-h Display usage
 	-v Display version
 

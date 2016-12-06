@@ -24,7 +24,7 @@
 .\" ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 .\" POSSIBILITY OF SUCH DAMAGE.
 .\"
-.Dd $Mdocdate: July 19 2016 $
+.Dd $Mdocdate: December 6 2016 $
 .Dt LOGSWAN 1
 .Os
 .Sh NAME
@@ -32,7 +32,7 @@
 .Nd fast Web log analyzer using probabilistic data structures
 .Sh SYNOPSIS
 .Nm
-.Op Fl hv
+.Op Fl ghv
 .Ar file
 .Sh DESCRIPTION
 .Nm
@@ -46,6 +46,8 @@ reads from the standard input.
 .Pp
 The options are as follows:
 .Bl -tag -width Ds
+.It Fl g
+Enable GeoIP lookups
 .It Fl h
 Display usage
 .It Fl v
