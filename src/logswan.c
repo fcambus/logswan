@@ -20,6 +20,7 @@
 #include <err.h>
 #include <getopt.h>
 #include <inttypes.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,11 +46,13 @@
 void displayUsage() {
 	printf("USAGE : logswan [options] inputfile\n\n" \
 	       "Options are :\n\n" \
+	       "	-g Enable GeoIP lookups\n" \
 	       "	-h Display usage\n" \
 	       "	-v Display version\n\n");
 }
 
 int main (int argc, char *argv[]) {
+	bool geoip = false;
 	GeoIP *geoipv4, *geoipv6;
 
 	clock_t begin, end;
@@ -87,8 +90,12 @@ int main (int argc, char *argv[]) {
 	hll_init(&uniqueIPv4, HLL_BITS);
 	hll_init(&uniqueIPv6, HLL_BITS);
 
-	while ((getoptFlag = getopt(argc, argv, "hv")) != -1) {
+	while ((getoptFlag = getopt(argc, argv, "ghv")) != -1) {
 		switch(getoptFlag) {
+		case 'g':
+			geoip = true;
+			break;
+
 		case 'h':
 			displayUsage();
 			return EXIT_SUCCESS;
@@ -113,8 +120,10 @@ int main (int argc, char *argv[]) {
 	begin = clock();
 
 	/* Initializing GeoIP */
-	geoipv4 = GeoIP_open(GEOIPDIR "GeoIP.dat", GEOIP_MEMORY_CACHE);
-	geoipv6 = GeoIP_open(GEOIPDIR "GeoIPv6.dat", GEOIP_MEMORY_CACHE);
+	if (geoip) {
+		geoipv4 = GeoIP_open(GEOIPDIR "GeoIP.dat", GEOIP_MEMORY_CACHE);
+		geoipv6 = GeoIP_open(GEOIPDIR "GeoIPv6.dat", GEOIP_MEMORY_CACHE);
+	}
 
 	/* Get log file size */
 	stat(intputFile, &logFileSize);
