@@ -73,8 +73,8 @@ int main (int argc, char *argv[]) {
 	uint32_t hour;
 	uint32_t countryId = 0;
 
-	struct stat logFileSize;
 	FILE *logFile;
+	struct stat logFileStat;
 
 	const char *errstr;
 
@@ -125,11 +125,6 @@ int main (int argc, char *argv[]) {
 		geoipv6 = GeoIP_open(GEOIPDIR "GeoIPv6.dat", GEOIP_MEMORY_CACHE);
 	}
 
-	/* Get log file size */
-	stat(intputFile, &logFileSize);
-	results.fileName = intputFile;
-	results.fileSize = (uint64_t)logFileSize.st_size;
-
 	/* Open log file */
 	if (!strcmp(intputFile, "-")) {
 		/* Read from standard input */
@@ -142,6 +137,14 @@ int main (int argc, char *argv[]) {
 		}
 	}
 
+	/* Get log file size */
+	if (fstat(fileno(logFile), &logFileStat)) {
+		perror("Can't stat log file");
+		return EXIT_FAILURE;
+	}
+
+	results.fileName = intputFile;
+	results.fileSize = (uint64_t)logFileStat.st_size;
 	results.invalidLines = 0;
 
 	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile)) {
