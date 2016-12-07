@@ -26,7 +26,7 @@
                          |                       :
                                                  .
 ```
-# Logswan [![Build Status][1]][2]
+# Logswan [![Build Status][1]][2] [![Coverity Scan Build Status][3]][4]
 
 Logswan is a fast Web log analyzer using probabilistic data structures. It is
 targeted at very large log files, typically APIs logs. It has constant memory
@@ -107,7 +107,7 @@ CMake:
 
 	cmake -DGEOIPDIR=/var/db/GeoIP .
 
-The free GeoLite databases from MaxMind can be downloaded [here][3].
+The free GeoLite databases from MaxMind can be downloaded [here][5].
 
 #### For IPv4 support only
 
@@ -159,4 +159,6 @@ GitHub: https://github.com/fcambus/logswan
 
 [1]: https://travis-ci.org/fcambus/logswan.png?branch=master
 [2]: https://travis-ci.org/fcambus/logswan
-[3]: http://dev.maxmind.com/geoip/legacy/geolite/
+[3]: https://scan.coverity.com/projects/10944/badge.svg
+[4]: https://scan.coverity.com/projects/10944
+[5]: http://dev.maxmind.com/geoip/legacy/geolite/
