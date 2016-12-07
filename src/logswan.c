@@ -159,6 +159,10 @@ int main (int argc, char *argv[]) {
 		if (parsedLine.remoteHost) { /* Do not feed NULL tokens to inet_pton */
 			isIPv4 = inet_pton(AF_INET, parsedLine.remoteHost, &(ipv4.sin_addr));
 			isIPv6 = inet_pton(AF_INET6, parsedLine.remoteHost, &(ipv6.sin6_addr));
+		} else {
+			/* Invalid line */
+			results.invalidLines++;
+			continue;
 		}
 
 		if (isIPv4 || isIPv6) {
