@@ -15,7 +15,8 @@ addons:
   coverity_scan:
     project:
       name: "fcambus/logswan"
+      version: 1.05
       description: "Fast Web log analyzer using probabilistic data structures"
     build_command_prepend: cmake .
-    build_command: make
+    build_command: make -j 4
     branch_pattern: master
