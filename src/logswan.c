@@ -147,6 +147,8 @@ int main (int argc, char *argv[]) {
 
 	results.fileName = intputFile;
 	results.fileSize = (uint64_t)logFileStat.st_size;
+	results.hitsIPv4 = 0;
+	results.hitsIPv4 = 0;
 	results.invalidLines = 0;
 
 	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile)) {
