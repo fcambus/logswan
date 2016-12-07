@@ -145,6 +145,7 @@ int main (int argc, char *argv[]) {
 		return EXIT_FAILURE;
 	}
 
+	results.bandwidth = 0;
 	results.fileName = intputFile;
 	results.fileSize = (uint64_t)logFileStat.st_size;
 	results.hitsIPv4 = 0;
