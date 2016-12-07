@@ -142,6 +142,8 @@ int main (int argc, char *argv[]) {
 		}
 	}
 
+	results.invalidLines = 0;
+
 	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile)) {
 		/* Parse and tokenize line */
 		parseLine(&parsedLine, lineBuffer);
