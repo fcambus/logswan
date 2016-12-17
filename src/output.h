@@ -40,8 +40,6 @@ struct results {
 	uint64_t methods[METHODS];
 };
 
-typedef struct results Results;
-
-char *output(Results);
+char *output(struct results*);
 
 #endif /* OUTPUT_H */

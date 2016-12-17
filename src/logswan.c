@@ -52,7 +52,7 @@ clock_t begin, end;
 
 char lineBuffer[LINE_MAX_LENGTH];
 
-Results results;
+struct results results;
 struct date parsedDate;
 struct logLine parsedLine;
 struct request parsedRequest;
@@ -282,7 +282,7 @@ int main (int argc, char *argv[]) {
 
 	/* Printing results */
 	fprintf(stderr, "Processed %" PRIu64 " lines in %f seconds\n", results.processedLines, results.runtime);
-	fputs(output(results), stdout);
+	fputs(output(&results), stdout);
 
 	/* Clean up */
 	fclose(logFile);
