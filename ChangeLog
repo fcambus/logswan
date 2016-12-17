@@ -1,3 +1,19 @@
+Logswan 1.06 (YYYY-MM-DD)
+
+- Relicensed under the BSD 2-Clause license
+- Use strtok_r instead of strtok to tokenize lines
+- Do not attempt to increment countries and continents arrays if there
+  is no GeoIP database loaded
+- Harmonize variable names for the GeoIP databases
+- GeoIP lookups are now disabled by default (add a -g switch to enable)
+- Use fstat on open file descriptor instead of using stat before opening
+  the input file
+- Count the log line as invalid if parsedLine.remoteHost is NULL
+- Initialize some uninitialized variables
+- Headers cleanup
+
+
+
 Logswan 1.05 (2016-02-25)
 
 - Documentation update (notes on measuring Logswan memory usage)
