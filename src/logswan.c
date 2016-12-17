@@ -45,6 +45,37 @@
 #include "output.h"
 #include "parse.h"
 
+bool geoip = false;
+GeoIP *geoipv4 = NULL, *geoipv6 = NULL;
+
+clock_t begin, end;
+
+char lineBuffer[LINE_MAX_LENGTH];
+
+Results results;
+struct date parsedDate;
+struct logLine parsedLine;
+struct request parsedRequest;
+
+struct sockaddr_in ipv4;
+struct sockaddr_in6 ipv6;
+uint32_t isIPv4 = 0, isIPv6 = 0;
+
+uint64_t bandwidth;
+uint32_t statusCode;
+uint32_t hour;
+uint32_t countryId = 0;
+
+FILE *logFile;
+struct stat logFileStat;
+
+const char *errstr;
+
+int8_t getoptFlag;
+
+struct HLL uniqueIPv4, uniqueIPv6;
+char *intputFile;
+
 void displayUsage() {
 	printf("USAGE : logswan [options] inputfile\n\n" \
 	       "Options are :\n\n" \
@@ -54,37 +85,6 @@ void displayUsage() {
 }
 
 int main (int argc, char *argv[]) {
-	bool geoip = false;
-	GeoIP *geoipv4 = NULL, *geoipv6 = NULL;
-
-	clock_t begin, end;
-
-	char lineBuffer[LINE_MAX_LENGTH];
-
-	Results results;
-	struct date parsedDate;
-	struct logLine parsedLine;
-	struct request parsedRequest;
-
-	struct sockaddr_in ipv4;
-	struct sockaddr_in6 ipv6;
-	uint32_t isIPv4 = 0, isIPv6 = 0;
-
-	uint64_t bandwidth;
-	uint32_t statusCode;
-	uint32_t hour;
-	uint32_t countryId = 0;
-
-	FILE *logFile;
-	struct stat logFileStat;
-
-	const char *errstr;
-
-	int8_t getoptFlag;
-
-	struct HLL uniqueIPv4, uniqueIPv6;
-	char *intputFile;
-
 	if (pledge("stdio rpath", NULL) == -1) {
 		err(EXIT_FAILURE, "pledge");
 	}
