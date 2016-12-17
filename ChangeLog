@@ -1,4 +1,4 @@
-Logswan 1.06 (YYYY-MM-DD)
+Logswan 1.06 (2016-12-17)
 
 - Relicensed under the BSD 2-Clause license
 - Use strtok_r instead of strtok to tokenize lines
@@ -9,6 +9,7 @@ Logswan 1.06 (YYYY-MM-DD)
 - Use fstat on open file descriptor instead of using stat before opening
   the input file
 - Count the log line as invalid if parsedLine.remoteHost is NULL
+- Pass results structure by reference, not by value
 - Initialize some uninitialized variables
 - Headers cleanup
 
