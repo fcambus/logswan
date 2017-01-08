@@ -148,8 +148,8 @@ details.
 
 Logswan is developed by Frederic Cambus
 
-- Site: http://www.cambus.net
-- Twitter: http://twitter.com/fcambus
+- Site: https://www.cambus.net
+- Twitter: https://twitter.com/fcambus
 
 ## Resources
 
