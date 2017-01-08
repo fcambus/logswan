@@ -76,7 +76,7 @@ char *output(struct results* results) {
 			json_array_append_new(
 			    methodsArray,
 			    json_pack("{s:s, s:i}",
-			    "data", methods[loop],
+			    "data", methodsNames[loop],
 			    "hits", results->methods[loop]));
 		}
 	}
@@ -86,7 +86,7 @@ char *output(struct results* results) {
 			json_array_append_new(
 			    protocolsArray,
 			    json_pack("{s:s, s:i}",
-			    "data", protocols[loop],
+			    "data", protocolsNames[loop],
 			    "hits", results->protocols[loop]));
 		}
 	}

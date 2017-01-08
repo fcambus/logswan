@@ -223,7 +223,7 @@ int main (int argc, char *argv[]) {
 
 				if (parsedRequest.method) {
 					for (size_t loop = 0; loop<METHODS; loop++) {
-						if (!strcmp(methods[loop], parsedRequest.method)) {
+						if (!strcmp(methodsNames[loop], parsedRequest.method)) {
 							results.methods[loop] ++;
 							break;
 						}
@@ -232,7 +232,7 @@ int main (int argc, char *argv[]) {
 
 				if (parsedRequest.protocol) {
 					for (size_t loop = 0; loop<PROTOCOLS; loop++) {
-						if (!strcmp(protocols[loop], parsedRequest.protocol)) {
+						if (!strcmp(protocolsNames[loop], parsedRequest.protocol)) {
 							results.protocols[loop] ++;
 							break;
 						}

@@ -30,7 +30,7 @@ char *continentsNames[] = {
 	"South America"
 };
 
-char *methods[] = {
+char *methodsNames[] = {
 	"GET",
 	"POST",
 	"HEAD",
@@ -42,7 +42,7 @@ char *methods[] = {
 	"PATCH"
 };
 
-char *protocols[] = {
+char *protocolsNames[] = {
 	"HTTP/1.1",
 	"HTTP/1.0"
 };

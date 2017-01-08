@@ -30,8 +30,8 @@ enum {
 
 extern char *continentsId[];
 extern char *continentsNames[];
-extern char *methods[];
-extern char *protocols[];
+extern char *methodsNames[];
+extern char *protocolsNames[];
 
 extern char *months[];
 
