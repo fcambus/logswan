@@ -33,6 +33,4 @@ extern char *continentsNames[];
 extern char *methodsNames[];
 extern char *protocolsNames[];
 
-extern char *months[];
-
 #endif /* CONFIG_H */
