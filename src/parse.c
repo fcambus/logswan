@@ -18,7 +18,8 @@
 
 #include "parse.h"
 
-void parseDate(struct date* parsedDate, char *date) {
+void
+parseDate(struct date* parsedDate, char *date) {
 	char *last;
 
 	parsedDate->day = strtok_r(date, "/", &last);
@@ -29,7 +30,8 @@ void parseDate(struct date* parsedDate, char *date) {
 	parsedDate->second = strtok_r(NULL, " ", &last);
 }
 
-void parseLine(struct logLine* parsedLine, char *lineBuffer) {
+void
+parseLine(struct logLine* parsedLine, char *lineBuffer) {
 	char *last;
 
 	if (*lineBuffer) {
@@ -57,7 +59,8 @@ void parseLine(struct logLine* parsedLine, char *lineBuffer) {
 	}
 }
 
-void parseRequest(struct request* parsedRequest, char *request) {
+void
+parseRequest(struct request* parsedRequest, char *request) {
 	char *last;
 	char *pch = strrchr(request, ' ');
 

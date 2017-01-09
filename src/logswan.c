@@ -76,7 +76,8 @@ int8_t getoptFlag;
 struct HLL uniqueIPv4, uniqueIPv6;
 char *intputFile;
 
-void displayUsage() {
+void
+displayUsage() {
 	printf("USAGE : logswan [options] inputfile\n\n" \
 	       "Options are :\n\n" \
 	       "	-g Enable GeoIP lookups\n" \
@@ -84,7 +85,8 @@ void displayUsage() {
 	       "	-v Display version\n\n");
 }
 
-int main (int argc, char *argv[]) {
+int
+main(int argc, char *argv[]) {
 	if (pledge("stdio rpath", NULL) == -1) {
 		err(EXIT_FAILURE, "pledge");
 	}
