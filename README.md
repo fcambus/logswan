@@ -134,7 +134,7 @@ Logswan outputs JSON data to **stdout**.
 
 ## Measuring Logswan memory usage
 
-Heap profiling can be done using valgrind, as follow:
+Heap profiling can be done using valgrind, as follows:
 
 	valgrind --tool=massif logswan access.log
 	ms_print massif.out.*
@@ -146,7 +146,7 @@ details.
 
 ## Author
 
-Logswan is developed by Frederic Cambus
+Logswan is developed by Frederic Cambus.
 
 - Site: https://www.cambus.net
 - Twitter: https://twitter.com/fcambus
