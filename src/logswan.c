@@ -45,7 +45,7 @@
 #include "output.h"
 #include "parse.h"
 
-bool geoip = false;
+bool geoip;
 GeoIP *geoipv4 = NULL, *geoipv6 = NULL;
 
 clock_t begin, end;
@@ -59,12 +59,12 @@ struct request parsedRequest;
 
 struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
-uint32_t isIPv4 = 0, isIPv6 = 0;
+uint32_t isIPv4, isIPv6;
 
 uint64_t bandwidth;
 uint32_t statusCode;
 uint32_t hour;
-uint32_t countryId = 0;
+uint32_t countryId;
 
 FILE *logFile;
 struct stat logFileStat;
@@ -147,12 +147,8 @@ main(int argc, char *argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	results.bandwidth = 0;
 	results.fileName = intputFile;
 	results.fileSize = (uint64_t)logFileStat.st_size;
-	results.hitsIPv4 = 0;
-	results.hitsIPv6 = 0;
-	results.invalidLines = 0;
 
 	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile)) {
 		/* Parse and tokenize line */
