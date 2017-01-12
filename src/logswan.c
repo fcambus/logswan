@@ -5,7 +5,7 @@
 /* http://www.logswan.org                                                    */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2017-01-08                                                  */
+/* Last Updated: 2017-01-12                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -88,7 +88,7 @@ displayUsage() {
 int
 main(int argc, char *argv[]) {
 	if (pledge("stdio rpath", NULL) == -1) {
-		err(EXIT_FAILURE, "pledge");
+		err(1, "pledge");
 	}
 
 	hll_init(&uniqueIPv4, HLL_BITS);
@@ -102,11 +102,11 @@ main(int argc, char *argv[]) {
 
 		case 'h':
 			displayUsage();
-			return EXIT_SUCCESS;
+			return 0;
 
 		case 'v':
 			printf("%s\n\n", VERSION);
-			return EXIT_SUCCESS;
+			return 0;
 		}
 	}
 
@@ -114,7 +114,7 @@ main(int argc, char *argv[]) {
 		intputFile = argv[optind];
 	} else {
 		displayUsage();
-		return EXIT_SUCCESS;
+		return 0;
 	}
 
 	argc -= optind;
@@ -137,14 +137,14 @@ main(int argc, char *argv[]) {
 		/* Attempt to read from file */
 		if (!(logFile = fopen(intputFile, "r"))) {
 			perror("Can't open log file");
-			return EXIT_FAILURE;
+			return 1;
 		}
 	}
 
 	/* Get log file size */
 	if (fstat(fileno(logFile), &logFileStat)) {
 		perror("Can't stat log file");
-		return EXIT_FAILURE;
+		return 1;
 	}
 
 	results.fileName = intputFile;
@@ -291,5 +291,5 @@ main(int argc, char *argv[]) {
 	hll_destroy(&uniqueIPv4);
 	hll_destroy(&uniqueIPv6);
 
-	return EXIT_SUCCESS;
+	return 0;
 }
