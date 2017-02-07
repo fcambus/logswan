@@ -157,7 +157,7 @@ Project homepage: http://www.logswan.org
 
 GitHub: https://github.com/fcambus/logswan
 
-[1]: https://travis-ci.org/fcambus/logswan.png?branch=master
+[1]: https://api.travis-ci.org/fcambus/logswan.png?branch=master
 [2]: https://travis-ci.org/fcambus/logswan
 [3]: https://scan.coverity.com/projects/10944/badge.svg
 [4]: https://scan.coverity.com/projects/10944
