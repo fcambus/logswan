@@ -2,10 +2,10 @@
 #                                                                             #
 # Logswan 1.06                                                                #
 # Copyright (c) 2015-2017, Frederic Cambus                                    #
-# http://www.logswan.org                                                      #
+# https://www.logswan.org                                                     #
 #                                                                             #
 # Created:      2015-05-31                                                    #
-# Last Updated: 2017-01-08                                                    #
+# Last Updated: 2017-02-07                                                    #
 #                                                                             #
 # Logswan is released under the BSD 2-Clause license.                         #
 # See LICENSE file for details.                                               #

@@ -153,7 +153,7 @@ Logswan is developed by Frederic Cambus.
 
 ## Resources
 
-Project homepage: http://www.logswan.org
+Project homepage: https://www.logswan.org
 
 GitHub: https://github.com/fcambus/logswan
 
