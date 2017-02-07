@@ -82,7 +82,7 @@ displayUsage() {
 	       "Options are:\n\n" \
 	       "	-g Enable GeoIP lookups\n" \
 	       "	-h Display usage\n" \
-	       "	-v Display version\n\n");
+	       "	-v Display version\n");
 }
 
 int
@@ -105,7 +105,7 @@ main(int argc, char *argv[]) {
 			return 0;
 
 		case 'v':
-			printf("%s\n\n", VERSION);
+			printf("%s\n", VERSION);
 			return 0;
 		}
 	}
