@@ -78,8 +78,8 @@ char *intputFile;
 
 void
 displayUsage() {
-	printf("USAGE : logswan [options] inputfile\n\n" \
-	       "Options are :\n\n" \
+	printf("USAGE: logswan [options] inputfile\n\n" \
+	       "Options are:\n\n" \
 	       "	-g Enable GeoIP lookups\n" \
 	       "	-h Display usage\n" \
 	       "	-v Display version\n\n");
