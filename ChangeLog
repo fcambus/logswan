@@ -1,3 +1,17 @@
+Logswan 1.07 (2017-02-14)
+
+- Harmonize arrays names
+- Remove array of months, it's currently unused and will likely remain so
+- Simplify internal JSON array and object names
+- Use OpenBSD style(9) for function prototypes and declarations
+- Revert back to using strtok, at least for now
+- Do not use EXIT_SUCCESS and EXIT_FAILURE macros anymore
+- Fix implicit function declaration rrror on NetBSD (Thanks Maya Rashish)
+- Remove now useless variables initialization and unnecessary includes
+- Do not add an extra new line when displaying usage or version
+
+
+
 Logswan 1.06 (2016-12-17)
 
 - Relicensed under the BSD 2-Clause license
