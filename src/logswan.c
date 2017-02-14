@@ -50,7 +50,7 @@ GeoIP *geoipv4 = NULL, *geoipv6 = NULL;
 
 clock_t begin, end;
 
-char lineBuffer[LINE_MAX_LENGTH];
+char lineBuffer[LINE_LENGTH_MAX];
 
 struct results results;
 struct date parsedDate;
@@ -150,7 +150,7 @@ main(int argc, char *argv[]) {
 	results.fileName = intputFile;
 	results.fileSize = (uint64_t)logFileStat.st_size;
 
-	while (fgets(lineBuffer, LINE_MAX_LENGTH, logFile)) {
+	while (fgets(lineBuffer, LINE_LENGTH_MAX, logFile)) {
 		/* Parse and tokenize line */
 		parseLine(&parsedLine, lineBuffer);
 
