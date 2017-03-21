@@ -52,7 +52,10 @@ endif()
 
 SET(GEOIPDIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP CACHE PATH "Path to GeoIP databases")
 
-add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
+if(NOT CMAKE_C_FLAGS)
+  set(CMAKE_C_FLAGS "-Werror -pedantic")
+endif()
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -std=c99")
 add_definitions(-DGEOIPDIR="${GEOIPDIR}/")
 add_executable(logswan ${SRC} ${DEPS})
 
