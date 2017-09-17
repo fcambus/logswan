@@ -20,7 +20,7 @@
 
 struct results {
 	char *fileName;
-	uint64_t fileSize;
+	off_t fileSize;
 	uint64_t invalidLines;
 	uint64_t processedLines;
 	uint64_t bandwidth;

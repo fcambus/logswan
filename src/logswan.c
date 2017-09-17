@@ -5,7 +5,7 @@
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2017-02-14                                                  */
+/* Last Updated: 2017-09-17                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -148,7 +148,7 @@ main(int argc, char *argv[]) {
 	}
 
 	results.fileName = intputFile;
-	results.fileSize = (uint64_t)logFileStat.st_size;
+	results.fileSize = logFileStat.st_size;
 
 	while (fgets(lineBuffer, LINE_LENGTH_MAX, logFile)) {
 		/* Parse and tokenize line */
