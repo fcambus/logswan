@@ -95,7 +95,7 @@ main(int argc, char *argv[]) {
 	hll_init(&uniqueIPv6, HLL_BITS);
 
 	while ((getoptFlag = getopt(argc, argv, "ghv")) != -1) {
-		switch(getoptFlag) {
+		switch (getoptFlag) {
 		case 'g':
 			geoip = true;
 			break;
@@ -194,9 +194,9 @@ main(int argc, char *argv[]) {
 				results.countries[countryId]++;
 
 				/* Increment continents array */
-				for (size_t loop = 0; loop<CONTINENTS; loop++) {
+				for (size_t loop = 0; loop < CONTINENTS; loop++) {
 					if (!strcmp(continentsId[loop], GeoIP_continent_by_id(countryId))) {
-						results.continents[loop] ++;
+						results.continents[loop]++;
 						break;
 					}
 				}
@@ -210,7 +210,7 @@ main(int argc, char *argv[]) {
 					hour = strtonum(parsedDate.hour, 0, 23, &errstr);
 
 					if (!errstr) {
-						results.hours[hour] ++;
+						results.hours[hour]++;
 					}
 				}
 			}
@@ -220,18 +220,18 @@ main(int argc, char *argv[]) {
 				parseRequest(&parsedRequest, parsedLine.request);
 
 				if (parsedRequest.method) {
-					for (size_t loop = 0; loop<METHODS; loop++) {
+					for (size_t loop = 0; loop < METHODS; loop++) {
 						if (!strcmp(methodsNames[loop], parsedRequest.method)) {
-							results.methods[loop] ++;
+							results.methods[loop]++;
 							break;
 						}
 					}
 				}
 
 				if (parsedRequest.protocol) {
-					for (size_t loop = 0; loop<PROTOCOLS; loop++) {
+					for (size_t loop = 0; loop < PROTOCOLS; loop++) {
 						if (!strcmp(protocolsNames[loop], parsedRequest.protocol)) {
-							results.protocols[loop] ++;
+							results.protocols[loop]++;
 							break;
 						}
 					}
@@ -243,7 +243,7 @@ main(int argc, char *argv[]) {
 				statusCode = strtonum(parsedLine.statusCode, 0, STATUS_CODE_MAX-1, &errstr);
 
 				if (!errstr) {
-					results.status[statusCode] ++;
+					results.status[statusCode]++;
 				}
 			}
 

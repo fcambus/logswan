@@ -30,7 +30,7 @@ char
 	json_t *methods = json_array();
 	json_t *protocols = json_array();
 
-	for (size_t loop=0; loop<CONTINENTS; loop++) {
+	for (size_t loop = 0; loop < CONTINENTS; loop++) {
 		if (results->continents[loop]) {
 			json_array_append_new(
 			    continents,
@@ -41,7 +41,7 @@ char
 		}
 	}
 
-	for (size_t loop=0; loop<COUNTRIES; loop++) {
+	for (size_t loop = 0; loop < COUNTRIES; loop++) {
 		if (results->countries[loop]) {
 			json_array_append_new(
 			    countries,
@@ -52,7 +52,7 @@ char
 		}
 	}
 
-	for (size_t loop=0; loop<24; loop++) {
+	for (size_t loop = 0; loop < 24; loop++) {
 		if (results->hours[loop]) {
 			json_array_append_new(
 			    hours,
@@ -62,7 +62,7 @@ char
 		}
 	}
 
-	for (size_t loop=0; loop<STATUS_CODE_MAX; loop++) {
+	for (size_t loop = 0; loop < STATUS_CODE_MAX; loop++) {
 		if (results->status[loop]) {
 			json_array_append_new(
 			    status,
@@ -72,7 +72,7 @@ char
 		}
 	}
 
-	for (size_t loop=0; loop<METHODS; loop++) {
+	for (size_t loop = 0; loop < METHODS; loop++) {
 		if (results->methods[loop]) {
 			json_array_append_new(
 			    methods,
@@ -82,7 +82,7 @@ char
 		}
 	}
 
-	for (size_t loop=0; loop<PROTOCOLS; loop++) {
+	for (size_t loop = 0; loop < PROTOCOLS; loop++) {
 		if (results->protocols[loop]) {
 			json_array_append_new(
 			    protocols,
