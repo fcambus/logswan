@@ -16,17 +16,17 @@
 #define _POSIX_SOURCE
 
 #include <arpa/inet.h>
-#include <netinet/in.h>
-#include <sys/socket.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include <err.h>
 #include <getopt.h>
 #include <inttypes.h>
+#include <netinet/in.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <time.h>
 
 #ifndef HAVE_PLEDGE
@@ -79,10 +79,10 @@ char *intputFile;
 void
 displayUsage() {
 	printf("USAGE: logswan [options] inputfile\n\n" \
-	       "Options are:\n\n" \
-	       "	-g Enable GeoIP lookups\n" \
-	       "	-h Display usage\n" \
-	       "	-v Display version\n");
+	    "Options are:\n\n" \
+	    "	-g Enable GeoIP lookups\n" \
+	    "	-h Display usage\n" \
+	    "	-v Display version\n");
 }
 
 int

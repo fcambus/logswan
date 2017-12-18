@@ -38,8 +38,8 @@ struct request {
 	char *protocol;
 };
 
-void parseDate(struct date*, char *);
-void parseLine(struct logLine*, char *);
-void parseRequest(struct request*, char *);
+void parseDate(struct date *, char *);
+void parseLine(struct logLine *, char *);
+void parseRequest(struct request *, char *);
 
 #endif /* PARSE_H */

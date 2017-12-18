@@ -19,7 +19,7 @@
 #include "output.h"
 
 char
-*output(struct results* results) {
+*output(struct results *results) {
 	json_t *output = json_object();
 	json_t *hits = json_object();
 	json_t *visits = json_object();

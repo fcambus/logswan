@@ -15,8 +15,8 @@
 #ifndef OUTPUT_H
 #define OUTPUT_H
 
-#include <sys/types.h>
 #include "config.h"
+#include <sys/types.h>
 
 struct results {
 	char *fileName;
@@ -40,6 +40,6 @@ struct results {
 	uint64_t methods[METHODS];
 };
 
-char *output(struct results*);
+char *output(struct results *);
 
 #endif /* OUTPUT_H */
