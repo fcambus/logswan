@@ -5,6 +5,7 @@ compiler:
   - gcc
 
 before_install:
+  - sudo add-apt-repository ppa:maxmind/ppa
   - sudo apt-get -qq update
   - sudo apt-get install -y libmaxminddb-dev libjansson-dev
   - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
