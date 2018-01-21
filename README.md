@@ -66,7 +66,7 @@ Currently implemented features:
 
 ## Dependencies
 
-Logswan uses the `CMake` build system and requires `GeoIP` and `Jansson`
+Logswan uses the `CMake` build system and requires `Jansson` and `libmaxminddb`
 libraries and header files.
 
 ## Installing dependencies
@@ -96,26 +96,19 @@ Logswan packages are available for:
 
 	pkgin install logswan
 
-### GeoIP databases
+### GeoIP2 databases
 
-Logswan looks for GeoIP databases in `${CMAKE_INSTALL_PREFIX}/share/GeoIP` by
-default, which points to `/usr/local/share/GeoIP`.
+Logswan looks for GeoIP2 databases in `${CMAKE_INSTALL_PREFIX}/share/GeoIP2` by
+default, which points to `/usr/local/share/GeoIP2`.
 
-A custom directory can be set using the `GEOIPDIR` variable when invoking
+A custom directory can be set using the `GEOIP2DIR` variable when invoking
 CMake:
 
-	cmake -DGEOIPDIR=/var/db/GeoIP .
+	cmake -DGEOIP2DIR=/var/db/GeoIP .
 
-The free GeoLite databases from MaxMind can be downloaded [here][5].
+The free GeoLite2 databases from MaxMind can be downloaded [here][5]:
 
-#### For IPv4 support only
-
-	https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
-
-#### For IPv4 and IPv6 support
-
-	https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
-	https://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
+	https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
 
 ## Usage
 
@@ -159,4 +152,4 @@ GitHub: https://github.com/fcambus/logswan
 [2]: https://travis-ci.org/fcambus/logswan
 [3]: https://scan.coverity.com/projects/10944/badge.svg
 [4]: https://scan.coverity.com/projects/10944
-[5]: http://dev.maxmind.com/geoip/legacy/geolite/
+[5]: https://dev.maxmind.com/geoip/geoip2/geolite2/
