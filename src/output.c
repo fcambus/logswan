@@ -12,7 +12,6 @@
 /*                                                                           */
 /*****************************************************************************/
 
-#include <GeoIP.h>
 #include <jansson.h>
 
 #include "config.h"
@@ -41,6 +40,7 @@ char
 		}
 	}
 
+/*
 	for (size_t loop = 0; loop < COUNTRIES; loop++) {
 		if (results->countries[loop]) {
 			json_array_append_new(
@@ -51,6 +51,7 @@ char
 			    "hits", results->countries[loop]));
 		}
 	}
+*/
 
 	for (size_t loop = 0; loop < 24; loop++) {
 		if (results->hours[loop]) {

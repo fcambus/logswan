@@ -28,11 +28,6 @@ check_function_exists(strtonum HAVE_STRTONUM)
 include_directories("compat")
 include_directories("deps/hll")
 
-# GeoIP
-find_path(GEOIP_INCLUDE_DIRS GeoIP.h)
-find_library(GEOIP_LIBRARIES NAMES GeoIP REQUIRED)
-include_directories(${GEOIP_INCLUDE_DIRS})
-
 # libmaxminddb
 find_path(GEOIP2_INCLUDE_DIRS maxminddb.h)
 find_library(GEOIP2_LIBRARIES NAMES maxminddb REQUIRED)
@@ -61,7 +56,7 @@ add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
 add_definitions(-DGEOIP2DIR="${GEOIP2DIR}/")
 add_executable(logswan ${SRC} ${DEPS})
 
-target_link_libraries(logswan ${GEOIP_LIBRARIES} ${GEOIP2_LIBRARIES} ${JANSSON_LIBRARIES} m)
+target_link_libraries(logswan ${GEOIP2_LIBRARIES} ${JANSSON_LIBRARIES} m)
 
 install(TARGETS logswan DESTINATION bin)
 install(FILES logswan.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1/)
