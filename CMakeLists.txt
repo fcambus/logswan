@@ -33,6 +33,11 @@ find_path(GEOIP_INCLUDE_DIRS GeoIP.h)
 find_library(GEOIP_LIBRARIES NAMES GeoIP REQUIRED)
 include_directories(${GEOIP_INCLUDE_DIRS})
 
+# libmaxminddb
+find_path(GEOIP2_INCLUDE_DIRS maxminddb.h)
+find_library(GEOIP2_LIBRARIES NAMES maxminddb REQUIRED)
+include_directories(${GEOIP2_INCLUDE_DIRS})
+
 # Jansson
 find_path(JANSSON_INCLUDE_DIRS jansson.h)
 find_library(JANSSON_LIBRARIES NAMES jansson REQUIRED)
@@ -50,13 +55,13 @@ if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)
 endif()
 
-SET(GEOIPDIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP CACHE PATH "Path to GeoIP databases")
+SET(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP2 CACHE PATH "Path to GeoIP2 databases")
 
 add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
-add_definitions(-DGEOIPDIR="${GEOIPDIR}/")
+add_definitions(-DGEOIP2DIR="${GEOIP2DIR}/")
 add_executable(logswan ${SRC} ${DEPS})
 
-target_link_libraries(logswan ${GEOIP_LIBRARIES} ${JANSSON_LIBRARIES} m)
+target_link_libraries(logswan ${GEOIP_LIBRARIES} ${GEOIP2_LIBRARIES} ${JANSSON_LIBRARIES} m)
 
 install(TARGETS logswan DESTINATION bin)
 install(FILES logswan.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1/)

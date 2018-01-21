@@ -39,14 +39,14 @@
 
 #include "hll.h"
 
-#include <GeoIP.h>
+#include <maxminddb.h>
 
 #include "config.h"
 #include "output.h"
 #include "parse.h"
 
 bool geoip;
-GeoIP *geoipv4 = NULL, *geoipv6 = NULL;
+MMDB_s geoip2;
 
 clock_t begin, end;
 
@@ -87,6 +87,9 @@ displayUsage() {
 
 int
 main(int argc, char *argv[]) {
+	int gai_error, mmdb_error;
+	MMDB_lookup_result_s lookup;
+
 	if (pledge("stdio rpath", NULL) == -1) {
 		err(1, "pledge");
 	}
@@ -125,8 +128,12 @@ main(int argc, char *argv[]) {
 
 	/* Initializing GeoIP */
 	if (geoip) {
-		geoipv4 = GeoIP_open(GEOIPDIR "GeoIP.dat", GEOIP_MEMORY_CACHE);
-		geoipv6 = GeoIP_open(GEOIPDIR "GeoIPv6.dat", GEOIP_MEMORY_CACHE);
+		if (MMDB_open(GEOIP2DIR "GeoLite2-Country.mmdb",
+		    MMDB_MODE_MMAP, &geoip2) != MMDB_SUCCESS) {
+			perror("Can't open database");
+			return 1;
+		}
+
 	}
 
 	/* Open log file */
@@ -171,10 +178,6 @@ main(int argc, char *argv[]) {
 
 				/* Unique visitors */
 				hll_add(&uniqueIPv4, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
-
-				if (geoipv4) {
-					countryId = GeoIP_id_by_addr(geoipv4, parsedLine.remoteHost);
-				}
 			}
 
 			if (isIPv6) {
@@ -183,21 +186,24 @@ main(int argc, char *argv[]) {
 
 				/* Unique visitors */
 				hll_add(&uniqueIPv6, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
-
-				if (geoipv6) {
-					countryId = GeoIP_id_by_addr_v6(geoipv6, parsedLine.remoteHost);
-				}
 			}
 
-			if (geoipv4 || geoipv6) {
-				/* Increment countries array */
-				results.countries[countryId]++;
+			if (geoip) {
+				lookup = MMDB_lookup_string(&geoip2, parsedLine.remoteHost, &gai_error, &mmdb_error);
 
-				/* Increment continents array */
-				for (size_t loop = 0; loop < CONTINENTS; loop++) {
-					if (!strcmp(continentsId[loop], GeoIP_continent_by_id(countryId))) {
-						results.continents[loop]++;
-						break;
+				// Increment countries array 
+				//results.countries[countryId]++;
+
+				MMDB_entry_data_s entry_data;
+				MMDB_get_value(&lookup.entry, &entry_data, "continent", "code", NULL);
+
+				if (entry_data.has_data) {
+					// Increment continents array
+					for (size_t loop = 0; loop < CONTINENTS; loop++) {
+						if (!strncmp(continentsId[loop], entry_data.utf8_string, 2)) {
+							results.continents[loop]++;
+							break;
+						}
 					}
 				}
 			}
@@ -285,8 +291,7 @@ main(int argc, char *argv[]) {
 	/* Clean up */
 	fclose(logFile);
 
-	GeoIP_delete(geoipv4);
-	GeoIP_delete(geoipv6);
+	MMDB_close(&geoip2);
 
 	hll_destroy(&uniqueIPv4);
 	hll_destroy(&uniqueIPv6);
