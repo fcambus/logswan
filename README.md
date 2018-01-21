@@ -71,11 +71,10 @@ libraries and header files.
 
 ## Installing dependencies
 
-- OpenBSD: `pkg_add -r cmake GeoIP jansson`
-- NetBSD: `pkgin install cmake GeoIP jansson`
-- Mac OS X: `brew install cmake geoip jansson`
-- Alpine Linux: `apk add cmake gcc make musl-dev geoip-dev jansson-dev`
-- Debian / Ubuntu: `apt-get install build-essential cmake libgeoip-dev libjansson-dev`
+- OpenBSD: `pkg_add -r cmake jansson libmaxminddb`
+- Mac OS X: `brew install cmake jansson libmaxminddb`
+- Alpine Linux: `apk add cmake gcc make musl-dev geoip-dev libmaxminddb`
+- Debian / Ubuntu: `apt-get install build-essential cmake libjansson-dev libmaxminddb-dev`
 
 ## Compiling
 
