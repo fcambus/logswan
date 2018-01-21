@@ -1,11 +1,11 @@
 /*****************************************************************************/
 /*                                                                           */
 /* Logswan 1.07                                                              */
-/* Copyright (c) 2015-2017, Frederic Cambus                                  */
+/* Copyright (c) 2015-2018, Frederic Cambus                                  */
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2017-09-17                                                  */
+/* Last Updated: 2018-01-21                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
