@@ -343,7 +343,7 @@ char *countriesNames[] = {
 	"Curacao",
 	"Christmas Island",
 	"Cyprus",
-	"Czechia",
+	"Czech Republic",
 	"Germany",
 	"Djibouti",
 	"Denmark",
