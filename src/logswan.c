@@ -5,7 +5,7 @@
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2018-01-21                                                  */
+/* Last Updated: 2018-03-16                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -191,14 +191,24 @@ main(int argc, char *argv[]) {
 			if (geoip) {
 				lookup = MMDB_lookup_string(&geoip2, parsedLine.remoteHost, &gai_error, &mmdb_error);
 
-				// Increment countries array 
-				//results.countries[countryId]++;
-
 				MMDB_entry_data_s entry_data;
+
+				MMDB_get_value(&lookup.entry, &entry_data, "country", "iso_code", NULL);
+
+				if (entry_data.has_data) {
+					/* Increment countries array */
+					for (size_t loop = 0; loop < COUNTRIES; loop++) {
+						if (!strncmp(countriesId[loop], entry_data.utf8_string, 2)) {
+							results.countries[loop]++;
+							break;
+						}
+					}
+				}
+
 				MMDB_get_value(&lookup.entry, &entry_data, "continent", "code", NULL);
 
 				if (entry_data.has_data) {
-					// Increment continents array
+					/* Increment continents array */
 					for (size_t loop = 0; loop < CONTINENTS; loop++) {
 						if (!strncmp(continentsId[loop], entry_data.utf8_string, 2)) {
 							results.continents[loop]++;

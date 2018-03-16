@@ -5,7 +5,7 @@
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2018-01-21                                                  */
+/* Last Updated: 2018-03-16                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -42,18 +42,16 @@ char
 		}
 	}
 
-/*
 	for (size_t loop = 0; loop < COUNTRIES; loop++) {
 		if (results->countries[loop]) {
 			json_array_append_new(
 			    countries,
 			    json_pack("{s:s, s:s, s:i}",
-			    "data", GeoIP_code_by_id(loop),
-			    "name", GeoIP_name_by_id(loop),
+			    "data", countriesId[loop],
+			    "name", countriesNames[loop],
 			    "hits", results->countries[loop]));
 		}
 	}
-*/
 
 	for (size_t loop = 0; loop < 24; loop++) {
 		if (results->hours[loop]) {
