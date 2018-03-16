@@ -1,4 +1,4 @@
-Logswan 2.0.0 (2018-03-??)
+Logswan 2.0.0 (2018-03-16)
 
 - Use type off_t for results struct member fileSize
 - Reflect OpenBSD's pledge() changes

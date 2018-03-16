@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*                                                                           */
-/* Logswan 1.07                                                              */
+/* Logswan 2.0.0                                                             */
 /* Copyright (c) 2015-2018, Frederic Cambus                                  */
 /* https://www.logswan.org                                                   */
 /*                                                                           */
@@ -15,7 +15,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define VERSION "Logswan 1.07"
+#define VERSION "Logswan 2.0.0"
 
 enum {
 	HLL_BITS = 20,
