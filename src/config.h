@@ -22,14 +22,16 @@ enum {
 	LINE_LENGTH_MAX = 65536,
 	STATUS_CODE_MAX = 512,
 
-	COUNTRIES = 512,
 	CONTINENTS = 7,
+	COUNTRIES = 251,
 	METHODS = 9,
 	PROTOCOLS = 2
 };
 
 extern char *continentsId[];
 extern char *continentsNames[];
+extern char *countriesId[];
+extern char *countriesNames[];
 extern char *methodsNames[];
 extern char *protocolsNames[];
 
