@@ -5,7 +5,7 @@
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2018-01-21                                                  */
+/* Last Updated: 2018-03-16                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -14,6 +14,7 @@
 
 char *continentsId[] = {
 	"AF",
+	"AN",
 	"AS",
 	"EU",
 	"NA",
@@ -23,6 +24,7 @@ char *continentsId[] = {
 
 char *continentsNames[] = {
 	"Africa",
+	"Antarctica",
 	"Asia",
 	"Europe",
 	"North America",

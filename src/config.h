@@ -5,7 +5,7 @@
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2018-01-21                                                  */
+/* Last Updated: 2018-03-16                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -22,8 +22,8 @@ enum {
 	LINE_LENGTH_MAX = 65536,
 	STATUS_CODE_MAX = 512,
 
-	CONTINENTS = 6,
 	COUNTRIES = 512,
+	CONTINENTS = 7,
 	METHODS = 9,
 	PROTOCOLS = 2
 };
