@@ -1,0 +1,3 @@
+- Avoid doing a lookup for continents, add an array to map countries
+  to continents
+- Move maps of countries and continents to a separate file?
