@@ -189,9 +189,9 @@ main(int argc, char *argv[]) {
 			}
 
 			if (geoip) {
-				lookup = MMDB_lookup_string(&geoip2, parsedLine.remoteHost, &gai_error, &mmdb_error);
-
 				MMDB_entry_data_s entry_data;
+
+				lookup = MMDB_lookup_string(&geoip2, parsedLine.remoteHost, &gai_error, &mmdb_error);
 
 				MMDB_get_value(&lookup.entry, &entry_data, "country", "iso_code", NULL);
 
