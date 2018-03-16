@@ -1,3 +1,12 @@
+Logswan 2.0.0 (2018-03-??)
+
+- Use type off_t for results struct member fileSize
+- Reflect OpenBSD's pledge() changes
+- Switch to using libmaxminddb and GeoIP2/GeoLite2 databases
+- Add Antarctica to the list of continents
+
+
+
 Logswan 1.07 (2017-02-14)
 
 - Harmonize arrays names
