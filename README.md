@@ -73,7 +73,7 @@ libraries and header files.
 
 - OpenBSD: `pkg_add -r cmake jansson libmaxminddb`
 - Mac OS X: `brew install cmake jansson libmaxminddb`
-- Alpine Linux: `apk add cmake gcc make musl-dev geoip-dev libmaxminddb`
+- Alpine Linux: `apk add cmake gcc make musl-dev jansson-dev libmaxminddb-dev`
 - Debian / Ubuntu: `apt-get install build-essential cmake libjansson-dev libmaxminddb-dev`
 
 ## Compiling
