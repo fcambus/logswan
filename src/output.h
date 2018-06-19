@@ -33,11 +33,11 @@ struct results {
 	uint64_t continents[CONTINENTS];
 	uint64_t countries[COUNTRIES];
 	uint64_t hours[24];
+	uint64_t methods[METHODS];
+	uint64_t protocols[PROTOCOLS];
 	uint64_t status[STATUS_CODE_MAX];
 	double runtime;
 	char timeStamp[20];
-	uint64_t protocols[PROTOCOLS];
-	uint64_t methods[METHODS];
 };
 
 char *output(struct results *);
