@@ -52,7 +52,7 @@ endif()
 
 SET(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP2 CACHE PATH "Path to GeoIP2 databases")
 
-add_definitions(-Wall -Wextra -Werror -std=c99 -pedantic)
+add_definitions(-Wall -Wextra -std=c99 -pedantic)
 add_definitions(-DGEOIP2DIR="${GEOIP2DIR}/")
 add_executable(logswan ${SRC} ${DEPS})
 
