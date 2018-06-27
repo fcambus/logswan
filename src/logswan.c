@@ -59,7 +59,7 @@ struct request parsedRequest;
 
 struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
-uint32_t isIPv4, isIPv6;
+bool isIPv4, isIPv6;
 
 uint64_t bandwidth;
 uint32_t statusCode;
@@ -164,7 +164,7 @@ main(int argc, char *argv[]) {
 		/* Detect if remote host is IPv4 or IPv6 */
 		if (parsedLine.remoteHost) { /* Do not feed NULL tokens to inet_pton */
 			if ((isIPv4 = inet_pton(AF_INET, parsedLine.remoteHost, &(ipv4.sin_addr)))) {
-				isIPv6 = 0;
+				isIPv6 = false;
 			} else {
 				isIPv6 = inet_pton(AF_INET6, parsedLine.remoteHost, &(ipv6.sin6_addr));
 
