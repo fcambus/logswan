@@ -24,7 +24,7 @@
 .\" ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 .\" POSSIBILITY OF SUCH DAMAGE.
 .\"
-.Dd $Mdocdate: March 16 2018 $
+.Dd $Mdocdate: June 27 2018 $
 .Dt LOGSWAN 1
 .Os
 .Sh NAME
@@ -39,6 +39,9 @@
 is a fast Web log analyzer using probabilistic data structures. It is targeted
 at very large log files, typically APIs logs. It has constant memory usage
 regardless of the log file size, and takes approximatively 4MB of RAM.
+.Pp
+Unique visitors counting is performed using two HyperLogLog counters (one for
+IPv4, and another one for IPv6), providing a relative accuracy of 0.10%.
 .Pp
 If
 .Ar file
