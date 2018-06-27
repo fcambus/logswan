@@ -58,6 +58,17 @@ Display usage
 .It Fl v
 Display version
 .El
+.Sh EXAMPLES
+The following script can be used to process all log files in the current
+directory and save the output in a file:
+.Bd -literal -offset indent
+#!/bin/sh
+for file in $(ls *.log)
+do
+	logswan $file > $file.json
+done
+exit 0
+.Ed
 .Sh AUTHORS
 .Nm
 was written by
