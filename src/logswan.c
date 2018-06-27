@@ -48,7 +48,7 @@
 bool geoip;
 MMDB_s geoip2;
 
-clock_t begin, end;
+struct timespec begin, end, elapsed;
 
 char lineBuffer[LINE_LENGTH_MAX];
 
@@ -124,7 +124,7 @@ main(int argc, char *argv[]) {
 	argv += optind;
 
 	/* Starting timer */
-	begin = clock();
+	clock_gettime(CLOCK_MONOTONIC, &begin);
 
 	/* Initializing GeoIP */
 	if (geoip) {
@@ -290,8 +290,10 @@ main(int argc, char *argv[]) {
 	results.visits = results.visitsIPv4 + results.visitsIPv6;
 
 	/* Stopping timer */
-	end = clock();
-	results.runtime = (double)(end - begin) / CLOCKS_PER_SEC;
+	clock_gettime(CLOCK_MONOTONIC, &end);
+
+	timespecsub(&end, &begin, &elapsed);
+	results.runtime = elapsed.tv_sec + elapsed.tv_nsec / 1E9;
 
 	/* Generate timestamp */
 	time_t now = time(NULL);
