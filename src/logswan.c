@@ -30,14 +30,7 @@
 #include <sys/types.h>
 #include <time.h>
 
-#ifndef HAVE_PLEDGE
-#include "pledge.h"
-#endif
-
-#ifndef HAVE_STRTONUM
-#include "strtonum.h"
-#endif
-
+#include "compat.h"
 #include "hll.h"
 
 #include <maxminddb.h>
