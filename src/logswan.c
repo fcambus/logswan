@@ -5,7 +5,7 @@
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2018-03-16                                                  */
+/* Last Updated: 2018-06-27                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -163,117 +163,120 @@ main(int argc, char *argv[]) {
 
 		/* Detect if remote host is IPv4 or IPv6 */
 		if (parsedLine.remoteHost) { /* Do not feed NULL tokens to inet_pton */
-			isIPv4 = inet_pton(AF_INET, parsedLine.remoteHost, &(ipv4.sin_addr));
-			isIPv6 = inet_pton(AF_INET6, parsedLine.remoteHost, &(ipv6.sin6_addr));
+			if ((isIPv4 = inet_pton(AF_INET, parsedLine.remoteHost, &(ipv4.sin_addr)))) {
+				isIPv6 = 0;
+			} else {
+				isIPv6 = inet_pton(AF_INET6, parsedLine.remoteHost, &(ipv6.sin6_addr));
+
+				if (!isIPv6) {
+					results.invalidLines++;
+					continue;
+				}
+			}
 		} else {
 			/* Invalid line */
 			results.invalidLines++;
 			continue;
 		}
 
-		if (isIPv4 || isIPv6) {
-			if (isIPv4) {
-				/* Increment hits counter */
-				results.hitsIPv4++;
+		if (isIPv4) {
+			/* Increment hits counter */
+			results.hitsIPv4++;
 
-				/* Unique visitors */
-				hll_add(&uniqueIPv4, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
-			}
+			/* Unique visitors */
+			hll_add(&uniqueIPv4, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
+		}
 
-			if (isIPv6) {
-				/* Increment hits counter */
-				results.hitsIPv6++;
+		if (isIPv6) {
+			/* Increment hits counter */
+			results.hitsIPv6++;
 
-				/* Unique visitors */
-				hll_add(&uniqueIPv6, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
-			}
+			/* Unique visitors */
+			hll_add(&uniqueIPv6, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
+		}
 
-			if (geoip) {
-				MMDB_entry_data_s entry_data;
+		if (geoip) {
+			MMDB_entry_data_s entry_data;
 
-				lookup = MMDB_lookup_string(&geoip2, parsedLine.remoteHost, &gai_error, &mmdb_error);
+			lookup = MMDB_lookup_string(&geoip2, parsedLine.remoteHost, &gai_error, &mmdb_error);
 
-				MMDB_get_value(&lookup.entry, &entry_data, "country", "iso_code", NULL);
+			MMDB_get_value(&lookup.entry, &entry_data, "country", "iso_code", NULL);
 
-				if (entry_data.has_data) {
-					/* Increment countries array */
-					for (size_t loop = 0; loop < COUNTRIES; loop++) {
-						if (!strncmp(countriesId[loop], entry_data.utf8_string, 2)) {
-							results.countries[loop]++;
-							break;
-						}
-					}
-				}
-
-				MMDB_get_value(&lookup.entry, &entry_data, "continent", "code", NULL);
-
-				if (entry_data.has_data) {
-					/* Increment continents array */
-					for (size_t loop = 0; loop < CONTINENTS; loop++) {
-						if (!strncmp(continentsId[loop], entry_data.utf8_string, 2)) {
-							results.continents[loop]++;
-							break;
-						}
+			if (entry_data.has_data) {
+				/* Increment countries array */
+				for (size_t loop = 0; loop < COUNTRIES; loop++) {
+					if (!strncmp(countriesId[loop], entry_data.utf8_string, 2)) {
+						results.countries[loop]++;
+						break;
 					}
 				}
 			}
 
-			/* Hourly distribution */
-			if (parsedLine.date) {
-				parseDate(&parsedDate, parsedLine.date);
+			MMDB_get_value(&lookup.entry, &entry_data, "continent", "code", NULL);
 
-				if (parsedDate.hour) {
-					hour = strtonum(parsedDate.hour, 0, 23, &errstr);
-
-					if (!errstr) {
-						results.hours[hour]++;
+			if (entry_data.has_data) {
+				/* Increment continents array */
+				for (size_t loop = 0; loop < CONTINENTS; loop++) {
+					if (!strncmp(continentsId[loop], entry_data.utf8_string, 2)) {
+						results.continents[loop]++;
+						break;
 					}
 				}
 			}
+		}
 
-			/* Parse request */
-			if (parsedLine.request) {
-				parseRequest(&parsedRequest, parsedLine.request);
+		/* Hourly distribution */
+		if (parsedLine.date) {
+			parseDate(&parsedDate, parsedLine.date);
 
-				if (parsedRequest.method) {
-					for (size_t loop = 0; loop < METHODS; loop++) {
-						if (!strcmp(methodsNames[loop], parsedRequest.method)) {
-							results.methods[loop]++;
-							break;
-						}
-					}
-				}
-
-				if (parsedRequest.protocol) {
-					for (size_t loop = 0; loop < PROTOCOLS; loop++) {
-						if (!strcmp(protocolsNames[loop], parsedRequest.protocol)) {
-							results.protocols[loop]++;
-							break;
-						}
-					}
-				}
-			}
-
-			/* Count HTTP status codes occurences */
-			if (parsedLine.statusCode) {
-				statusCode = strtonum(parsedLine.statusCode, 0, STATUS_CODE_MAX-1, &errstr);
+			if (parsedDate.hour) {
+				hour = strtonum(parsedDate.hour, 0, 23, &errstr);
 
 				if (!errstr) {
-					results.status[statusCode]++;
+					results.hours[hour]++;
+				}
+			}
+		}
+
+		/* Parse request */
+		if (parsedLine.request) {
+			parseRequest(&parsedRequest, parsedLine.request);
+
+			if (parsedRequest.method) {
+				for (size_t loop = 0; loop < METHODS; loop++) {
+					if (!strcmp(methodsNames[loop], parsedRequest.method)) {
+						results.methods[loop]++;
+						break;
+					}
 				}
 			}
 
-			/* Increment bandwidth usage */
-			if (parsedLine.objectSize) {
-				bandwidth = strtonum(parsedLine.objectSize, 0, INT64_MAX, &errstr);
-
-				if (!errstr) {
-					results.bandwidth += bandwidth;
+			if (parsedRequest.protocol) {
+				for (size_t loop = 0; loop < PROTOCOLS; loop++) {
+					if (!strcmp(protocolsNames[loop], parsedRequest.protocol)) {
+						results.protocols[loop]++;
+						break;
+					}
 				}
 			}
-		} else {
-			/* Invalid line */
-			results.invalidLines++;
+		}
+
+		/* Count HTTP status codes occurences */
+		if (parsedLine.statusCode) {
+			statusCode = strtonum(parsedLine.statusCode, 0, STATUS_CODE_MAX-1, &errstr);
+
+			if (!errstr) {
+				results.status[statusCode]++;
+			}
+		}
+
+		/* Increment bandwidth usage */
+		if (parsedLine.objectSize) {
+			bandwidth = strtonum(parsedLine.objectSize, 0, INT64_MAX, &errstr);
+
+			if (!errstr) {
+				results.bandwidth += bandwidth;
+			}
 		}
 	}
 
