@@ -1,3 +1,13 @@
+Logswan 2.0.1 (2018-06-27)
+
+- Do not use -Werror by default
+- Do not always call inet_pton two times per log line, this speeds things up
+- Use bool types for isIPv4 and isIPv6
+- Use the monotonic clock to determine runtime
+- Move conditional includes for 'pledge' and 'strtonum' in compat.h
+
+
+
 Logswan 2.0.0 (2018-03-16)
 
 - Use type off_t for results struct member fileSize
