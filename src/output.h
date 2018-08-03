@@ -15,9 +15,10 @@
 #ifndef OUTPUT_H
 #define OUTPUT_H
 
-#include "config.h"
 #include <sys/types.h>
 #include <stdint.h>
+
+#include "config.h"
 
 struct results {
 	char *fileName;

@@ -16,6 +16,11 @@
 #define _POSIX_C_SOURCE 199309L
 #define _POSIX_SOURCE
 
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
 #include <arpa/inet.h>
 #include <err.h>
 #include <getopt.h>
@@ -25,19 +30,13 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/select.h>
-#include <sys/socket.h>
-#include <sys/stat.h>
-#include <sys/time.h>
-#include <sys/types.h>
 #include <time.h>
-
-#include "compat.h"
-#include "hll.h"
 
 #include <maxminddb.h>
 
+#include "compat.h"
 #include "config.h"
+#include "hll.h"
 #include "output.h"
 #include "parse.h"
 
