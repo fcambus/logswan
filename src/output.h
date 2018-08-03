@@ -5,7 +5,7 @@
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2018-06-27                                                  */
+/* Last Updated: 2018-08-03                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -17,6 +17,7 @@
 
 #include "config.h"
 #include <sys/types.h>
+#include <stdint.h>
 
 struct results {
 	char *fileName;
