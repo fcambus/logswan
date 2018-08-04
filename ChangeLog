@@ -1,3 +1,11 @@
+Logswan 2.0.2 (2018-08-05)
+
+- Use UINT64_MAX for strtonum() maxval
+- Add missing headers and reorder includes
+- Add support for HTTP/2.0
+
+
+
 Logswan 2.0.1 (2018-06-27)
 
 - Do not use -Werror by default
