@@ -5,7 +5,7 @@
 # https://www.logswan.org                                                     #
 #                                                                             #
 # Created:      2015-05-31                                                    #
-# Last Updated: 2018-08-05                                                    #
+# Last Updated: 2018-08-14                                                    #
 #                                                                             #
 # Logswan is released under the BSD 2-Clause license.                         #
 # See LICENSE file for details.                                               #
@@ -52,7 +52,7 @@ endif()
 
 SET(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP2 CACHE PATH "Path to GeoIP2 databases")
 
-add_definitions(-Wall -Wextra -std=c99 -pedantic)
+add_definitions(-Wall -Wextra -std=c11 -pedantic)
 add_definitions(-DGEOIP2DIR="${GEOIP2DIR}/")
 add_executable(logswan ${SRC} ${DEPS})
 
