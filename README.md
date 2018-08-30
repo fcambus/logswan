@@ -26,7 +26,9 @@
                          |                       :
                                                  .
 ```
-# Logswan [![Build Status][1]][2] [![Coverity Scan Build Status][3]][4]
+# Logswan 
+
+[![Build Status][1]][2] [![Coverity Scan Build Status][3]][4]
 
 Logswan is a fast Web log analyzer using probabilistic data structures. It is
 targeted at very large log files, typically APIs logs. It has constant memory
