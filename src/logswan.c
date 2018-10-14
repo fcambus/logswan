@@ -267,7 +267,7 @@ main(int argc, char *argv[]) {
 
 		/* Increment bandwidth usage */
 		if (parsedLine.objectSize) {
-			bandwidth = strtonum(parsedLine.objectSize, 0, UINT64_MAX, &errstr);
+			bandwidth = strtonum(parsedLine.objectSize, 0, INT64_MAX, &errstr);
 
 			if (!errstr) {
 				results.bandwidth += bandwidth;
