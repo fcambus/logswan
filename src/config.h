@@ -5,7 +5,7 @@
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2018-08-05                                                  */
+/* Last Updated: 2018-10-15                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -28,10 +28,6 @@ enum {
 	PROTOCOLS = 3
 };
 
-extern char *continentsId[];
-extern char *continentsNames[];
-extern char *countriesId[];
-extern char *countriesNames[];
 extern char *methodsNames[];
 extern char *protocolsNames[];
 

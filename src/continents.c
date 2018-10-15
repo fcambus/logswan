@@ -12,20 +12,22 @@
 /*                                                                           */
 /*****************************************************************************/
 
-char *methodsNames[] = {
-	"GET",
-	"POST",
-	"HEAD",
-	"OPTIONS",
-	"PUT",
-	"DELETE",
-	"TRACE",
-	"CONNECT",
-	"PATCH"
+char *continentsId[] = {
+	"AF",
+	"AN",
+	"AS",
+	"EU",
+	"NA",
+	"OC",
+	"SA"
 };
 
-char *protocolsNames[] = {
-	"HTTP/1.1",
-	"HTTP/1.0",
-	"HTTP/2.0"
+char *continentsNames[] = {
+	"Africa",
+	"Antarctica",
+	"Asia",
+	"Europe",
+	"North America",
+	"Oceania",
+	"South America"
 };

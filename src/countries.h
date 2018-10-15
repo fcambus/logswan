@@ -12,20 +12,11 @@
 /*                                                                           */
 /*****************************************************************************/
 
-char *methodsNames[] = {
-	"GET",
-	"POST",
-	"HEAD",
-	"OPTIONS",
-	"PUT",
-	"DELETE",
-	"TRACE",
-	"CONNECT",
-	"PATCH"
-};
+#ifndef COUNTRIES_H
+#define COUNTRIES_H
 
-char *protocolsNames[] = {
-	"HTTP/1.1",
-	"HTTP/1.0",
-	"HTTP/2.0"
-};
+extern char *countriesId[];
+extern char *countriesNames[];
+
+#endif /* COUNTRIES */
+

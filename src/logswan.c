@@ -5,7 +5,7 @@
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
-/* Last Updated: 2018-08-05                                                  */
+/* Last Updated: 2018-10-15                                                  */
 /*                                                                           */
 /* Logswan is released under the BSD 2-Clause license.                       */
 /* See LICENSE file for details.                                             */
@@ -36,6 +36,8 @@
 
 #include "compat.h"
 #include "config.h"
+#include "continents.h"
+#include "countries.h"
 #include "hll.h"
 #include "output.h"
 #include "parse.h"

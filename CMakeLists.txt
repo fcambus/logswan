@@ -40,7 +40,7 @@ include_directories(${JANSSON_INCLUDE_DIRS})
 
 set(CMAKE_BUILD_TYPE Release)
 set(DEPS deps/hll/hll.c deps/MurmurHash3/MurmurHash3.c)
-set(SRC src/logswan.c src/config.c src/output.c src/parse.c)
+set(SRC src/logswan.c src/config.c src/continents.c src/countries.c src/output.c src/parse.c)
 
 if(NOT HAVE_PLEDGE)
   set (SRC ${SRC} compat/pledge.c)
