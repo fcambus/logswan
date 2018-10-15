@@ -1,3 +1,14 @@
+Logswan 2.0.3 (2018-10-15)
+
+- Use -std=c11, Logswan requires a C11 compiler for libmaxminddb
+- Enable support for parsing HTTP/2.0 requests, for real this time
+- Revert back to using INT64_MAX for strtonum() maxval, as maxval is long long
+  and using UINT64_MAX caused bandwidth parsing to always fail (Thanks James Loh
+  for reporting the issue)
+- Move maps of countries and continents to separate files
+
+
+
 Logswan 2.0.2 (2018-08-05)
 
 - Use UINT64_MAX for strtonum() maxval
