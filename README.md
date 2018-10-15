@@ -61,7 +61,7 @@ Currently implemented features:
 - GeoIP lookups (for both IPv4 and IPv6)
 - Hourly hits distribution
 - HTTP method distribution
-- HTTP protocol (HTTP/1.0 or HTTP/1.1) distribution
+- HTTP protocol (HTTP/1.0, HTTP/1.1, or HTTP/2.0) distribution
 - HTTP status codes distribution
 
 ## Dependencies
