@@ -96,6 +96,14 @@ Logswan packages are available for:
 
 	pkgin install logswan
 
+### Debian or Ubuntu
+
+	dget -x http://phd-sid.ethz.ch/debian/logswan/logswan_2.0.3-1.dsc
+	cd logswan*/
+	debuild
+	cd ..
+	dpkg -i logswan_*.deb
+
 ### GeoIP2 databases
 
 Logswan looks for GeoIP2 databases in `${CMAKE_INSTALL_PREFIX}/share/GeoIP2` by
