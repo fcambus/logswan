@@ -1,3 +1,6 @@
+#ifndef COMPAT_H
+#define COMPAT_H
+
 #ifndef HAVE_PLEDGE
 #include "pledge.h"
 #endif
@@ -17,3 +20,5 @@
 		}							\
 	} while (0)
 #endif
+
+#endif /* COMPAT_H */
