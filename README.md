@@ -72,19 +72,21 @@ libraries and header files.
 ## Installing dependencies
 
 - OpenBSD: `pkg_add -r cmake jansson libmaxminddb`
+- NetBSD: `pkgin in cmake jansson libmaxminddb`
+- FreeBSD: `pkg install cmake jansson libmaxminddb`
 - Mac OS X: `brew install cmake jansson libmaxminddb`
 - Alpine Linux: `apk add cmake gcc make musl-dev jansson-dev libmaxminddb-dev`
 - Debian / Ubuntu: `apt-get install build-essential cmake libjansson-dev libmaxminddb-dev`
 
-## Compiling
+## Building
 
 	mkdir build
 	cd build
 	cmake ..
 	make
 
-Logswan has been sucessfully compiled and tested on Mac OS X, OpenBSD, NetBSD,
-and Linux with both Clang and GCC.
+Logswan has been sucessfully built and tested on OpenBSD, NetBSD, FreeBSD,
+Mac OS X, and Linux with both Clang and GCC.
 
 ## Installation
 
