@@ -54,7 +54,7 @@ Logswan is **opinionated software**:
 
 Currently implemented features:
 
-- Counting bandwidth used
+- Counting used bandwidth
 - Counting number of processed lines / invalid lines
 - Counting number of hits (IPv4 and IPv6 hits)
 - Counting visits (unique IP addresses for both IPv4 and IPv6)
@@ -78,7 +78,9 @@ libraries and header files.
 
 ## Compiling
 
-	cmake .
+	mkdir build
+	cd build
+	cmake ..
 	make
 
 Logswan has been sucessfully compiled and tested on Mac OS X, OpenBSD, NetBSD,
@@ -96,7 +98,7 @@ Logswan packages are available for:
 
 	pkgin install logswan
 
-### Debian or Ubuntu
+### Debian / Ubuntu
 
 	dget -x http://phd-sid.ethz.ch/debian/logswan/logswan_2.0.3-1.dsc
 	cd logswan*/
