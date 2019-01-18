@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /*                                                                           */
 /* Logswan 2.0.3                                                             */
-/* Copyright (c) 2015-2018, Frederic Cambus                                  */
+/* Copyright (c) 2015-2019, Frederic Cambus                                  */
 /* https://www.logswan.org                                                   */
 /*                                                                           */
 /* Created:      2015-05-31                                                  */
