@@ -90,25 +90,14 @@ libraries and header files.
 Logswan has been sucessfully built and tested on OpenBSD, NetBSD, FreeBSD,
 Mac OS X, and Linux with both Clang and GCC.
 
-## Installation
+## Packages
 
-Logswan packages are available for:
+Packages are available for the following operating systems:
 
-### OpenBSD
-
-	pkg_add logswan
-
-### Pkgsrc (NetBSD, SmartOS, Mac OS X, etc.)
-
-	pkgin install logswan
-
-### Debian / Ubuntu
-
-	dget -x http://phd-sid.ethz.ch/debian/logswan/logswan_2.0.3-1.dsc
-	cd logswan*/
-	debuild
-	cd ..
-	dpkg -i logswan_*.deb
+- [OpenBSD][3]
+- [NetBSD][4]
+- [Debian][5]
+- [Ubuntu][6]
 
 ### GeoIP2 databases
 
@@ -120,7 +109,7 @@ CMake:
 
 	cmake -DGEOIP2DIR=/var/db/GeoIP .
 
-The free GeoLite2 databases from MaxMind can be downloaded [here][3]:
+The free GeoLite2 databases from MaxMind can be downloaded [here][7]:
 
 	https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
 
@@ -164,4 +153,8 @@ GitHub: https://github.com/fcambus/logswan
 
 [1]: https://api.travis-ci.org/fcambus/logswan.png?branch=master
 [2]: https://travis-ci.org/fcambus/logswan
-[3]: https://dev.maxmind.com/geoip/geoip2/geolite2/
+[3]: https://cvsweb.openbsd.org/cgi-bin/cvsweb/ports/www/logswan
+[4]: http://pkgsrc.se/www/logswan
+[5]: https://packages.debian.org/sid/logswan
+[6]: https://packages.ubuntu.com/disco/logswan
+[7]: https://dev.maxmind.com/geoip/geoip2/geolite2/
