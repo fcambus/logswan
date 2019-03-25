@@ -98,6 +98,7 @@ Packages are available for the following operating systems:
 - [NetBSD][4]
 - [Debian][5]
 - [Ubuntu][6]
+- [Void Linux][7]
 
 ### GeoIP2 databases
 
@@ -109,7 +110,7 @@ CMake:
 
 	cmake -DGEOIP2DIR=/var/db/GeoIP .
 
-The free GeoLite2 databases from MaxMind can be downloaded [here][7]:
+The free GeoLite2 databases from MaxMind can be downloaded [here][8]:
 
 	https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
 
@@ -157,4 +158,5 @@ GitHub: https://github.com/fcambus/logswan
 [4]: http://pkgsrc.se/www/logswan
 [5]: https://packages.debian.org/sid/logswan
 [6]: https://packages.ubuntu.com/disco/logswan
-[7]: https://dev.maxmind.com/geoip/geoip2/geolite2/
+[7]: https://github.com/void-linux/void-packages/tree/master/srcpkgs/logswan
+[8]: https://dev.maxmind.com/geoip/geoip2/geolite2/
