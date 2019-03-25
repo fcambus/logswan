@@ -8,5 +8,21 @@ before_install:
   - sudo add-apt-repository -y ppa:maxmind/ppa
   - sudo apt-get -qq update
   - sudo apt-get install -y libmaxminddb-dev libjansson-dev
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 script: cmake . && make
+
+env:
+  global:
+    - secure: "NuBqQ07eVrwB0cbrJbEqj56gVtM5zTwY0umbgE+ElB2joSLXzfqniNt0n1J105rEqLVXNvsviLMHkSo5M0klYqaep/4OJp0Zu+uUWixh2Ez6ySleT0+iZBVs7+izMbO5dpefSzLipcL8bSDq4U/08djRXRST+r87QD4e2oR3rwSqLWqnnJx69t80Q1AxModGSJ8OajApMjdSedt+9lPprhFY4Nxj52oWHlStCwko4zLUPexNnUq79cvCAnXgpX3WB6r4K95N0VLLsCnP+XsovvlPut4kP2gm9vOrpaYuFHw3Mp6xAEnqnJ6Ma9cAvlokdImEc/mVVtNBmpU8cifWQRx/y4vX6ZbDTRzA37iYPzlg/GpN+FYtDMXRMSqqdwdRGSqldMre3U9uaWQOjGOkhroJGBL8CSJFu1R9HYHGyLPj763CkQOAxpe/4BP2SknvRX/f//JgEZDuZ1hGVrhqtmJ6TlV57sAh3d4IjN5ZixFn8kUekLkvStLsoy5P4eeOCeas7KO3/VvRui7LHmf033DtE901RQsW0UysCxmT1SRsalVDwbwL2zahSoKT4So0K/DiULkB3zd8+TUld8u2VeJDdy4gIMiKhj+lQKn++G5MaIKCscf5gtQ1zwXQeWktQfRQRxyUa/qByHwxLlGzhQC7ccoLCNhcPdKp7RfS/I8="
+
+addons:
+  coverity_scan:
+    project:
+      name: "fcambus/logswan"
+      version: 2.0.3
+      description: "Fast Web log analyzer using probabilistic data structures"
+    notification_email: fred@statdns.com
+    build_command_prepend: cmake .
+    build_command: make -j 4
+    branch_pattern: master
