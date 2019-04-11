@@ -295,7 +295,7 @@ main(int argc, char *argv[]) {
 	strftime(results.timeStamp, 20, "%Y-%m-%d %H:%M:%S", localtime(&now));
 
 	/* Printing results */
-	fprintf(stderr, "Processed %" PRIu64 " lines in %f seconds\n", results.processedLines, results.runtime);
+	fprintf(stderr, "Processed %" PRIu64 " lines in %f seconds.\n", results.processedLines, results.runtime);
 	fputs(output(&results), stdout);
 
 	/* Clean up */
