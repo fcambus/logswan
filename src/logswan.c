@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-01-19
+ * Last Updated: 2019-05-09
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -25,6 +25,7 @@
 #include <inttypes.h>
 #include <netinet/in.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -86,7 +87,7 @@ main(int argc, char *argv[]) {
 	MMDB_lookup_result_s lookup;
 
 	if (pledge("stdio rpath", NULL) == -1) {
-		err(1, "pledge");
+		err(EXIT_FAILURE, "pledge");
 	}
 
 	hll_init(&uniqueIPv4, HLL_BITS);
@@ -100,11 +101,11 @@ main(int argc, char *argv[]) {
 
 		case 'h':
 			displayUsage();
-			return 0;
+			return EXIT_SUCCESS;
 
 		case 'v':
 			printf("%s\n", VERSION);
-			return 0;
+			return EXIT_SUCCESS;
 		}
 	}
 
@@ -112,7 +113,7 @@ main(int argc, char *argv[]) {
 		intputFile = argv[optind];
 	} else {
 		displayUsage();
-		return 0;
+		return EXIT_SUCCESS;
 	}
 
 	argc -= optind;
@@ -126,7 +127,7 @@ main(int argc, char *argv[]) {
 		if (MMDB_open(GEOIP2DIR "GeoLite2-Country.mmdb",
 		    MMDB_MODE_MMAP, &geoip2) != MMDB_SUCCESS) {
 			perror("Can't open database");
-			return 1;
+			return EXIT_FAILURE;
 		}
 
 	}
@@ -139,14 +140,14 @@ main(int argc, char *argv[]) {
 		/* Attempt to read from file */
 		if (!(logFile = fopen(intputFile, "r"))) {
 			perror("Can't open log file");
-			return 1;
+			return EXIT_FAILURE;
 		}
 	}
 
 	/* Get log file size */
 	if (fstat(fileno(logFile), &logFileStat)) {
 		perror("Can't stat log file");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	results.fileName = intputFile;
@@ -306,5 +307,5 @@ main(int argc, char *argv[]) {
 	hll_destroy(&uniqueIPv4);
 	hll_destroy(&uniqueIPv6);
 
-	return 0;
+	return EXIT_SUCCESS;
 }
