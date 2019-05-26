@@ -257,7 +257,7 @@ main(int argc, char *argv[]) {
 			}
 		}
 
-		/* Count HTTP status codes occurences */
+		/* Count HTTP status codes occurrences */
 		if (parsedLine.statusCode) {
 			statusCode = strtonum(parsedLine.statusCode, 0, STATUS_CODE_MAX-1, &errstr);
 

@@ -87,7 +87,7 @@ libraries and header files.
 	cmake ..
 	make
 
-Logswan has been sucessfully built and tested on OpenBSD, NetBSD, FreeBSD,
+Logswan has been successfully built and tested on OpenBSD, NetBSD, FreeBSD,
 Mac OS X, and Linux with both Clang and GCC.
 
 ## Packages

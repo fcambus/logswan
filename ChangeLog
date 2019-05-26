@@ -108,7 +108,7 @@ Logswan 1.03 (2016-01-01)
 - Breaking the loop when a match is found in the request parser
 - Using enumeration constants instead of macros
 - Process GeoIP continent information
-- Re-ordering protocols and methods with more common occurences on top of
+- Re-ordering protocols and methods with more common occurrences on top of
   the list, allowing to break earlier when iterating through the array
 - Adding support for reading logs from standard input
 - Renaming 'definitions' files to 'config'
