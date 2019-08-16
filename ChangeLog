@@ -1,3 +1,15 @@
+Logswan 2.0.4 (2019-08-16)
+
+- Adding #include guard in compat header file
+- Add an example log file and regenerate output example
+- Add dependencies installation instructions for NetBSD and FreeBSD
+- Add final dots for options descriptions
+- Add final dot when printing results summary
+- Use EXIT_SUCCESS and EXIT_FAILURE macros for return values
+- Add a trailing newline when printing JSON output
+
+
+
 Logswan 2.0.3 (2018-10-15)
 
 - Use -std=c11, Logswan requires a C11 compiler for libmaxminddb
