@@ -297,7 +297,7 @@ main(int argc, char *argv[]) {
 
 	/* Printing results */
 	fprintf(stderr, "Processed %" PRIu64 " lines in %f seconds.\n", results.processedLines, results.runtime);
-	fputs(output(&results), stdout);
+	fprintf(stdout, "%s\n", output(&results));
 
 	/* Clean up */
 	fclose(logFile);
