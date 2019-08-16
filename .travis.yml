@@ -21,7 +21,7 @@ addons:
   coverity_scan:
     project:
       name: "fcambus/logswan"
-      version: 2.0.3
+      version: 2.0.4
       description: "Fast Web log analyzer using probabilistic data structures"
     notification_email: fred@statdns.com
     build_command_prepend: cmake .
