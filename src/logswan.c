@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-08-16
+ * Last Updated: 2019-09-27
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -30,6 +30,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+
+#if defined(__linux__)
+#include <sys/prctl.h>
+#include <sys/syscall.h>
+#include <linux/audit.h>
+#include <linux/filter.h>
+#include <linux/seccomp.h>
+#include "seccomp.h"
+#endif
 
 #include <maxminddb.h>
 
@@ -89,6 +98,11 @@ main(int argc, char *argv[]) {
 	if (pledge("stdio rpath", NULL) == -1) {
 		err(EXIT_FAILURE, "pledge");
 	}
+
+#if defined(__linux__)
+	prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0);
+	prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &logswan);
+#endif
 
 	hll_init(&uniqueIPv4, HLL_BITS);
 	hll_init(&uniqueIPv6, HLL_BITS);
