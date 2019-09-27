@@ -38,9 +38,9 @@ uint32_t MurmurHash3_x86_32(const void *key, uint32_t len, uint32_t seed) {
 	switch(len & 3)
 	{
 		case 3:
-			k1 ^= (uint32_t)tail[2] << 16;
+			k1 ^= (uint32_t)tail[2] << 16;	/* FALLTHROUGH */
 		case 2:
-			k1 ^= (uint32_t)tail[1] << 8;
+			k1 ^= (uint32_t)tail[1] << 8;	/* FALLTHROUGH */
 		case 1:
 			k1 ^= tail[0];
 			k1 *= c1;
