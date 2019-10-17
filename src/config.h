@@ -23,7 +23,7 @@ enum {
 	CONTINENTS = 7,
 	COUNTRIES = 251,
 	METHODS = 9,
-	PROTOCOLS = 3
+	PROTOCOLS = 4
 };
 
 extern char *methodsNames[];
