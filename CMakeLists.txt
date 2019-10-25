@@ -1,16 +1,14 @@
-###############################################################################
-#                                                                             #
-# Logswan 2.1.0                                                               #
-# Copyright (c) 2015-2019, Frederic Cambus                                    #
-# https://www.logswan.org                                                     #
-#                                                                             #
-# Created:      2015-05-31                                                    #
-# Last Updated: 2018-10-25                                                    #
-#                                                                             #
-# Logswan is released under the BSD 2-Clause license.                         #
-# See LICENSE file for details.                                               #
-#                                                                             #
-###############################################################################
+#
+# Logswan 2.1.0
+# Copyright (c) 2015-2019, Frederic Cambus
+# https://www.logswan.org
+#
+# Created:      2015-05-31
+# Last Updated: 2018-10-25
+#
+# Logswan is released under the BSD 2-Clause license
+# See LICENSE file for details
+#
 
 cmake_minimum_required (VERSION 2.6)
 
