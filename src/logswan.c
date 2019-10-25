@@ -138,7 +138,7 @@ main(int argc, char *argv[]) {
 
 	/* Initializing GeoIP */
 	if (geoip) {
-		if (MMDB_open(GEOIP2DIR "GeoLite2-Country.mmdb",
+		if (MMDB_open(GEOIP2DIR GEOIP2DB,
 		    MMDB_MODE_MMAP, &geoip2) != MMDB_SUCCESS) {
 			perror("Can't open database");
 			return EXIT_FAILURE;

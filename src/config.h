@@ -15,6 +15,8 @@
 
 #define VERSION "Logswan 2.1.0"
 
+#define GEOIP2DB "GeoLite2-Country.mmdb"
+
 enum {
 	HLL_BITS = 20,
 	LINE_LENGTH_MAX = 65536,
