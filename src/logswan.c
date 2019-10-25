@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-09-27
+ * Last Updated: 2019-10-25
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -31,7 +31,7 @@
 #include <string.h>
 #include <time.h>
 
-#if defined(__linux__)
+#ifdef HAVE_SECCOMP
 #include <sys/prctl.h>
 #include <sys/syscall.h>
 #include <linux/audit.h>
@@ -99,7 +99,7 @@ main(int argc, char *argv[]) {
 		err(EXIT_FAILURE, "pledge");
 	}
 
-#if defined(__linux__)
+#ifdef HAVE_SECCOMP
 	prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0);
 	prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &logswan);
 #endif
