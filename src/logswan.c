@@ -80,11 +80,13 @@ int8_t getoptFlag;
 
 struct HLL uniqueIPv4, uniqueIPv6;
 char *intputFile;
+char *db = NULL;
 
 void
 displayUsage() {
 	printf("USAGE: logswan [options] inputfile\n\n" \
 	    "Options are:\n\n" \
+	    "	-d Specify path to a GeoIP database\n" \
 	    "	-g Enable GeoIP lookups\n" \
 	    "	-h Display usage\n" \
 	    "	-v Display version\n");
@@ -107,8 +109,12 @@ main(int argc, char *argv[]) {
 	hll_init(&uniqueIPv4, HLL_BITS);
 	hll_init(&uniqueIPv6, HLL_BITS);
 
-	while ((getoptFlag = getopt(argc, argv, "ghv")) != -1) {
+	while ((getoptFlag = getopt(argc, argv, "d:ghv")) != -1) {
 		switch (getoptFlag) {
+		case 'd':
+			db = optarg;
+			break;
+
 		case 'g':
 			geoip = true;
 			break;
@@ -138,8 +144,10 @@ main(int argc, char *argv[]) {
 
 	/* Initializing GeoIP */
 	if (geoip) {
-		if (MMDB_open(GEOIP2DIR GEOIP2DB,
-		    MMDB_MODE_MMAP, &geoip2) != MMDB_SUCCESS) {
+		if (!db)
+			db = GEOIP2DIR GEOIP2DB;
+
+		if (MMDB_open(db, MMDB_MODE_MMAP, &geoip2) != MMDB_SUCCESS) {
 			perror("Can't open database");
 			return EXIT_FAILURE;
 		}
