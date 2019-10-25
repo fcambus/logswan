@@ -116,15 +116,16 @@ The free GeoLite2 databases from MaxMind can be downloaded [here][8]:
 
 ## Usage
 
-	logswan [-ghv] file
+	logswan [-ghv] [-d db] file
 
 If file is a single dash (`-'), logswan reads from the standard input.
 
-Options are:
+The options are as follows:
 
-	-g Enable GeoIP lookups
-	-h Display usage
-	-v Display version
+	-d db	Specify path to a GeoIP database.
+	-g	Enable GeoIP lookups.
+	-h	Display usage.
+	-v	Display version.
 
 Logswan outputs JSON data to **stdout**.
 
