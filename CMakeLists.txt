@@ -4,7 +4,7 @@
 # https://www.logswan.org
 #
 # Created:      2015-05-31
-# Last Updated: 2018-10-25
+# Last Updated: 2018-10-26
 #
 # Logswan is released under the BSD 2-Clause license
 # See LICENSE file for details
@@ -48,7 +48,8 @@ include_directories(${JANSSON_INCLUDE_DIRS})
 
 set(CMAKE_BUILD_TYPE Release)
 set(DEPS deps/hll/hll.c deps/MurmurHash3/MurmurHash3.c)
-set(SRC src/logswan.c src/config.c src/continents.c src/countries.c src/output.c src/parse.c)
+set(SRC src/logswan.c src/config.c src/continents.c src/countries.c
+    src/output.c src/parse.c)
 
 if(NOT HAVE_PLEDGE)
   set (SRC ${SRC} compat/pledge.c)
@@ -58,7 +59,8 @@ if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)
 endif()
 
-SET(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP2 CACHE PATH "Path to GeoIP2 databases")
+set(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP2
+    CACHE PATH "Path to GeoIP2 databases")
 
 add_definitions(-Wall -Wextra -std=c11 -pedantic)
 add_definitions(-DGEOIP2DIR="${GEOIP2DIR}/")
