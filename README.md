@@ -52,6 +52,10 @@ Logswan is **opinionated software**:
 - Input file size and bandwidth usage are reported in bytes, there are no
   plans to format or round them
 
+Logswan is written with security in mind and is running sandboxed on OpenBSD
+(using pledge) and on Linux (using seccomp). It has also been extensively
+fuzzed using AFL and Honggfuzz.
+
 ## Features
 
 Currently implemented features:
