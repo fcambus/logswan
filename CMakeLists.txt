@@ -68,3 +68,6 @@ target_link_libraries(logswan ${GEOIP2_LIBRARIES} ${JANSSON_LIBRARIES} m)
 
 install(TARGETS logswan DESTINATION bin)
 install(FILES logswan.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1/)
+
+enable_testing()
+add_test(logswan logswan)
