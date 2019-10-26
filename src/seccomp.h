@@ -10,6 +10,9 @@
  * See LICENSE file for details.
  */
 
+#ifndef SECCOMP_H
+#define SECCOMP_H
+
 #include <stddef.h>
 #include <sys/prctl.h>
 #include <sys/socket.h>
@@ -48,3 +51,5 @@ struct sock_fprog logswan = {
 	.len = sizeof(filter)/sizeof(filter[0]),
 	.filter = filter
 };
+
+#endif /* SECCOMP_H */
