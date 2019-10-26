@@ -36,7 +36,9 @@ static struct sock_filter filter[] = {
 	LOGSWAN_ALLOW_SYSCALL(fstat),
 	LOGSWAN_ALLOW_SYSCALL(ioctl),
 	LOGSWAN_ALLOW_SYSCALL(lseek),
+#if defined(__NR_open)
 	LOGSWAN_ALLOW_SYSCALL(open),
+#endif
 	LOGSWAN_ALLOW_SYSCALL(openat),
 	LOGSWAN_ALLOW_SYSCALL(mmap),
 	LOGSWAN_ALLOW_SYSCALL(munmap),
