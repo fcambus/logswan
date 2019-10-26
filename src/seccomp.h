@@ -22,7 +22,7 @@
 #include <linux/seccomp.h>
 
 #define LOGSWAN_ALLOW_SYSCALL(syscall) \
-	BPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, SYS_##syscall, 0, 1), \
+	BPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, __NR_##syscall, 0, 1), \
 	BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_ALLOW)
 
 static struct sock_filter filter[] = {
