@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-10-25
+ * Last Updated: 2019-10-28
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -102,8 +102,15 @@ main(int argc, char *argv[]) {
 	}
 
 #ifdef HAVE_SECCOMP
-	prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0);
-	prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &logswan);
+	if (prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0)) {
+		perror("Can't initialize seccomp");
+		return EXIT_FAILURE;
+	}
+
+	if (prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &logswan)) {
+		perror("Can't load seccomp filter");
+		return EXIT_FAILURE;
+	}
 #endif
 
 	hll_init(&uniqueIPv4, HLL_BITS);
