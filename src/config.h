@@ -1,5 +1,5 @@
 /*
- * Logswan 2.1.0
+ * Logswan 2.1.1
  * Copyright (c) 2015-2019, Frederic Cambus
  * https://www.logswan.org
  *
@@ -13,7 +13,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define VERSION "Logswan 2.1.0"
+#define VERSION "Logswan 2.1.1"
 
 #define GEOIP2DB "GeoLite2-Country.mmdb"
 
