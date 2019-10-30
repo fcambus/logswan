@@ -1,3 +1,17 @@
+Logswan 2.1.1 (2019-10-30)
+
+- Check if system has seccomp in CMakeLists.txt
+- Use the HAVE_SECCOMP macro to check whether or not to enable seccomp
+- Define and use a GEOIP2DB macro to specify GeoLite2 database name
+- Add a switch (-d) to allow specifying path to a GeoIP2 database file
+- Define and use a LOGSWAN_SYSCALL_ALLOW macro to make code more readable
+- Adding missing #include guard in seccomp.h header file
+- Use __NR_ instead of SYS_ prefix in LOGSWAN_SYSCALL_ALLOW
+- Fix the build on aarch64 Linux, where the open() syscall does not exist
+- Add error checking for both prctl() calls
+
+
+
 Logswan 2.1.0 (2019-10-23)
 
 - Add FALLTHROUGH comments where appropriate
