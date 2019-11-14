@@ -4,7 +4,7 @@
 # https://www.logswan.org
 #
 # Created:      2015-05-31
-# Last Updated: 2018-10-26
+# Last Updated: 2018-11-14
 #
 # Logswan is released under the BSD 2-Clause license
 # See LICENSE file for details
@@ -17,20 +17,26 @@ project(logswan C)
 include(CheckFunctionExists)
 include(GNUInstallDirs)
 
+# Conditional build options
+set(ENABLE_SECCOMP 1
+    CACHE BOOL "Enable building with seccomp")
+
 # Check if system has pledge and strtonum
 list(APPEND CMAKE_REQUIRED_DEFINITIONS -D_OPENBSD_SOURCE)
 check_function_exists(pledge HAVE_PLEDGE)
 check_function_exists(strtonum HAVE_STRTONUM)
 
-# Check if system has seccomp
-message(STATUS "Looking for seccomp")
-find_path(SECCOMP NAMES "linux/seccomp.h")
-if(SECCOMP)
-  message(STATUS "Looking for seccomp - found")
-  add_definitions(-DHAVE_SECCOMP=1)
-else()
-  message(STATUS "Looking for seccomp - not found")
-endif()
+if(ENABLE_SECCOMP)
+  # Check if system has seccomp
+  message(STATUS "Looking for seccomp")
+  find_path(SECCOMP NAMES "linux/seccomp.h")
+  if(SECCOMP)
+    message(STATUS "Looking for seccomp - found")
+    add_definitions(-DHAVE_SECCOMP=1)
+  else()
+    message(STATUS "Looking for seccomp - not found")
+  endif()
+endif(ENABLE_SECCOMP)
 
 # Additional include directories for compat functions + dependencies
 include_directories("compat")
