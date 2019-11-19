@@ -1,3 +1,12 @@
+Logswan 2.1.2 (2019-11-19)
+
+- Add ENABLE_SECCOMP build option, to allow building seccomp support
+  conditionally
+- Disable seccomp by default, it needs more testing on non !amd64 platforms
+- Use ${CMAKE_INSTALL_BINDIR} instead of hardcoding 'bin'
+
+
+
 Logswan 2.1.1 (2019-10-30)
 
 - Check if system has seccomp in CMakeLists.txt
