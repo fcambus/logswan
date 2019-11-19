@@ -4,7 +4,7 @@
 # https://www.logswan.org
 #
 # Created:      2015-05-31
-# Last Updated: 2018-11-14
+# Last Updated: 2018-11-19
 #
 # Logswan is released under the BSD 2-Clause license
 # See LICENSE file for details
@@ -18,7 +18,7 @@ include(CheckFunctionExists)
 include(GNUInstallDirs)
 
 # Conditional build options
-set(ENABLE_SECCOMP 1
+set(ENABLE_SECCOMP 0
     CACHE BOOL "Enable building with seccomp")
 
 # Check if system has pledge and strtonum
