@@ -79,3 +79,4 @@ install(FILES logswan.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1/)
 
 enable_testing()
 add_test(logswan logswan)
+add_test(processing logswan ${PROJECT_SOURCE_DIR}/examples/logswan.log)
