@@ -83,7 +83,8 @@ char *intputFile;
 char *db = NULL;
 
 void
-displayUsage() {
+displayUsage()
+{
 	printf("USAGE: logswan [options] inputfile\n\n" \
 	    "Options are:\n\n" \
 	    "	-d Specify path to a GeoIP database\n" \
@@ -93,7 +94,8 @@ displayUsage() {
 }
 
 int
-main(int argc, char *argv[]) {
+main(int argc, char *argv[])
+{
 	int gai_error, mmdb_error;
 	MMDB_lookup_result_s lookup;
 
