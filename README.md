@@ -53,8 +53,7 @@ Logswan is **opinionated software**:
   plans to format or round them
 
 Logswan is written with security in mind and is running sandboxed on OpenBSD
-(using pledge) and on Linux (using seccomp). It has also been extensively
-fuzzed using AFL and Honggfuzz.
+(using pledge). It has also been extensively fuzzed using AFL and Honggfuzz.
 
 ## Features
 
