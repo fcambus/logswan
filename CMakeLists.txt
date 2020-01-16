@@ -1,6 +1,6 @@
 #
 # Logswan 2.1.2
-# Copyright (c) 2015-2019, Frederic Cambus
+# Copyright (c) 2015-2020, Frederic Cambus
 # https://www.logswan.org
 #
 # Created:      2015-05-31
