@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-10-28
+ * Last Updated: 2020-01-17
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -160,7 +160,6 @@ main(int argc, char *argv[])
 			perror("Can't open database");
 			return EXIT_FAILURE;
 		}
-
 	}
 
 	/* Open log file */
