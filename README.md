@@ -113,9 +113,7 @@ CMake:
 
 	cmake -DGEOIP2DIR=/var/db/GeoIP .
 
-The free GeoLite2 databases from MaxMind can be downloaded [here][8]:
-
-	https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
+The free GeoLite2 databases from MaxMind can be downloaded [here][8].
 
 ## Usage
 
