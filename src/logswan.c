@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2020-01-17
+ * Last Updated: 2020-03-16
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -156,10 +156,8 @@ main(int argc, char *argv[])
 		if (!db)
 			db = GEOIP2DIR GEOIP2DB;
 
-		if (MMDB_open(db, MMDB_MODE_MMAP, &geoip2) != MMDB_SUCCESS) {
-			perror("Can't open database");
-			return EXIT_FAILURE;
-		}
+		if (MMDB_open(db, MMDB_MODE_MMAP, &geoip2) != MMDB_SUCCESS)
+			err(EXIT_FAILURE, "Can't open database (%s)", db);
 	}
 
 	/* Open log file */
