@@ -82,6 +82,7 @@ libraries and header files.
 - Mac OS X: `brew install cmake jansson libmaxminddb`
 - Alpine Linux: `apk add cmake gcc make musl-dev jansson-dev libmaxminddb-dev`
 - Debian / Ubuntu: `apt-get install build-essential cmake libjansson-dev libmaxminddb-dev`
+- Fedora: `yum install cmake gcc make jansson-devel libmaxminddb-devel`
 
 ## Building
 
