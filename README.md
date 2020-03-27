@@ -106,8 +106,8 @@ Packages are available for the following operating systems:
 
 ### GeoIP2 databases
 
-Logswan looks for GeoIP2 databases in `${CMAKE_INSTALL_PREFIX}/share/GeoIP2` by
-default, which points to `/usr/local/share/GeoIP2`.
+Logswan looks for GeoIP2 databases in `${CMAKE_INSTALL_PREFIX}/share/dbip` by
+default, which points to `/usr/local/share/dbip`.
 
 A custom directory can be set using the `GEOIP2DIR` variable when invoking
 CMake:

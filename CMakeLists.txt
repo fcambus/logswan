@@ -65,7 +65,7 @@ if(NOT HAVE_STRTONUM)
   set (SRC ${SRC} compat/strtonum.c)
 endif()
 
-set(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/GeoIP2
+set(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/dbip
     CACHE PATH "Path to GeoIP2 databases")
 set(GEOIP2DB "dbip-country-lite.mmdb" CACHE PATH "GeoIP2 database file")
 
