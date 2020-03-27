@@ -114,7 +114,11 @@ CMake:
 
 	cmake -DGEOIP2DIR=/var/db/GeoIP .
 
-The free GeoLite2 databases from MaxMind can be downloaded [here][8].
+The free Creative Commons licensed DB-IP IP to Country Lite database can be
+downloaded [here][8].
+
+Alternatively, GeoLite2 Country database from MaxMind can be downloaded free
+of charge [here][9], but require accepting an EULA and is not freely licensed.
 
 ## Usage
 
@@ -162,4 +166,5 @@ GitHub: https://github.com/fcambus/logswan
 [5]: https://packages.debian.org/search?keywords=logswan
 [6]: https://packages.ubuntu.com/search?keywords=logswan
 [7]: https://github.com/void-linux/void-packages/tree/master/srcpkgs/logswan
-[8]: https://dev.maxmind.com/geoip/geoip2/geolite2/
+[8]: https://db-ip.com/db/lite.php
+[9]: https://dev.maxmind.com/geoip/geoip2/geolite2/
