@@ -112,7 +112,7 @@ default, which points to `/usr/local/share/dbip`.
 A custom directory can be set using the `GEOIP2DIR` variable when invoking
 CMake:
 
-	cmake -DGEOIP2DIR=/var/db/GeoIP .
+	cmake -DGEOIP2DIR=/var/db/dbip .
 
 The free Creative Commons licensed DB-IP IP to Country Lite database can be
 downloaded [here][8].
