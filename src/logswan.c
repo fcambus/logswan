@@ -14,11 +14,9 @@
 #define _POSIX_C_SOURCE 199309L
 #define _POSIX_SOURCE
 
-#include <sys/select.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
 #include <sys/time.h>
-#include <sys/types.h>
 #include <arpa/inet.h>
 #include <err.h>
 #include <getopt.h>
