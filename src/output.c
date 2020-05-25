@@ -10,6 +10,7 @@
  * See LICENSE file for details.
  */
 
+#include <stddef.h>
 #include <stdint.h>
 
 #include <jansson.h>
