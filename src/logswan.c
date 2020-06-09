@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2020-03-16
+ * Last Updated: 2020-06-09
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -12,7 +12,6 @@
 
 #define _XOPEN_SOURCE 600
 #define _POSIX_C_SOURCE 199309L
-#define _POSIX_SOURCE
 
 #include <sys/socket.h>
 #include <sys/stat.h>
