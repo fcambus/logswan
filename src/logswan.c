@@ -10,8 +10,6 @@
  * See LICENSE file for details.
  */
 
-#define _XOPEN_SOURCE 600
-
 #include <sys/socket.h>
 #include <sys/stat.h>
 #include <sys/time.h>

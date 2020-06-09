@@ -69,7 +69,7 @@ set(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/dbip
     CACHE PATH "Path to GeoIP2 databases")
 set(GEOIP2DB "dbip-country-lite.mmdb" CACHE PATH "GeoIP2 database file")
 
-add_definitions(-Wall -Wextra -std=c11 -pedantic)
+add_definitions(-D_GNU_SOURCE -Wall -Wextra -std=c11 -pedantic)
 add_definitions(-DGEOIP2DIR="${GEOIP2DIR}/")
 add_definitions(-DGEOIP2DB="${GEOIP2DB}")
 add_executable(logswan ${SRC} ${DEPS})
