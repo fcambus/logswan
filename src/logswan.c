@@ -11,7 +11,6 @@
  */
 
 #define _XOPEN_SOURCE 600
-#define _POSIX_C_SOURCE 199309L
 
 #include <sys/socket.h>
 #include <sys/stat.h>
