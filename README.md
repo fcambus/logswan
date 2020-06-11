@@ -162,7 +162,7 @@ GitHub: https://github.com/fcambus/logswan
 [1]: https://api.travis-ci.org/fcambus/logswan.png?branch=master
 [2]: https://travis-ci.org/fcambus/logswan
 [3]: https://cvsweb.openbsd.org/cgi-bin/cvsweb/ports/www/logswan
-[4]: http://pkgsrc.se/www/logswan
+[4]: https://pkgsrc.se/www/logswan
 [5]: https://packages.debian.org/search?keywords=logswan
 [6]: https://packages.ubuntu.com/search?keywords=logswan
 [7]: https://github.com/void-linux/void-packages/tree/master/srcpkgs/logswan
