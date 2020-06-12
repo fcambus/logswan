@@ -1,3 +1,17 @@
+Logswan 2.1.5 (2020-06-12)
+
+- Switch the GEOIP2DIR example to point to '/var/db/dbip'
+- Use CLOCK_REALTIME if CLOCK_MONOTONIC is not available
+- Remove unneeded <sys/select.h> and <sys/types.h> includes
+- Add missing <stddef.h> include
+- Remove useless _POSIX_SOURCE define
+- Remove useless _POSIX_C_SOURCE 199309L define
+- Define _GNU_SOURCE in CMakeLists.txt to avoid cluttering source files
+- No need to set HAVE_SECCOMP to 1, defining it is enough
+- Remove some unneeded seccomp related includes
+
+
+
 Logswan 2.1.4 (2020-03-27)
 
 - Move GEOIP2DB definition to CMakeLists.txt, allowing build time
