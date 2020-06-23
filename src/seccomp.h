@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-10-26
+ * Last Updated: 2020-06-23
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -21,10 +21,6 @@
 #include <linux/filter.h>
 #include <linux/seccomp.h>
 
-#define LOGSWAN_SYSCALL_ALLOW(syscall) \
-	BPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, __NR_##syscall, 0, 1), \
-	BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_ALLOW)
-
 #if defined(__x86_64__)
 #define SECCOMP_AUDIT_ARCH AUDIT_ARCH_X86_64
 #elif defined(__aarch64__)
@@ -32,6 +28,10 @@
 #else
 #error "Seccomp is only supported on amd64 and aarch64 architectures."
 #endif
+
+#define LOGSWAN_SYSCALL_ALLOW(syscall) \
+	BPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, __NR_##syscall, 0, 1), \
+	BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_ALLOW)
 
 static struct sock_filter filter[] = {
 	/* Validate architecture */
