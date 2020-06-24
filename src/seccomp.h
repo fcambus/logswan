@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2020-06-23
+ * Last Updated: 2020-06-24
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -21,12 +21,14 @@
 #include <linux/filter.h>
 #include <linux/seccomp.h>
 
-#if defined(__x86_64__)
+#if defined(__i386__)
+#define SECCOMP_AUDIT_ARCH AUDIT_ARCH_I386
+#elif defined(__x86_64__)
 #define SECCOMP_AUDIT_ARCH AUDIT_ARCH_X86_64
 #elif defined(__aarch64__)
 #define SECCOMP_AUDIT_ARCH AUDIT_ARCH_AARCH64
 #else
-#error "Seccomp is only supported on amd64 and aarch64 architectures."
+#error "Seccomp is only supported on i386, amd64, and arm64 architectures."
 #endif
 
 #define LOGSWAN_SYSCALL_ALLOW(syscall) \
@@ -43,18 +45,31 @@ static struct sock_filter filter[] = {
 	BPF_STMT(BPF_LD+BPF_W+BPF_ABS, offsetof(struct seccomp_data, nr)),
 
 	LOGSWAN_SYSCALL_ALLOW(brk),
+	LOGSWAN_SYSCALL_ALLOW(clock_gettime),	/* i386 glibc */
 	LOGSWAN_SYSCALL_ALLOW(close),
 	LOGSWAN_SYSCALL_ALLOW(dup),
 	LOGSWAN_SYSCALL_ALLOW(exit_group),
 	LOGSWAN_SYSCALL_ALLOW(fcntl),
+#if defined(__NR_fcntl64)
+	LOGSWAN_SYSCALL_ALLOW(fcntl64),		/* i386 musl */
+#endif
 	LOGSWAN_SYSCALL_ALLOW(fstat),
+#if defined(__NR_fstat64)
+	LOGSWAN_SYSCALL_ALLOW(fstat64),		/* i386 glibc */
+#endif
 	LOGSWAN_SYSCALL_ALLOW(ioctl),
 	LOGSWAN_SYSCALL_ALLOW(lseek),
+#if defined(__NR__llseek)
+	LOGSWAN_SYSCALL_ALLOW(_llseek),		/* i386 glibc */
+#endif
 #if defined(__NR_open)
 	LOGSWAN_SYSCALL_ALLOW(open),
 #endif
 	LOGSWAN_SYSCALL_ALLOW(openat),
 	LOGSWAN_SYSCALL_ALLOW(mmap),
+#if defined(__NR_mmap2)
+	LOGSWAN_SYSCALL_ALLOW(mmap2),		/* i386 glibc */
+#endif
 	LOGSWAN_SYSCALL_ALLOW(munmap),
 	LOGSWAN_SYSCALL_ALLOW(read),
 	LOGSWAN_SYSCALL_ALLOW(write),
