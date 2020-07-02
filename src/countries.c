@@ -476,7 +476,7 @@ char *countriesNames[] = {
 	"El Salvador",
 	"Sint Maarten",
 	"Syria",
-	"Swaziland",
+	"Eswatini",
 	"Turks and Caicos Islands",
 	"Chad",
 	"French Southern Territories",
