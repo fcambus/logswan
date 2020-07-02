@@ -499,7 +499,7 @@ char *countriesNames[] = {
 	"United States",
 	"Uruguay",
 	"Uzbekistan",
-	"Vatican City",
+	"Vatican",
 	"Saint Vincent and the Grenadines",
 	"Venezuela",
 	"British Virgin Islands",
