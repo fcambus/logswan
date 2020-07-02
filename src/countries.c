@@ -278,7 +278,7 @@ char *countriesNames[] = {
 	"Austria",
 	"Australia",
 	"Aruba",
-	"Aland",
+	"Aland Islands",
 	"Azerbaijan",
 	"Bosnia and Herzegovina",
 	"Barbados",
