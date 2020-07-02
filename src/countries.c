@@ -407,7 +407,7 @@ char *countriesNames[] = {
 	"Saint Martin",
 	"Madagascar",
 	"Marshall Islands",
-	"Macedonia",
+	"North Macedonia",
 	"Mali",
 	"Myanmar",
 	"Mongolia",
