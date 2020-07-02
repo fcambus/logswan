@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2020-03-16
+ * Last Updated: 2020-07-02
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -21,7 +21,7 @@ enum {
 	STATUS_CODE_MAX = 512,
 
 	CONTINENTS = 7,
-	COUNTRIES = 251,
+	COUNTRIES = 250,
 	METHODS = 9,
 	PROTOCOLS = 4
 };

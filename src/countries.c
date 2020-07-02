@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-01-19
+ * Last Updated: 2020-07-02
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -18,7 +18,6 @@ char *countriesId[] = {
 	"AI",
 	"AL",
 	"AM",
-	"AN",
 	"AO",
 	"AQ",
 	"AR",
@@ -272,7 +271,6 @@ char *countriesNames[] = {
 	"Anguilla",
 	"Albania",
 	"Armenia",
-	"Netherlands Antilles",
 	"Angola",
 	"Antarctica",
 	"Argentina",
