@@ -1,3 +1,16 @@
+Logswan 2.1.6 (2020-07-03)
+
+- Validate architectures for seccomp
+- Minor code shuffling, for consistency with other codebases
+- Add seccomp support on i386, tested on glibc and musl
+- Remove entry for "Netherlands Antilles" in country table
+- Swaziland was officially renamed to Eswatini in 2018
+- Macedonia was officially renamed to North Macedonia in February 2019
+- Rename Vatican City to Vatican to be consistent with GeoNames naming
+- Rename Aland to Aland Islands to be consistent with GeoNames naming
+
+
+
 Logswan 2.1.5 (2020-06-12)
 
 - Switch the GEOIP2DIR example to point to '/var/db/dbip'
