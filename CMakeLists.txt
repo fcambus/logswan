@@ -1,5 +1,5 @@
 #
-# Logswan 2.1.5
+# Logswan 2.1.6
 # Copyright (c) 2015-2020, Frederic Cambus
 # https://www.logswan.org
 #
