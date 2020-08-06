@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2020-06-09
+ * Last Updated: 2020-08-06
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -178,10 +178,10 @@ main(int argc, char *argv[])
 
 		/* Detect if remote host is IPv4 or IPv6 */
 		if (parsedLine.remoteHost) { /* Do not feed NULL tokens to inet_pton */
-			if ((isIPv4 = inet_pton(AF_INET, parsedLine.remoteHost, &(ipv4.sin_addr)))) {
+			if ((isIPv4 = inet_pton(AF_INET, parsedLine.remoteHost, &ipv4.sin_addr))) {
 				isIPv6 = false;
 			} else {
-				isIPv6 = inet_pton(AF_INET6, parsedLine.remoteHost, &(ipv6.sin6_addr));
+				isIPv6 = inet_pton(AF_INET6, parsedLine.remoteHost, &ipv6.sin6_addr);
 
 				if (!isIPv6) {
 					results.invalidLines++;
