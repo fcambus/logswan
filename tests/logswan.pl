@@ -9,6 +9,7 @@ my %types = (
     names     => 'map',
     continent => 'map',
     country   => 'map',
+    code      => 'utf8_string',
     iso_code  => 'utf8_string',
     en        => 'utf8_string'
 );
@@ -23,22 +24,22 @@ my $tree = MaxMind::DB::Writer::Tree->new(
 );
 
 my $au = {
-    continent => { iso_code => "OC", names => { en => "Oceania" } },
+    continent => { code => "OC", names => { en => "Oceania" } },
     country   => { iso_code => "AU", names => { en => "Australia" } }
 };
 
 my $de = {
-    continent => { iso_code => "EU", names => { en => "Europe" } },
+    continent => { code => "EU", names => { en => "Europe" } },
     country   => { iso_code => "DE", names => { en => "Germany" } }
 };
 
 my $fr = {
-    continent => { iso_code => "EU", names => { en => "Europe" } },
+    continent => { code => "EU", names => { en => "Europe" } },
     country   => { iso_code => "FR", names => { en => "France" } }
 };
 
 my $us = {
-    continent => { iso_code => "NA", names => { en => "North America" } },
+    continent => { code => "NA", names => { en => "North America" } },
     country   => { iso_code => "US", names => { en => "United States" } }
 };
 
