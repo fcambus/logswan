@@ -24,22 +24,22 @@ my $tree = MaxMind::DB::Writer::Tree->new(
 );
 
 my $au = {
-    continent => { code => "OC", names => { en => "Oceania" } },
+    continent => { code     => "OC" },
     country   => { iso_code => "AU", names => { en => "Australia" } }
 };
 
 my $de = {
-    continent => { code => "EU", names => { en => "Europe" } },
+    continent => { code     => "EU" },
     country   => { iso_code => "DE", names => { en => "Germany" } }
 };
 
 my $fr = {
-    continent => { code => "EU", names => { en => "Europe" } },
+    continent => { code     => "EU" },
     country   => { iso_code => "FR", names => { en => "France" } }
 };
 
 my $us = {
-    continent => { code => "NA", names => { en => "North America" } },
+    continent => { code     => "NA" },
     country   => { iso_code => "US", names => { en => "United States" } }
 };
 
