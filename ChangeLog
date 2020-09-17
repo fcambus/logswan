@@ -1,3 +1,12 @@
+Logswan 2.1.7 (2020-09-17)
+
+- Add a Perl program to generate an example MMDB database for testing
+- Add a new test case to exercise the IP geolocation codepaths
+- Add support for seccomp on arm
+- Add missing test for __NR_mmap, the mmap syscall doesn't exist on arm
+
+
+
 Logswan 2.1.6 (2020-07-03)
 
 - Validate architectures for seccomp
