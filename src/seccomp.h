@@ -68,7 +68,9 @@ static struct sock_filter filter[] = {
 	LOGSWAN_SYSCALL_ALLOW(open),
 #endif
 	LOGSWAN_SYSCALL_ALLOW(openat),
+#if defined(__NR_mmap)
 	LOGSWAN_SYSCALL_ALLOW(mmap),
+#endif
 #if defined(__NR_mmap2)
 	LOGSWAN_SYSCALL_ALLOW(mmap2),		/* i386 glibc */
 #endif
