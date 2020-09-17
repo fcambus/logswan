@@ -1,10 +1,10 @@
 /*
- * Logswan 2.1.6
+ * Logswan 2.1.7
  * Copyright (c) 2015-2020, Frederic Cambus
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2020-06-24
+ * Last Updated: 2020-09-17
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
