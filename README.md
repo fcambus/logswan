@@ -53,7 +53,10 @@ Logswan is **opinionated software**:
   plans to format or round them
 
 Logswan is written with security in mind and is running sandboxed on OpenBSD
-(using pledge). It has also been extensively fuzzed using AFL and Honggfuzz.
+(using pledge). Experimental seccomp support is available for selected
+architectures and can be enabled by setting the `ENABLE_SECCOMP` variable
+to `1` when invoking CMake. It has also been extensively fuzzed using AFL
+and Honggfuzz.
 
 ## Features
 
