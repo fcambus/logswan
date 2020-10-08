@@ -73,7 +73,7 @@ struct HLL uniqueIPv4, uniqueIPv6;
 char *intputFile;
 char *db = NULL;
 
-void
+static void
 displayUsage()
 {
 	printf("USAGE: logswan [options] inputfile\n\n" \
