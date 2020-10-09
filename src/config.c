@@ -10,7 +10,7 @@
  * See LICENSE file for details.
  */
 
-char *methodsNames[] = {
+const char *methodsNames[] = {
 	"GET",
 	"POST",
 	"HEAD",
@@ -22,7 +22,7 @@ char *methodsNames[] = {
 	"PATCH"
 };
 
-char *protocolsNames[] = {
+const char *protocolsNames[] = {
 	"HTTP/1.1",
 	"HTTP/1.0",
 	"HTTP/2.0",
