@@ -10,7 +10,7 @@
  * See LICENSE file for details.
  */
 
-char *continentsId[] = {
+const char *continentsId[] = {
 	"AF",
 	"AN",
 	"AS",
@@ -20,7 +20,7 @@ char *continentsId[] = {
 	"SA"
 };
 
-char *continentsNames[] = {
+const char *continentsNames[] = {
 	"Africa",
 	"Antarctica",
 	"Asia",

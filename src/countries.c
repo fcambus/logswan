@@ -10,7 +10,7 @@
  * See LICENSE file for details.
  */
 
-char *countriesId[] = {
+const char *countriesId[] = {
 	"AD",
 	"AE",
 	"AF",
@@ -263,7 +263,7 @@ char *countriesId[] = {
 	"ZW"
 };
 
-char *countriesNames[] = {
+const char *countriesNames[] = {
 	"Andorra",
 	"United Arab Emirates",
 	"Afghanistan",
