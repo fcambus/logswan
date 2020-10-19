@@ -212,6 +212,7 @@ main(int argc, char *argv[])
 
 		if (geoip) {
 			MMDB_entry_data_s entry_data;
+			memset(&entry_data, 0, sizeof(MMDB_entry_data_s));
 
 			lookup = MMDB_lookup_string(&geoip2, parsedLine.remoteHost, &gai_error, &mmdb_error);
 
