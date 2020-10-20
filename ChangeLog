@@ -1,3 +1,14 @@
+Logswan 2.1.8 (2020-10-19)
+
+- Make displayUsage() static
+- Removing some leading whitespace characters
+- Constify methods and protocols names array
+- Constify countries and continents names and ID arrays
+- Enable FORTIFY_SOURCE level 2
+- Call memset() to set all entry_data struct fields to zero
+
+
+
 Logswan 2.1.7 (2020-09-17)
 
 - Add a Perl program to generate an example MMDB database for testing
