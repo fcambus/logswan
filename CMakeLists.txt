@@ -4,7 +4,7 @@
 # https://www.logswan.org
 #
 # Created:      2015-05-31
-# Last Updated: 2020-08-28
+# Last Updated: 2020-10-24
 #
 # Logswan is released under the BSD 2-Clause license
 # See LICENSE file for details
@@ -52,7 +52,6 @@ find_path(JANSSON_INCLUDE_DIRS jansson.h)
 find_library(JANSSON_LIBRARIES NAMES jansson REQUIRED)
 include_directories(${JANSSON_INCLUDE_DIRS})
 
-set(CMAKE_BUILD_TYPE Release)
 set(DEPS deps/hll/hll.c deps/MurmurHash3/MurmurHash3.c)
 set(SRC src/logswan.c src/config.c src/continents.c src/countries.c
     src/output.c src/parse.c)
