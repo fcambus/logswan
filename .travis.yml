@@ -1,11 +1,15 @@
 arch:
   - amd64
   - arm64
+  - ppc64le
 
 matrix:
   include:
    - os: linux
-     arch: amd64
+     arch: 
+         - amd64
+         - ppc64le
+     
      dist: bionic
    - os: linux
      arch: arm64
