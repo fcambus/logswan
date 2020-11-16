@@ -68,7 +68,7 @@ set(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/dbip
     CACHE PATH "Path to GeoIP2 databases")
 set(GEOIP2DB "dbip-country-lite.mmdb" CACHE PATH "GeoIP2 database file")
 
-set(CMAKE_C_FLAGS_RELEASE "-D_FORTIFY_SOURCE=2")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -D_FORTIFY_SOURCE=2")
 add_definitions(-D_GNU_SOURCE -Wall -Wextra -std=c11 -pedantic)
 add_definitions(-DGEOIP2DIR="${GEOIP2DIR}/")
 add_definitions(-DGEOIP2DB="${GEOIP2DB}")
