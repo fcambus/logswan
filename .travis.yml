@@ -1,6 +1,7 @@
 arch:
   - amd64
   - arm64
+  - ppc64le
 
 matrix:
   include:
@@ -9,6 +10,8 @@ matrix:
      dist: bionic
    - os: linux
      arch: arm64
+   - os: linux
+     arch: ppc64le
 
 language: c
 
