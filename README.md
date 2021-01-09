@@ -99,7 +99,7 @@ macOS, and Linux with both Clang and GCC.
 
 ## Packages
 
-Packages are available for the following operating systems:
+Logswan packages are available for:
 
 - [OpenBSD][3]
 - [NetBSD][4]
@@ -107,6 +107,7 @@ Packages are available for the following operating systems:
 - [Debian][6]
 - [Ubuntu][7]
 - [Void Linux][8]
+- [Homebrew][9]
 
 ### GeoIP2 databases
 
@@ -119,10 +120,10 @@ CMake:
 	cmake -DGEOIP2DIR=/var/db/dbip .
 
 The free Creative Commons licensed DB-IP IP to Country Lite database can be
-downloaded [here][9].
+downloaded [here][10].
 
 Alternatively, GeoLite2 Country database from MaxMind can be downloaded free
-of charge [here][10], but require accepting an EULA and is not freely licensed.
+of charge [here][11], but require accepting an EULA and is not freely licensed.
 
 ## Usage
 
@@ -171,5 +172,6 @@ GitHub: https://github.com/fcambus/logswan
 [6]: https://packages.debian.org/search?keywords=logswan
 [7]: https://packages.ubuntu.com/search?keywords=logswan
 [8]: https://github.com/void-linux/void-packages/tree/master/srcpkgs/logswan
-[9]: https://db-ip.com/db/lite.php
-[10]: https://dev.maxmind.com/geoip/geoip2/geolite2/
+[9]: https://formulae.brew.sh/formula/logswan
+[10]: https://db-ip.com/db/lite.php
+[11]: https://dev.maxmind.com/geoip/geoip2/geolite2/
