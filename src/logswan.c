@@ -60,7 +60,6 @@ bool isIPv4, isIPv6;
 uint64_t bandwidth;
 uint32_t statusCode;
 uint32_t hour;
-uint32_t countryId;
 
 FILE *logFile;
 struct stat logFileStat;
