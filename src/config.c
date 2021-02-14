@@ -4,13 +4,13 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-10-17
+ * Last Updated: 2021-02-15
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
  */
 
-const char *methodsNames[] = {
+const char *methods_names[] = {
 	"GET",
 	"POST",
 	"HEAD",
@@ -22,7 +22,7 @@ const char *methodsNames[] = {
 	"PATCH"
 };
 
-const char *protocolsNames[] = {
+const char *protocols_names[] = {
 	"HTTP/1.1",
 	"HTTP/1.0",
 	"HTTP/2.0",

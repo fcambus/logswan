@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-01-19
+ * Last Updated: 2021-02-15
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -15,22 +15,22 @@
 #include "parse.h"
 
 void
-parseDate(struct date *parsedDate, char *date)
+parseDate(struct date *parsed_date, char *date)
 {
-	parsedDate->day = strtok(date, "/");
-	parsedDate->month = strtok(NULL, "/");
-	parsedDate->year = strtok(NULL, ":");
-	parsedDate->hour = strtok(NULL, ":");
-	parsedDate->minute = strtok(NULL, ":");
-	parsedDate->second = strtok(NULL, " ");
+	parsed_date->day = strtok(date, "/");
+	parsed_date->month = strtok(NULL, "/");
+	parsed_date->year = strtok(NULL, ":");
+	parsed_date->hour = strtok(NULL, ":");
+	parsed_date->minute = strtok(NULL, ":");
+	parsed_date->second = strtok(NULL, " ");
 }
 
 void
-parseLine(struct logLine *parsedLine, char *lineBuffer)
+parseLine(struct logline *parsed_line, char *linebuffer)
 {
-	if (*lineBuffer) {
+	if (*linebuffer) {
 		/* Remote host */
-		parsedLine->remoteHost = strtok(lineBuffer, " ");
+		parsed_line->remote_host = strtok(linebuffer, " ");
 
 		/* User-identifier */
 		strtok(NULL, " ");
@@ -39,27 +39,27 @@ parseLine(struct logLine *parsedLine, char *lineBuffer)
 		strtok(NULL, "[");
 
 		/* Date */
-		parsedLine->date = strtok(NULL, "]");
+		parsed_line->date = strtok(NULL, "]");
 
 		/* Requested resource */
 		strtok(NULL, "\"");
-		parsedLine->request = strtok(NULL, "\"");
+		parsed_line->request = strtok(NULL, "\"");
 
 		/* HTTP status codes */
-		parsedLine->statusCode = strtok(NULL, " ");
+		parsed_line->status_code = strtok(NULL, " ");
 
 		/* Returned object size */
-		parsedLine->objectSize = strtok(NULL, " \"");
+		parsed_line->object_size = strtok(NULL, " \"");
 	}
 }
 
 void
-parseRequest(struct request *parsedRequest, char *request)
+parseRequest(struct request *parsed_request, char *request)
 {
 	char *pch = strrchr(request, ' ');
 
 	if (pch) {
-		parsedRequest->protocol = pch + 1;
-		parsedRequest->method = strtok(request, " ");
+		parsed_request->protocol = pch + 1;
+		parsed_request->method = strtok(request, " ");
 	}
 }

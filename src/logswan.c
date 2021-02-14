@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2021-02-14
+ * Last Updated: 2021-02-15
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -46,30 +46,30 @@ MMDB_s geoip2;
 
 struct timespec begin, end, elapsed;
 
-char lineBuffer[LINE_LENGTH_MAX];
+char linebuffer[LINE_LENGTH_MAX];
 
 struct results results;
-struct date parsedDate;
-struct logLine parsedLine;
-struct request parsedRequest;
+struct date parsed_date;
+struct logline parsed_line;
+struct request parsed_request;
 
 struct sockaddr_in ipv4;
 struct sockaddr_in6 ipv6;
-bool isIPv4, isIPv6;
+bool is_ipv4, is_ipv6;
 
 uint64_t bandwidth;
-uint32_t statusCode;
+uint32_t status_code;
 uint32_t hour;
 
-FILE *logFile;
-struct stat logFileStat;
+FILE *logfile;
+struct stat logfile_stat;
 
 const char *errstr;
 
-int8_t getoptFlag;
+int8_t opt;
 
-struct HLL uniqueIPv4, uniqueIPv6;
-char *intputFile;
+struct HLL unique_ipv4, unique_ipv6;
+char *input;
 char *db = NULL;
 
 static void
@@ -105,11 +105,11 @@ main(int argc, char *argv[])
 	}
 #endif
 
-	hll_init(&uniqueIPv4, HLL_BITS);
-	hll_init(&uniqueIPv6, HLL_BITS);
+	hll_init(&unique_ipv4, HLL_BITS);
+	hll_init(&unique_ipv6, HLL_BITS);
 
-	while ((getoptFlag = getopt(argc, argv, "d:ghv")) != -1) {
-		switch (getoptFlag) {
+	while ((opt = getopt(argc, argv, "d:ghv")) != -1) {
+		switch (opt) {
 		case 'd':
 			db = optarg;
 			break;
@@ -129,7 +129,7 @@ main(int argc, char *argv[])
 	}
 
 	if (optind < argc) {
-		intputFile = argv[optind];
+		input = argv[optind];
 	} else {
 		displayUsage();
 		return EXIT_SUCCESS;
@@ -148,76 +148,76 @@ main(int argc, char *argv[])
 	}
 
 	/* Open log file */
-	if (!strcmp(intputFile, "-")) {
+	if (!strcmp(input, "-")) {
 		/* Read from standard input */
-		logFile = stdin;
+		logfile = stdin;
 	} else {
 		/* Attempt to read from file */
-		if (!(logFile = fopen(intputFile, "r"))) {
+		if (!(logfile = fopen(input, "r"))) {
 			perror("Can't open log file");
 			return EXIT_FAILURE;
 		}
 	}
 
 	/* Get log file size */
-	if (fstat(fileno(logFile), &logFileStat)) {
+	if (fstat(fileno(logfile), &logfile_stat)) {
 		perror("Can't stat log file");
 		return EXIT_FAILURE;
 	}
 
-	results.fileName = intputFile;
-	results.fileSize = logFileStat.st_size;
+	results.file_name = input;
+	results.file_size = logfile_stat.st_size;
 
-	while (fgets(lineBuffer, LINE_LENGTH_MAX, logFile)) {
+	while (fgets(linebuffer, LINE_LENGTH_MAX, logfile)) {
 		/* Parse and tokenize line */
-		parseLine(&parsedLine, lineBuffer);
+		parseLine(&parsed_line, linebuffer);
 
 		/* Detect if remote host is IPv4 or IPv6 */
-		if (parsedLine.remoteHost) { /* Do not feed NULL tokens to inet_pton */
-			if ((isIPv4 = inet_pton(AF_INET, parsedLine.remoteHost, &ipv4.sin_addr))) {
-				isIPv6 = false;
+		if (parsed_line.remote_host) { /* Do not feed NULL tokens to inet_pton */
+			if ((is_ipv4 = inet_pton(AF_INET, parsed_line.remote_host, &ipv4.sin_addr))) {
+				is_ipv6 = false;
 			} else {
-				isIPv6 = inet_pton(AF_INET6, parsedLine.remoteHost, &ipv6.sin6_addr);
+				is_ipv6 = inet_pton(AF_INET6, parsed_line.remote_host, &ipv6.sin6_addr);
 
-				if (!isIPv6) {
-					results.invalidLines++;
+				if (!is_ipv6) {
+					results.invalid_lines++;
 					continue;
 				}
 			}
 		} else {
 			/* Invalid line */
-			results.invalidLines++;
+			results.invalid_lines++;
 			continue;
 		}
 
-		if (isIPv4) {
+		if (is_ipv4) {
 			/* Increment hits counter */
-			results.hitsIPv4++;
+			results.hits_ipv4++;
 
 			/* Unique visitors */
-			hll_add(&uniqueIPv4, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
+			hll_add(&unique_ipv4, parsed_line.remote_host, strlen(parsed_line.remote_host));
 		}
 
-		if (isIPv6) {
+		if (is_ipv6) {
 			/* Increment hits counter */
-			results.hitsIPv6++;
+			results.hits_ipv6++;
 
 			/* Unique visitors */
-			hll_add(&uniqueIPv6, parsedLine.remoteHost, strlen(parsedLine.remoteHost));
+			hll_add(&unique_ipv6, parsed_line.remote_host, strlen(parsed_line.remote_host));
 		}
 
 		if (geoip) {
 			MMDB_entry_data_s entry_data;
 			memset(&entry_data, 0, sizeof(MMDB_entry_data_s));
 
-			lookup = MMDB_lookup_string(&geoip2, parsedLine.remoteHost, &gai_error, &mmdb_error);
+			lookup = MMDB_lookup_string(&geoip2, parsed_line.remote_host, &gai_error, &mmdb_error);
 
 			MMDB_get_value(&lookup.entry, &entry_data, "country", "iso_code", NULL);
 
 			if (entry_data.has_data) {
 				/* Increment countries array */
 				for (size_t loop = 0; loop < COUNTRIES; loop++) {
-					if (!strncmp(countriesId[loop], entry_data.utf8_string, 2)) {
+					if (!strncmp(countries_id[loop], entry_data.utf8_string, 2)) {
 						results.countries[loop]++;
 						break;
 					}
@@ -229,7 +229,7 @@ main(int argc, char *argv[])
 			if (entry_data.has_data) {
 				/* Increment continents array */
 				for (size_t loop = 0; loop < CONTINENTS; loop++) {
-					if (!strncmp(continentsId[loop], entry_data.utf8_string, 2)) {
+					if (!strncmp(continents_id[loop], entry_data.utf8_string, 2)) {
 						results.continents[loop]++;
 						break;
 					}
@@ -238,11 +238,11 @@ main(int argc, char *argv[])
 		}
 
 		/* Hourly distribution */
-		if (parsedLine.date) {
-			parseDate(&parsedDate, parsedLine.date);
+		if (parsed_line.date) {
+			parseDate(&parsed_date, parsed_line.date);
 
-			if (parsedDate.hour) {
-				hour = strtonum(parsedDate.hour, 0, 23, &errstr);
+			if (parsed_date.hour) {
+				hour = strtonum(parsed_date.hour, 0, 23, &errstr);
 
 				if (!errstr) {
 					results.hours[hour]++;
@@ -251,21 +251,21 @@ main(int argc, char *argv[])
 		}
 
 		/* Parse request */
-		if (parsedLine.request) {
-			parseRequest(&parsedRequest, parsedLine.request);
+		if (parsed_line.request) {
+			parseRequest(&parsed_request, parsed_line.request);
 
-			if (parsedRequest.method) {
+			if (parsed_request.method) {
 				for (size_t loop = 0; loop < METHODS; loop++) {
-					if (!strcmp(methodsNames[loop], parsedRequest.method)) {
+					if (!strcmp(methods_names[loop], parsed_request.method)) {
 						results.methods[loop]++;
 						break;
 					}
 				}
 			}
 
-			if (parsedRequest.protocol) {
+			if (parsed_request.protocol) {
 				for (size_t loop = 0; loop < PROTOCOLS; loop++) {
-					if (!strcmp(protocolsNames[loop], parsedRequest.protocol)) {
+					if (!strcmp(protocols_names[loop], parsed_request.protocol)) {
 						results.protocols[loop]++;
 						break;
 					}
@@ -274,17 +274,17 @@ main(int argc, char *argv[])
 		}
 
 		/* Count HTTP status codes occurrences */
-		if (parsedLine.statusCode) {
-			statusCode = strtonum(parsedLine.statusCode, 0, STATUS_CODE_MAX-1, &errstr);
+		if (parsed_line.status_code) {
+			status_code = strtonum(parsed_line.status_code, 0, STATUS_CODE_MAX-1, &errstr);
 
 			if (!errstr) {
-				results.status[statusCode]++;
+				results.status[status_code]++;
 			}
 		}
 
 		/* Increment bandwidth usage */
-		if (parsedLine.objectSize) {
-			bandwidth = strtonum(parsedLine.objectSize, 0, INT64_MAX, &errstr);
+		if (parsed_line.object_size) {
+			bandwidth = strtonum(parsed_line.object_size, 0, INT64_MAX, &errstr);
 
 			if (!errstr) {
 				results.bandwidth += bandwidth;
@@ -293,13 +293,13 @@ main(int argc, char *argv[])
 	}
 
 	/* Counting hits and processed lines */
-	results.hits = results.hitsIPv4 + results.hitsIPv6;
-	results.processedLines = results.hits + results.invalidLines;
+	results.hits = results.hits_ipv4 + results.hits_ipv6;
+	results.processed_lines = results.hits + results.invalid_lines;
 
 	/* Counting unique visitors */
-	results.visitsIPv4 = hll_count(&uniqueIPv4);
-	results.visitsIPv6 = hll_count(&uniqueIPv6);
-	results.visits = results.visitsIPv4 + results.visitsIPv6;
+	results.visits_ipv4 = hll_count(&unique_ipv4);
+	results.visits_ipv6 = hll_count(&unique_ipv6);
+	results.visits = results.visits_ipv4 + results.visits_ipv6;
 
 	/* Stopping timer */
 	clock_gettime(CLOCK_MONOTONIC, &end);
@@ -309,19 +309,19 @@ main(int argc, char *argv[])
 
 	/* Generate timestamp */
 	time_t now = time(NULL);
-	strftime(results.timeStamp, 20, "%Y-%m-%d %H:%M:%S", localtime(&now));
+	strftime(results.timestamp, 20, "%Y-%m-%d %H:%M:%S", localtime(&now));
 
 	/* Printing results */
 	fprintf(stdout, "%s\n", output(&results));
-	fprintf(stderr, "Processed %" PRIu64 " lines in %f seconds.\n", results.processedLines, results.runtime);
+	fprintf(stderr, "Processed %" PRIu64 " lines in %f seconds.\n", results.processed_lines, results.runtime);
 
 	/* Clean up */
-	fclose(logFile);
+	fclose(logfile);
 
 	MMDB_close(&geoip2);
 
-	hll_destroy(&uniqueIPv4);
-	hll_destroy(&uniqueIPv6);
+	hll_destroy(&unique_ipv4);
+	hll_destroy(&unique_ipv6);
 
 	return EXIT_SUCCESS;
 }

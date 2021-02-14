@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2020-07-02
+ * Last Updated: 2021-02-15
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -26,7 +26,7 @@ enum {
 	PROTOCOLS = 4
 };
 
-extern char *methodsNames[];
-extern char *protocolsNames[];
+extern char *methods_names[];
+extern char *protocols_names[];
 
 #endif /* CONFIG_H */

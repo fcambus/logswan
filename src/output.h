@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-01-19
+ * Last Updated: 2021-02-15
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -19,17 +19,17 @@
 #include "config.h"
 
 struct results {
-	char *fileName;
-	off_t fileSize;
-	uint64_t invalidLines;
-	uint64_t processedLines;
+	char *file_name;
+	off_t file_size;
+	uint64_t invalid_lines;
+	uint64_t processed_lines;
 	uint64_t bandwidth;
 	uint64_t hits;
-	uint64_t hitsIPv4;
-	uint64_t hitsIPv6;
+	uint64_t hits_ipv4;
+	uint64_t hits_ipv6;
 	uint64_t visits;
-	uint64_t visitsIPv4;
-	uint64_t visitsIPv6;
+	uint64_t visits_ipv4;
+	uint64_t visits_ipv6;
 	uint64_t continents[CONTINENTS];
 	uint64_t countries[COUNTRIES];
 	uint64_t hours[24];
@@ -37,7 +37,7 @@ struct results {
 	uint64_t protocols[PROTOCOLS];
 	uint64_t status[STATUS_CODE_MAX];
 	double runtime;
-	char timeStamp[20];
+	char timestamp[20];
 };
 
 char *output(struct results *);

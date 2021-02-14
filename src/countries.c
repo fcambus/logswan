@@ -4,13 +4,13 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2020-07-02
+ * Last Updated: 2021-02-15
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
  */
 
-const char *countriesId[] = {
+const char *countries_id[] = {
 	"AD",
 	"AE",
 	"AF",
@@ -263,7 +263,7 @@ const char *countriesId[] = {
 	"ZW"
 };
 
-const char *countriesNames[] = {
+const char *countries_names[] = {
 	"Andorra",
 	"United Arab Emirates",
 	"Afghanistan",

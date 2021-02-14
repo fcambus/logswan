@@ -4,13 +4,13 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-01-19
+ * Last Updated: 2021-02-15
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
  */
 
-const char *continentsId[] = {
+const char *continents_id[] = {
 	"AF",
 	"AN",
 	"AS",
@@ -20,7 +20,7 @@ const char *continentsId[] = {
 	"SA"
 };
 
-const char *continentsNames[] = {
+const char *continents_names[] = {
 	"Africa",
 	"Antarctica",
 	"Asia",

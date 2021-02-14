@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-01-19
+ * Last Updated: 2021-02-15
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -38,8 +38,8 @@ char
 			json_array_append_new(
 			    continents,
 			    json_pack("{s:s, s:s, s:i}",
-			    "data", continentsId[loop],
-			    "name", continentsNames[loop],
+			    "data", continents_id[loop],
+			    "name", continents_names[loop],
 			    "hits", results->continents[loop]));
 		}
 	}
@@ -49,8 +49,8 @@ char
 			json_array_append_new(
 			    countries,
 			    json_pack("{s:s, s:s, s:i}",
-			    "data", countriesId[loop],
-			    "name", countriesNames[loop],
+			    "data", countries_id[loop],
+			    "name", countries_names[loop],
 			    "hits", results->countries[loop]));
 		}
 	}
@@ -80,7 +80,7 @@ char
 			json_array_append_new(
 			    methods,
 			    json_pack("{s:s, s:i}",
-			    "data", methodsNames[loop],
+			    "data", methods_names[loop],
 			    "hits", results->methods[loop]));
 		}
 	}
@@ -90,25 +90,25 @@ char
 			json_array_append_new(
 			    protocols,
 			    json_pack("{s:s, s:i}",
-			    "data", protocolsNames[loop],
+			    "data", protocols_names[loop],
 			    "hits", results->protocols[loop]));
 		}
 	}
 
-	json_object_set_new(hits, "ipv4", json_integer(results->hitsIPv4));
-	json_object_set_new(hits, "ipv6", json_integer(results->hitsIPv6));
+	json_object_set_new(hits, "ipv4", json_integer(results->hits_ipv4));
+	json_object_set_new(hits, "ipv6", json_integer(results->hits_ipv6));
 	json_object_set_new(hits, "total", json_integer(results->hits));
 
-	json_object_set_new(visits, "ipv4", json_integer(results->visitsIPv4));
-	json_object_set_new(visits, "ipv6", json_integer(results->visitsIPv6));
+	json_object_set_new(visits, "ipv4", json_integer(results->visits_ipv4));
+	json_object_set_new(visits, "ipv6", json_integer(results->visits_ipv6));
 	json_object_set_new(visits, "total", json_integer(results->visits));
 
-	json_object_set_new(output, "date", json_string(results->timeStamp));
+	json_object_set_new(output, "date", json_string(results->timestamp));
 	json_object_set_new(output, "generator", json_string(VERSION));
-	json_object_set_new(output, "file_name", json_string(results->fileName));
-	json_object_set_new(output, "file_size", json_integer(results->fileSize));
-	json_object_set_new(output, "processed_lines", json_integer(results->processedLines));
-	json_object_set_new(output, "invalid_lines", json_integer(results->invalidLines));
+	json_object_set_new(output, "file_name", json_string(results->file_name));
+	json_object_set_new(output, "file_size", json_integer(results->file_size));
+	json_object_set_new(output, "processed_lines", json_integer(results->processed_lines));
+	json_object_set_new(output, "invalid_lines", json_integer(results->invalid_lines));
 	json_object_set_new(output, "bandwidth", json_integer(results->bandwidth));
 	json_object_set_new(output, "runtime", json_real(results->runtime));
 	json_object_set_new(output, "hits", hits);

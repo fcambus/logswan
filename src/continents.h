@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-01-19
+ * Last Updated: 2021-02-15
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -13,7 +13,7 @@
 #ifndef CONTINENTS_H
 #define CONTINENTS_H
 
-extern char *continentsId[];
-extern char *continentsNames[];
+extern char *continents_id[];
+extern char *continents_names[];
 
 #endif /* CONTINENTS */

@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2019-01-19
+ * Last Updated: 2021-02-15
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -22,12 +22,12 @@ struct date {
 	char *second;
 };
 
-struct logLine {
-	char *remoteHost;
+struct logline {
+	char *remote_host;
 	char *date;
 	char *request;
-	char *statusCode;
-	char *objectSize;
+	char *status_code;
+	char *object_size;
 };
 
 struct request {
@@ -37,7 +37,7 @@ struct request {
 };
 
 void parseDate(struct date *, char *);
-void parseLine(struct logLine *, char *);
+void parseLine(struct logline *, char *);
 void parseRequest(struct request *, char *);
 
 #endif /* PARSE_H */
