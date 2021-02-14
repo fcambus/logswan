@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2020-08-06
+ * Last Updated: 2021-02-14
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -134,9 +134,6 @@ main(int argc, char *argv[])
 		displayUsage();
 		return EXIT_SUCCESS;
 	}
-
-	argc -= optind;
-	argv += optind;
 
 	/* Starting timer */
 	clock_gettime(CLOCK_MONOTONIC, &begin);
