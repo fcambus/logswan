@@ -4,7 +4,7 @@
 # https://www.logswan.org
 #
 # Created:      2015-05-31
-# Last Updated: 2020-10-24
+# Last Updated: 2021-02-14
 #
 # Logswan is released under the BSD 2-Clause license
 # See LICENSE file for details
@@ -68,7 +68,6 @@ set(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/dbip
     CACHE PATH "Path to GeoIP2 databases")
 set(GEOIP2DB "dbip-country-lite.mmdb" CACHE PATH "GeoIP2 database file")
 
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -D_FORTIFY_SOURCE=2")
 add_definitions(-D_GNU_SOURCE -Wall -Wextra -std=c11 -pedantic)
 add_definitions(-DGEOIP2DIR="${GEOIP2DIR}/")
 add_definitions(-DGEOIP2DB="${GEOIP2DB}")
