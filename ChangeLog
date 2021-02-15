@@ -1,3 +1,11 @@
+Logswan 2.1.10 (2021-02-15)
+
+- Only call MMDB_close if the GeoIP option was enabled. This fixes a
+  crash on program exit on OpenBSD when running without the GeoIP
+  option enabled.
+
+
+
 Logswan 2.1.9 (2021-02-15)
 
 - Stop forcing FORTIFY_SOURCE=2, it should be package builders decision
