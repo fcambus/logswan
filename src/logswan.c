@@ -70,7 +70,7 @@ main(int argc, char *argv[])
 	uint32_t status_code;
 	uint32_t hour;
 	int gai_error, mmdb_error;
-	int8_t opt;
+	int opt;
 
 	const char *errstr;
 	char linebuffer[LINE_LENGTH_MAX];
