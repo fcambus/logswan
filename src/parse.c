@@ -15,7 +15,7 @@
 #include "parse.h"
 
 void
-parseDate(struct date *parsed_date, char *date)
+parse_date(struct date *parsed_date, char *date)
 {
 	parsed_date->day = strtok(date, "/");
 	parsed_date->month = strtok(NULL, "/");
@@ -26,7 +26,7 @@ parseDate(struct date *parsed_date, char *date)
 }
 
 void
-parseLine(struct logline *parsed_line, char *linebuffer)
+parse_line(struct logline *parsed_line, char *linebuffer)
 {
 	if (*linebuffer) {
 		/* Remote host */
@@ -54,7 +54,7 @@ parseLine(struct logline *parsed_line, char *linebuffer)
 }
 
 void
-parseRequest(struct request *parsed_request, char *request)
+parse_request(struct request *parsed_request, char *request)
 {
 	char *pch = strrchr(request, ' ');
 

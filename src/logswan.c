@@ -170,7 +170,7 @@ main(int argc, char *argv[])
 
 	while (fgets(linebuffer, LINE_LENGTH_MAX, logfile)) {
 		/* Parse and tokenize line */
-		parseLine(&parsed_line, linebuffer);
+		parse_line(&parsed_line, linebuffer);
 
 		/* Detect if remote host is IPv4 or IPv6 */
 		if (parsed_line.remote_host) { /* Do not feed NULL tokens to inet_pton */
@@ -239,7 +239,7 @@ main(int argc, char *argv[])
 
 		/* Hourly distribution */
 		if (parsed_line.date) {
-			parseDate(&parsed_date, parsed_line.date);
+			parse_date(&parsed_date, parsed_line.date);
 
 			if (parsed_date.hour) {
 				hour = strtonum(parsed_date.hour, 0, 23, &errstr);
@@ -252,7 +252,7 @@ main(int argc, char *argv[])
 
 		/* Parse request */
 		if (parsed_line.request) {
-			parseRequest(&parsed_request, parsed_line.request);
+			parse_request(&parsed_request, parsed_line.request);
 
 			if (parsed_request.method) {
 				for (size_t loop = 0; loop < METHODS; loop++) {
