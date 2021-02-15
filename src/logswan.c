@@ -46,10 +46,10 @@ usage()
 {
 	printf("logswan [-ghv] [-d db] logfile\n\n" \
 	    "The options are as follows:\n\n" \
-	    "	-d db	Specify path to a GeoIP database\n" \
-	    "	-g	Enable GeoIP lookups\n" \
-	    "	-h	Display usage\n" \
-	    "	-v	Display version\n");
+	    "	-d db	Specify path to a GeoIP database.\n" \
+	    "	-g	Enable GeoIP lookups.\n" \
+	    "	-h	Display usage.\n" \
+	    "	-v	Display version.\n");
 }
 
 int
