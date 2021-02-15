@@ -55,39 +55,35 @@ usage()
 int
 main(int argc, char *argv[])
 {
-	bool geoip = false;
-	MMDB_s geoip2;
-
 	struct timespec begin, end, elapsed;
-
-	char linebuffer[LINE_LENGTH_MAX];
-
+	struct HLL unique_ipv4, unique_ipv6;
 	struct results results;
 	struct date parsed_date;
 	struct logline parsed_line;
 	struct request parsed_request;
+	struct stat logfile_stat;
 
 	struct sockaddr_in ipv4;
 	struct sockaddr_in6 ipv6;
-	bool is_ipv4, is_ipv6;
 
 	uint64_t bandwidth;
 	uint32_t status_code;
 	uint32_t hour;
-
-	FILE *logfile;
-	struct stat logfile_stat;
-
-	const char *errstr;
-
+	int gai_error, mmdb_error;
 	int8_t opt;
 
-	struct HLL unique_ipv4, unique_ipv6;
+	const char *errstr;
+	char linebuffer[LINE_LENGTH_MAX];
 	char *input;
 	char *db = NULL;
 
-	int gai_error, mmdb_error;
+	bool geoip = false;
+	bool is_ipv4, is_ipv6;
+
+	MMDB_s geoip2;
 	MMDB_lookup_result_s lookup;
+
+	FILE *logfile;
 
 	if (pledge("stdio rpath", NULL) == -1) {
 		err(EXIT_FAILURE, "pledge");
