@@ -315,7 +315,8 @@ main(int argc, char *argv[])
 	/* Clean up */
 	fclose(logfile);
 
-	MMDB_close(&geoip2);
+	if (geoip)
+		MMDB_close(&geoip2);
 
 	hll_destroy(&unique_ipv4);
 	hll_destroy(&unique_ipv6);
