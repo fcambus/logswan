@@ -28,8 +28,6 @@
 ```
 # Logswan
 
-[![Build Status][1]][2]
-
 Logswan is a fast Web log analyzer using probabilistic data structures. It is
 targeted at very large log files, typically APIs logs. It has constant memory
 usage regardless of the log file size, and takes approximatively 4MB of RAM.
@@ -101,13 +99,13 @@ macOS, and Linux with both Clang and GCC.
 
 Logswan packages are available for:
 
-- [OpenBSD][3]
-- [NetBSD][4]
-- [FreeBSD][5]
-- [Debian][6]
-- [Ubuntu][7]
-- [Void Linux][8]
-- [Homebrew][9]
+- [OpenBSD][1]
+- [NetBSD][2]
+- [FreeBSD][3]
+- [Debian][4]
+- [Ubuntu][5]
+- [Void Linux][6]
+- [Homebrew][7]
 
 ### GeoIP2 databases
 
@@ -120,10 +118,10 @@ CMake:
 	cmake -DGEOIP2DIR=/var/db/dbip .
 
 The free Creative Commons licensed DB-IP IP to Country Lite database can be
-downloaded [here][10].
+downloaded [here][8].
 
 Alternatively, GeoLite2 Country database from MaxMind can be downloaded free
-of charge [here][11], but require accepting an EULA and is not freely licensed.
+of charge [here][9], but require accepting an EULA and is not freely licensed.
 
 ## Usage
 
@@ -157,14 +155,12 @@ Project homepage: https://www.logswan.org
 
 GitHub: https://github.com/fcambus/logswan
 
-[1]: https://api.travis-ci.org/fcambus/logswan.png?branch=master
-[2]: https://travis-ci.org/fcambus/logswan
-[3]: https://cvsweb.openbsd.org/cgi-bin/cvsweb/ports/www/logswan
-[4]: https://pkgsrc.se/www/logswan
-[5]: https://www.freshports.org/www/logswan
-[6]: https://packages.debian.org/search?keywords=logswan
-[7]: https://packages.ubuntu.com/search?keywords=logswan
-[8]: https://github.com/void-linux/void-packages/tree/master/srcpkgs/logswan
-[9]: https://formulae.brew.sh/formula/logswan
-[10]: https://db-ip.com/db/lite.php
-[11]: https://dev.maxmind.com/geoip/geoip2/geolite2/
+[1]: https://cvsweb.openbsd.org/cgi-bin/cvsweb/ports/www/logswan
+[2]: https://pkgsrc.se/www/logswan
+[3]: https://www.freshports.org/www/logswan
+[4]: https://packages.debian.org/search?keywords=logswan
+[5]: https://packages.ubuntu.com/search?keywords=logswan
+[6]: https://github.com/void-linux/void-packages/tree/master/srcpkgs/logswan
+[7]: https://formulae.brew.sh/formula/logswan
+[8]: https://db-ip.com/db/lite.php
+[9]: https://dev.maxmind.com/geoip/geoip2/geolite2/
