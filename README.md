@@ -127,7 +127,7 @@ of charge [here][11], but require accepting an EULA and is not freely licensed.
 
 ## Usage
 
-	logswan [-ghv] [-d db] file
+	logswan [-ghv] [-d db] logfile
 
 If file is a single dash (`-'), logswan reads from the standard input.
 

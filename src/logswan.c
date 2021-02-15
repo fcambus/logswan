@@ -75,12 +75,12 @@ char *db = NULL;
 static void
 displayUsage()
 {
-	printf("USAGE: logswan [options] inputfile\n\n" \
-	    "Options are:\n\n" \
-	    "	-d Specify path to a GeoIP database\n" \
-	    "	-g Enable GeoIP lookups\n" \
-	    "	-h Display usage\n" \
-	    "	-v Display version\n");
+	printf("logswan [-ghv] [-d db] logfile\n\n" \
+	    "The options are as follows:\n\n" \
+	    "	-d db	Specify path to a GeoIP database\n" \
+	    "	-g	Enable GeoIP lookups\n" \
+	    "	-h	Display usage\n" \
+	    "	-v	Display version\n");
 }
 
 int
