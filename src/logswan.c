@@ -41,37 +41,6 @@
 #include "output.h"
 #include "parse.h"
 
-bool geoip;
-MMDB_s geoip2;
-
-struct timespec begin, end, elapsed;
-
-char linebuffer[LINE_LENGTH_MAX];
-
-struct results results;
-struct date parsed_date;
-struct logline parsed_line;
-struct request parsed_request;
-
-struct sockaddr_in ipv4;
-struct sockaddr_in6 ipv6;
-bool is_ipv4, is_ipv6;
-
-uint64_t bandwidth;
-uint32_t status_code;
-uint32_t hour;
-
-FILE *logfile;
-struct stat logfile_stat;
-
-const char *errstr;
-
-int8_t opt;
-
-struct HLL unique_ipv4, unique_ipv6;
-char *input;
-char *db = NULL;
-
 static void
 usage()
 {
@@ -86,6 +55,37 @@ usage()
 int
 main(int argc, char *argv[])
 {
+	bool geoip = false;
+	MMDB_s geoip2;
+
+	struct timespec begin, end, elapsed;
+
+	char linebuffer[LINE_LENGTH_MAX];
+
+	struct results results;
+	struct date parsed_date;
+	struct logline parsed_line;
+	struct request parsed_request;
+
+	struct sockaddr_in ipv4;
+	struct sockaddr_in6 ipv6;
+	bool is_ipv4, is_ipv6;
+
+	uint64_t bandwidth;
+	uint32_t status_code;
+	uint32_t hour;
+
+	FILE *logfile;
+	struct stat logfile_stat;
+
+	const char *errstr;
+
+	int8_t opt;
+
+	struct HLL unique_ipv4, unique_ipv6;
+	char *input;
+	char *db = NULL;
+
 	int gai_error, mmdb_error;
 	MMDB_lookup_result_s lookup;
 
@@ -165,6 +165,7 @@ main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
+	memset(&results, 0, sizeof(struct results));
 	results.file_name = input;
 	results.file_size = logfile_stat.st_size;
 
