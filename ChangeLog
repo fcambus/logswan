@@ -1,3 +1,18 @@
+Logswan 2.1.9 (2021-02-15)
+
+- Stop forcing FORTIFY_SOURCE=2, it should be package builders decision
+- Add link to Homebrew package in the README
+- Remove unused countryId variable
+- Remove dead increments for argc and argv
+- Rename variables to get rid of all camelCase occurences
+- Remove the measuring Logswan memory usage section from the README
+- Try to harmonize usage information everywhere
+- Rename the displayUsage() function to usage()
+- Rename all the parse*() functions to use snake_case
+- Get rid of global variables, move all declarations to main()
+
+
+
 Logswan 2.1.8 (2020-10-19)
 
 - Make displayUsage() static
