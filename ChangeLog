@@ -12,7 +12,7 @@ Logswan 2.1.9 (2021-02-15)
 - Add link to Homebrew package in the README
 - Remove unused countryId variable
 - Remove dead increments for argc and argv
-- Rename variables to get rid of all camelCase occurences
+- Rename variables to get rid of all camelCase occurrences
 - Remove the measuring Logswan memory usage section from the README
 - Try to harmonize usage information everywhere
 - Rename the displayUsage() function to usage()
