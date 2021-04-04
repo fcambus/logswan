@@ -10,7 +10,7 @@
 # See LICENSE file for details
 #
 
-cmake_minimum_required (VERSION 2.8.12)
+cmake_minimum_required(VERSION 2.8.12)
 
 project(logswan C)
 
@@ -18,8 +18,7 @@ include(CheckFunctionExists)
 include(GNUInstallDirs)
 
 # Conditional build options
-set(ENABLE_SECCOMP 0
-    CACHE BOOL "Enable building with seccomp")
+set(ENABLE_SECCOMP 0 CACHE BOOL "Enable building with seccomp")
 
 # Check if system has pledge and strtonum
 list(APPEND CMAKE_REQUIRED_DEFINITIONS -D_OPENBSD_SOURCE)
@@ -57,11 +56,11 @@ set(SRC src/logswan.c src/config.c src/continents.c src/countries.c
     src/output.c src/parse.c)
 
 if(NOT HAVE_PLEDGE)
-  set (SRC ${SRC} compat/pledge.c)
+  set(SRC ${SRC} compat/pledge.c)
 endif()
 
 if(NOT HAVE_STRTONUM)
-  set (SRC ${SRC} compat/strtonum.c)
+  set(SRC ${SRC} compat/strtonum.c)
 endif()
 
 set(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/dbip
