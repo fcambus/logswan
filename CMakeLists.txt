@@ -4,13 +4,13 @@
 # https://www.logswan.org
 #
 # Created:      2015-05-31
-# Last Updated: 2021-02-14
+# Last Updated: 2021-04-04
 #
 # Logswan is released under the BSD 2-Clause license
 # See LICENSE file for details
 #
 
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 2.8.12)
 
 project(logswan C)
 
