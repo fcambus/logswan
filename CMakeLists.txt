@@ -6,8 +6,8 @@
 # Created:      2015-05-31
 # Last Updated: 2021-04-04
 #
-# Logswan is released under the BSD 2-Clause license
-# See LICENSE file for details
+# Logswan is released under the BSD 2-Clause license.
+# See LICENSE file for details.
 #
 # SPDX-License-Identifier: BSD-2-Clause
 #
