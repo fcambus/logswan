@@ -9,6 +9,8 @@
 # Logswan is released under the BSD 2-Clause license
 # See LICENSE file for details
 #
+# SPDX-License-Identifier: BSD-2-Clause
+#
 
 cmake_minimum_required(VERSION 2.8.12)
 
