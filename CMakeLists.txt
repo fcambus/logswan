@@ -4,7 +4,7 @@
 # https://www.logswan.org
 #
 # Created:      2015-05-31
-# Last Updated: 2021-04-04
+# Last Updated: 2021-10-18
 #
 # Logswan is released under the BSD 2-Clause license.
 # See LICENSE file for details.
@@ -12,7 +12,11 @@
 # SPDX-License-Identifier: BSD-2-Clause
 #
 
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.1)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
 
 project(logswan C)
 
@@ -69,7 +73,7 @@ set(GEOIP2DIR ${CMAKE_INSTALL_PREFIX}/share/dbip
     CACHE PATH "Path to GeoIP2 databases")
 set(GEOIP2DB "dbip-country-lite.mmdb" CACHE PATH "GeoIP2 database file")
 
-add_definitions(-D_GNU_SOURCE -Wall -Wextra -std=c11 -pedantic)
+add_definitions(-D_GNU_SOURCE -Wall -Wextra -pedantic)
 add_definitions(-DGEOIP2DIR="${GEOIP2DIR}/")
 add_definitions(-DGEOIP2DB="${GEOIP2DB}")
 add_executable(logswan ${SRC} ${DEPS})
