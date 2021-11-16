@@ -104,9 +104,6 @@ main(int argc, char *argv[])
 	}
 #endif
 
-	hll_init(&unique_ipv4, HLL_BITS);
-	hll_init(&unique_ipv6, HLL_BITS);
-
 	while ((opt = getopt(argc, argv, "d:ghv")) != -1) {
 		switch (opt) {
 		case 'd':
@@ -133,6 +130,9 @@ main(int argc, char *argv[])
 		usage();
 		return EXIT_SUCCESS;
 	}
+
+	hll_init(&unique_ipv4, HLL_BITS);
+	hll_init(&unique_ipv6, HLL_BITS);
 
 	/* Starting timer */
 	clock_gettime(CLOCK_MONOTONIC, &begin);
