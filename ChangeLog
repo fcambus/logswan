@@ -1,3 +1,13 @@
+Logswan 2.1.11 (2021-11-16)
+
+- Bump CMake minimum required version to 2.8.12
+- Add SPDX short license identifier in source files
+- Use CMAKE_C_STANDARD instead of hardcoding compiler flags
+- Switch to using getline(3) instead of fgets(3)
+- Call hll_init() after doing getopt() processing
+
+
+
 Logswan 2.1.10 (2021-02-15)
 
 - Only call MMDB_close if the GeoIP option was enabled. This fixes a
