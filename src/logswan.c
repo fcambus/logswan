@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2021-02-15
+ * Last Updated: 2021-11-16
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -75,7 +75,8 @@ main(int argc, char *argv[])
 	int opt;
 
 	const char *errstr;
-	char linebuffer[LINE_LENGTH_MAX];
+	char *linebuffer = NULL;
+	size_t linesize = 0;
 	char *input;
 	char *db = NULL;
 
@@ -167,7 +168,7 @@ main(int argc, char *argv[])
 	results.file_name = input;
 	results.file_size = logfile_stat.st_size;
 
-	while (fgets(linebuffer, LINE_LENGTH_MAX, logfile)) {
+	while (getline(&linebuffer, &linesize, logfile) != -1) {
 		/* Parse and tokenize line */
 		parse_line(&parsed_line, linebuffer);
 
@@ -315,6 +316,7 @@ main(int argc, char *argv[])
 	fprintf(stderr, "Processed %" PRIu64 " lines in %f seconds.\n", results.processed_lines, results.runtime);
 
 	/* Clean up */
+	free(linebuffer);
 	fclose(logfile);
 
 	if (geoip)
