@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2021-02-15
+ * Last Updated: 2021-12-02
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -59,6 +59,8 @@ void
 parse_request(struct request *parsed_request, char *request)
 {
 	char *pch = strrchr(request, ' ');
+
+	memset(parsed_request, 0, sizeof(*parsed_request));
 
 	if (pch) {
 		parsed_request->protocol = pch + 1;
