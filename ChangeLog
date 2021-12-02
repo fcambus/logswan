@@ -1,3 +1,16 @@
+Logswan 2.1.12 (2021-12-02)
+
+- Fix a use-after-free (read) triggered by strcmp(3) calls.
+
+  The parse_request() function didn't zero out the parsed_request struct
+  between each call. Since the parsing loop was switched to using getline(3)
+  instead of a fixed size buffer to process log lines, it could reference
+  already freed memory in certain cases.
+
+  Thanks to Brian Carpenter (@geeknik) for finding and reporting the issue.
+
+
+
 Logswan 2.1.11 (2021-11-16)
 
 - Bump CMake minimum required version to 2.8.12
