@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2021-11-16
+ * Last Updated: 2022-02-26
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -46,11 +46,11 @@
 static void
 usage()
 {
-	printf("logswan [-ghv] [-d db] logfile\n\n" \
-	    "The options are as follows:\n\n" \
-	    "	-d db	Specify path to a GeoIP database.\n" \
-	    "	-g	Enable GeoIP lookups.\n" \
-	    "	-h	Display usage.\n" \
+	printf("logswan [-ghv] [-d db] logfile\n\n"
+	    "The options are as follows:\n\n"
+	    "	-d db	Specify path to a GeoIP database.\n"
+	    "	-g	Enable GeoIP lookups.\n"
+	    "	-h	Display usage.\n"
 	    "	-v	Display version.\n");
 }
 
