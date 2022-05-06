@@ -4,7 +4,7 @@
 # https://www.logswan.org
 #
 # Created:      2015-05-31
-# Last Updated: 2021-10-18
+# Last Updated: 2022-05-06
 #
 # Logswan is released under the BSD 2-Clause license.
 # See LICENSE file for details.
@@ -85,6 +85,9 @@ install(FILES logswan.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1/)
 
 enable_testing()
 add_test(logswan logswan)
+add_test(usage logswan -h)
+add_test(version logswan -v)
 add_test(processing logswan ${PROJECT_SOURCE_DIR}/tests/logswan.log)
+add_test(invalid logswan ${PROJECT_SOURCE_DIR}/tests/invalid.log)
 add_test(geolocation logswan -g -d ${PROJECT_SOURCE_DIR}/tests/logswan.mmdb
          ${PROJECT_SOURCE_DIR}/tests/logswan.log)
