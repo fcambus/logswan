@@ -51,5 +51,13 @@ $tree->insert_network( '5.5.5.5/32', $de );
 $tree->insert_network( '6.6.6.6/32', $us );
 $tree->insert_network( '7.7.7.7/32', $us );
 
+$tree->insert_network( '::ffff:101:101/128', $au );
+$tree->insert_network( '::ffff:202:202/128', $fr );
+$tree->insert_network( '::ffff:303:303/128', $us );
+$tree->insert_network( '::ffff:404:404/128', $us );
+$tree->insert_network( '::ffff:505:505/128', $de );
+$tree->insert_network( '::ffff:606:606/128', $us );
+$tree->insert_network( '::ffff:707:707/128', $us );
+
 open my $db, '>:raw', 'logswan.mmdb';
 $tree->write_tree($db);
