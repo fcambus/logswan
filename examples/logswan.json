@@ -1,123 +1,123 @@
 {
-   "date": "2018-12-10 11:57:43",
-   "generator": "Logswan 2.0.3",
+   "date": "2022-05-06 16:13:26",
+   "generator": "Logswan 2.1.12",
    "file_name": "logswan.log",
-   "file_size": 4967,
-   "processed_lines": 34,
+   "file_size": 10172,
+   "processed_lines": 68,
    "invalid_lines": 0,
-   "bandwidth": 296374,
-   "runtime": 0.018140832999999999,
+   "bandwidth": 592748,
+   "runtime": 0.0077210000000000004,
    "hits": {
       "ipv4": 34,
-      "ipv6": 0,
-      "total": 34
+      "ipv6": 34,
+      "total": 68
    },
    "visits": {
       "ipv4": 7,
-      "ipv6": 0,
-      "total": 7
+      "ipv6": 7,
+      "total": 14
    },
    "continents": [
       {
          "data": "EU",
          "name": "Europe",
-         "hits": 14
+         "hits": 28
       },
       {
          "data": "NA",
          "name": "North America",
-         "hits": 14
+         "hits": 28
       },
       {
          "data": "OC",
          "name": "Oceania",
-         "hits": 6
+         "hits": 12
       }
    ],
    "countries": [
       {
          "data": "AU",
          "name": "Australia",
-         "hits": 6
+         "hits": 12
       },
       {
          "data": "DE",
          "name": "Germany",
-         "hits": 1
+         "hits": 2
       },
       {
          "data": "FR",
          "name": "France",
-         "hits": 13
+         "hits": 26
       },
       {
          "data": "US",
          "name": "United States",
-         "hits": 14
+         "hits": 28
       }
    ],
    "hours": [
       {
          "data": 10,
-         "hits": 2
-      },
-      {
-         "data": 11,
          "hits": 4
       },
       {
+         "data": 11,
+         "hits": 8
+      },
+      {
          "data": 12,
-         "hits": 13
+         "hits": 26
       },
       {
          "data": 13,
-         "hits": 2
+         "hits": 4
       },
       {
          "data": 14,
-         "hits": 5
+         "hits": 10
       },
       {
          "data": 15,
-         "hits": 1
-      },
-      {
-         "data": 16,
          "hits": 2
       },
       {
+         "data": 16,
+         "hits": 4
+      },
+      {
          "data": 18,
-         "hits": 5
+         "hits": 10
       }
    ],
    "methods": [
       {
          "data": "GET",
-         "hits": 33
+         "hits": 66
       },
       {
          "data": "HEAD",
-         "hits": 1
+         "hits": 2
       }
    ],
    "protocols": [
       {
          "data": "HTTP/1.1",
-         "hits": 33
+         "hits": 66
       },
       {
          "data": "HTTP/1.0",
-         "hits": 1
+         "hits": 2
       }
    ],
    "status": [
       {
          "data": 200,
-         "hits": 22
+         "hits": 44
       },
       {
          "data": 404,
-         "hits": 12
+         "hits": 24
       }
    ]
 }
