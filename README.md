@@ -155,7 +155,7 @@ Project homepage: https://www.logswan.org
 
 GitHub: https://github.com/fcambus/logswan
 
-[1]: https://cvsweb.openbsd.org/cgi-bin/cvsweb/ports/www/logswan
+[1]: https://openports.pl/path/www/logswan
 [2]: https://pkgsrc.se/www/logswan
 [3]: https://www.freshports.org/www/logswan
 [4]: https://packages.debian.org/search?keywords=logswan
