@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2022-02-26
+ * Last Updated: 2023-03-13
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -44,7 +44,7 @@
 #include "parse.h"
 
 static void
-usage()
+usage(void)
 {
 	printf("logswan [-ghv] [-d db] logfile\n\n"
 	    "The options are as follows:\n\n"
