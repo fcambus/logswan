@@ -1,3 +1,10 @@
+Logswan 2.1.14 (2023-03-30)
+
+- Add missing void to the usage() function definition
+- Move manual page to the man directory
+
+
+
 Logswan 2.1.13 (2022-07-28)
 
 - Remove useless backslashes in usage()
