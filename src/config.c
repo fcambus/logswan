@@ -1,6 +1,6 @@
 /*
  * Logswan 2.1.14
- * Copyright (c) 2015-2023, Frederic Cambus
+ * Copyright (c) 2015-2025, Frederic Cambus
  * https://www.logswan.org
  *
  * Created:      2015-05-31
