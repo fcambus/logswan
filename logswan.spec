@@ -1,5 +1,5 @@
 Name:           logswan
-Version:        2.1.14
+Version:        2.1.15
 Release:        1%{?dist}
 Summary:        Fast Web log analyzer using probabilistic data structures
 
