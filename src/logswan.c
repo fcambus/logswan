@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2023-03-13
+ * Last Updated: 2026-02-13
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -160,6 +160,7 @@ main(int argc, char *argv[])
 
 	/* Get log file size */
 	if (fstat(fileno(logfile), &logfile_stat)) {
+		fclose(logfile);
 		perror("Can't stat log file");
 		return EXIT_FAILURE;
 	}
