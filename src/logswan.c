@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2026-02-13
+ * Last Updated: 2026-04-05
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -213,26 +213,28 @@ main(int argc, char *argv[])
 
 			lookup = MMDB_lookup_string(&geoip2, parsed_line.remote_host, &gai_error, &mmdb_error);
 
-			MMDB_get_value(&lookup.entry, &entry_data, "country", "iso_code", NULL);
+			if (!gai_error && mmdb_error == MMDB_SUCCESS && lookup.found_entry) {
+				MMDB_get_value(&lookup.entry, &entry_data, "country", "iso_code", NULL);
 
-			if (entry_data.has_data) {
-				/* Increment countries array */
-				for (size_t loop = 0; loop < COUNTRIES; loop++) {
-					if (!strncmp(countries_id[loop], entry_data.utf8_string, 2)) {
-						results.countries[loop]++;
-						break;
+				if (entry_data.has_data) {
+					/* Increment countries array */
+					for (size_t loop = 0; loop < COUNTRIES; loop++) {
+						if (!strncmp(countries_id[loop], entry_data.utf8_string, 2)) {
+							results.countries[loop]++;
+							break;
+						}
 					}
 				}
-			}
 
-			MMDB_get_value(&lookup.entry, &entry_data, "continent", "code", NULL);
+				MMDB_get_value(&lookup.entry, &entry_data, "continent", "code", NULL);
 
-			if (entry_data.has_data) {
-				/* Increment continents array */
-				for (size_t loop = 0; loop < CONTINENTS; loop++) {
-					if (!strncmp(continents_id[loop], entry_data.utf8_string, 2)) {
-						results.continents[loop]++;
-						break;
+				if (entry_data.has_data) {
+					/* Increment continents array */
+					for (size_t loop = 0; loop < CONTINENTS; loop++) {
+						if (!strncmp(continents_id[loop], entry_data.utf8_string, 2)) {
+							results.continents[loop]++;
+							break;
+						}
 					}
 				}
 			}
