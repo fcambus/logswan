@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2021-02-15
+ * Last Updated: 2026-04-05
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -34,7 +34,6 @@ struct logline {
 
 struct request {
 	char *method;
-	char *resource;
 	char *protocol;
 };
 
