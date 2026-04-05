@@ -1,3 +1,13 @@
+Logswan 2.1.16 (2025-04-05)
+
+- Close stream on error path if the call to fstat() fails
+- Remove unused resource member from request struct
+- Constify method and protocol name arrays
+- Check MMDB_lookup_string() result before using returned data
+- Move entry_data structure initialization to successful lookup path
+
+
+
 Logswan 2.1.15 (2025-03-24)
 
 - Add link to Gentoo package in the README
