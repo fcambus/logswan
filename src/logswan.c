@@ -209,11 +209,12 @@ main(int argc, char *argv[])
 
 		if (geoip) {
 			MMDB_entry_data_s entry_data;
-			memset(&entry_data, 0, sizeof(MMDB_entry_data_s));
 
 			lookup = MMDB_lookup_string(&geoip2, parsed_line.remote_host, &gai_error, &mmdb_error);
 
 			if (!gai_error && mmdb_error == MMDB_SUCCESS && lookup.found_entry) {
+				memset(&entry_data, 0, sizeof(MMDB_entry_data_s));
+
 				MMDB_get_value(&lookup.entry, &entry_data, "country", "iso_code", NULL);
 
 				if (entry_data.has_data) {
