@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2026-04-05
+ * Last Updated: 2026-07-01
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -19,7 +19,7 @@
 
 enum {
 	HLL_BITS = 20,
-	STATUS_CODE_MAX = 512,
+	STATUS_CODE_MAX = 600,
 
 	CONTINENTS = 7,
 	COUNTRIES = 250,
