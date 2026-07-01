@@ -1,3 +1,11 @@
+Logswan 2.1.17 (2026-07-02)
+
+- Bump HTTP status code limit to 600
+- Check HLL initialization and register allocation
+- Explicitly free JSON output resources
+
+
+
 Logswan 2.1.16 (2026-04-05)
 
 - Close stream on error path if the call to fstat() fails
