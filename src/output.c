@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2021-02-15
+ * Last Updated: 2026-07-01
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -25,6 +25,8 @@
 char
 *output(struct results *results)
 {
+	char *json;
+
 	json_t *output = json_object();
 	json_t *hits = json_object();
 	json_t *visits = json_object();
@@ -122,5 +124,8 @@ char
 	json_object_set_new(output, "protocols", protocols);
 	json_object_set_new(output, "status", status);
 
-	return json_dumps(output, JSON_INDENT(3) | JSON_PRESERVE_ORDER);
+	json = json_dumps(output, JSON_INDENT(3) | JSON_PRESERVE_ORDER);
+	json_decref(output);
+
+	return json;
 }

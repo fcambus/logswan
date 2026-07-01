@@ -78,6 +78,7 @@ main(int argc, char *argv[])
 	char *linebuffer = NULL;
 	size_t linesize = 0;
 	char *input;
+	char *json;
 	char *db = NULL;
 
 	bool geoip = false;
@@ -321,11 +322,14 @@ main(int argc, char *argv[])
 	strftime(results.timestamp, 20, "%Y-%m-%d %H:%M:%S", localtime(&now));
 
 	/* Printing results */
-	fprintf(stdout, "%s\n", output(&results));
+	json = output(&results);
+
+	fprintf(stdout, "%s\n", json);
 	fprintf(stderr, "Processed %" PRIu64 " lines in %f seconds.\n", results.processed_lines, results.runtime);
 
 	/* Clean up */
 	free(linebuffer);
+	free(json);
 	fclose(logfile);
 
 	if (geoip)
