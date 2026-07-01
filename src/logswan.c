@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2026-04-05
+ * Last Updated: 2026-07-01
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -131,8 +131,13 @@ main(int argc, char *argv[])
 		return EXIT_SUCCESS;
 	}
 
-	hll_init(&unique_ipv4, HLL_BITS);
-	hll_init(&unique_ipv6, HLL_BITS);
+	if (hll_init(&unique_ipv4, HLL_BITS) == -1 || !unique_ipv4.registers)
+		errx(EXIT_FAILURE, "Can't initialize HLL storage for IPv4");
+
+	if (hll_init(&unique_ipv6, HLL_BITS) == -1 || !unique_ipv6.registers) {
+		hll_destroy(&unique_ipv4);
+		errx(EXIT_FAILURE, "Can't initialize HLL storage for IPv6");
+	}
 
 	/* Starting timer */
 	clock_gettime(CLOCK_MONOTONIC, &begin);
