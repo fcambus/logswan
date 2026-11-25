@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2020-09-17
+ * Last Updated: 2026-11-25
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -75,6 +75,9 @@ static struct sock_filter filter[] = {
 #endif
 #if defined(__NR_mmap2)
 	LOGSWAN_SYSCALL_ALLOW(mmap2),		/* i386 glibc */
+#endif
+#if defined(__NR_mremap)
+	LOGSWAN_SYSCALL_ALLOW(mremap),		/* realloc() of large getline buffers */
 #endif
 	LOGSWAN_SYSCALL_ALLOW(munmap),
 	LOGSWAN_SYSCALL_ALLOW(read),
