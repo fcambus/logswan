@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2021-12-02
+ * Last Updated: 2026-11-26
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -51,7 +51,7 @@ parse_line(struct logline *parsed_line, char *linebuffer)
 		parsed_line->status_code = strtok(NULL, " ");
 
 		/* Returned object size */
-		parsed_line->object_size = strtok(NULL, " \"");
+		parsed_line->object_size = strtok(NULL, " \"\r\n");
 	}
 }
 
