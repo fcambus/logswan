@@ -4,7 +4,7 @@
  * https://www.logswan.org
  *
  * Created:      2015-05-31
- * Last Updated: 2026-07-01
+ * Last Updated: 2026-11-26
  *
  * Logswan is released under the BSD 2-Clause license.
  * See LICENSE file for details.
@@ -41,10 +41,10 @@ char
 		if (results->continents[loop]) {
 			json_array_append_new(
 			    continents,
-			    json_pack("{s:s, s:s, s:i}",
+			    json_pack("{s:s, s:s, s:I}",
 			    "data", continents_id[loop],
 			    "name", continents_names[loop],
-			    "hits", results->continents[loop]));
+			    "hits", (json_int_t)results->continents[loop]));
 		}
 	}
 
@@ -52,10 +52,10 @@ char
 		if (results->countries[loop]) {
 			json_array_append_new(
 			    countries,
-			    json_pack("{s:s, s:s, s:i}",
+			    json_pack("{s:s, s:s, s:I}",
 			    "data", countries_id[loop],
 			    "name", countries_names[loop],
-			    "hits", results->countries[loop]));
+			    "hits", (json_int_t)results->countries[loop]));
 		}
 	}
 
@@ -63,9 +63,9 @@ char
 		if (results->hours[loop]) {
 			json_array_append_new(
 			    hours,
-			    json_pack("{s:i, s:i}",
-			    "data", loop,
-			    "hits", results->hours[loop]));
+			    json_pack("{s:i, s:I}",
+			    "data", (int)loop,
+			    "hits", (json_int_t)results->hours[loop]));
 		}
 	}
 
@@ -73,9 +73,9 @@ char
 		if (results->status[loop]) {
 			json_array_append_new(
 			    status,
-			    json_pack("{s:i, s:i}",
-			    "data", loop,
-			    "hits", results->status[loop]));
+			    json_pack("{s:i, s:I}",
+			    "data", (int)loop,
+			    "hits", (json_int_t)results->status[loop]));
 		}
 	}
 
@@ -83,9 +83,9 @@ char
 		if (results->methods[loop]) {
 			json_array_append_new(
 			    methods,
-			    json_pack("{s:s, s:i}",
+			    json_pack("{s:s, s:I}",
 			    "data", methods_names[loop],
-			    "hits", results->methods[loop]));
+			    "hits", (json_int_t)results->methods[loop]));
 		}
 	}
 
@@ -93,9 +93,9 @@ char
 		if (results->protocols[loop]) {
 			json_array_append_new(
 			    protocols,
-			    json_pack("{s:s, s:i}",
+			    json_pack("{s:s, s:I}",
 			    "data", protocols_names[loop],
-			    "hits", results->protocols[loop]));
+			    "hits", (json_int_t)results->protocols[loop]));
 		}
 	}
 
