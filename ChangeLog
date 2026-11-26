@@ -1,3 +1,11 @@
+Logswan 2.1.18 (2026-11-26)
+
+- Allow mremap syscall in seccomp filter
+- Fix bandwidth accounting for Common Log Format records
+- Fix integer types passed to json_pack() for hit distributions
+
+
+
 Logswan 2.1.17 (2026-07-02)
 
 - Bump HTTP status code limit to 600
